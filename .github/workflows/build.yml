@@ -20,7 +20,7 @@
           run: dotnet restore src/Makani/Makani.csproj
 
         - name: Build Makani
-          run: dotnet build src/Makani/Makani.csproj -f:net6.0-maccatalyst -c Release
+          run: dotnet build src -c Release
         
         - name: Run unit tests
           run: dotnet test ./src
