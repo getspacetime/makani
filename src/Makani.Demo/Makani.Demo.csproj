@@ -50,7 +50,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\Makani\Makani.csproj" />
+	  <PackageReference Include="Makani" Version="0.0.1-alpha1" />
 	</ItemGroup>
 
 </Project>
