@@ -7,14 +7,11 @@ Collection of UI components built specifically for .NET MAUI Blazor
 ## Why Makani?
 Makani was born based on the need for lightweight, performant, and customizable UI components for .NET MAUI Blazor. Makani is built on the wonderful CSS framework, [Tailwind CSS](https://tailwindcss.com/). While a simple theme will be included, the hope is that the community is able to customize the theme to fit their needs, while the main focus of the Makani library will provide a powerful set of components that work flawlessly with .NET MAUI Blazor.
 
-`tl;dr`
-- Lightweight and performant components for MAUI Blazor
-- Customizable components built on top of Tailwind CSS
-
-## Design Principles
+## 🏗️ Design Principles
 - Built first and foremost for .NET MAUI Blazor
 - Components should be easy to customize
 - Components should be composable, extensible, and performant
+- Always listen to the community
 
 
 ## 🚀 Getting Started
