@@ -17,7 +17,10 @@
           run: |
             dotnet workload install maui --ignore-failed-sources
         - name: Restore Dependencies
-          run: dotnet restore src/Spacetime/Spacetime.csproj
+          run: dotnet restore src/Makani/Makani.csproj
 
-        - name: Build Spacetime
-          run: dotnet build src/Spacetime/Spacetime.csproj -f:net6.0-maccatalyst -c Release
+        - name: Build Makani
+          run: dotnet build src/Makani/Makani.csproj -f:net6.0-maccatalyst -c Release
+        
+        - name: Run unit tests
+          run: dotnet test ./src
