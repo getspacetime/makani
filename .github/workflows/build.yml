@@ -26,7 +26,7 @@
         - name: Get path to lcov file
           id: get_lcov_path
           shell: bash
-          run: printf '::set-output name=lcov_path::%s\n' TestResults/*/coverage.info
+          run: printf '::set-output name=lcov_path::%s\n' | find . -path "**/TestResults/**/coverage.info"
 
         - name: Publish coverage report to coveralls.io   
           uses: coverallsapp/github-action@master   
