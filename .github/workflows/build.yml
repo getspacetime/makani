@@ -1,0 +1,23 @@
+  name: Build
+  on: push
+  jobs:      
+    build-ci:
+      runs-on: macos-latest
+      name: Mac Build
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Install .NET 6.0.300-preview.22204.3
+          run: |
+              curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 6.0.300-preview.22204.3 --quality preview
+              dotnet --version
+              
+        - name: Restore Dependencies
+          run: dotnet restore src/Makani/Makani.csproj
+
+        - name: Build Makani
+          run: dotnet build src/Makani/Makani.csproj -c Release
+        
+        - name: Run unit tests
+          run: dotnet test ./src/Makani.Tests
