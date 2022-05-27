@@ -25,4 +25,4 @@ jobs:
         run: dotnet build src/Makani/Makani.csproj -c Release
 
       - name: Publish to NuGet
-        run: dotnet nuget push --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}} --source 'https://api.nuget.org/v3/index.json' ${{github.workspace}}/packages/Makani.*.nupkg
+        run: dotnet nuget push --skip-duplicate --api-key ${{secrets.NUGET_API_KEY}} --source 'https://api.nuget.org/v3/index.json' ${{github.workspace}}/src/packages/Makani.*.nupkg
