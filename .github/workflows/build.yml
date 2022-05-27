@@ -22,8 +22,14 @@
         - name: Run unit tests
           run: dotnet test ./src/Makani.Tests --collect:"XPlat Code Coverage" --settings coverlet.runsettings
         
+        # https://github.com/coverallsapp/github-action/issues/36
+        - name: Get path to lcov file
+          id: get_lcov_path
+          shell: bash
+          run: printf '::set-output name=lcov_path::%s\n' TestResults/*/coverage.info
+
         - name: Publish coverage report to coveralls.io   
           uses: coverallsapp/github-action@master   
           with:
             github-token: ${{ secrets.COVERALLS_TOKEN }} 
-            path-to-lcov: ./src/Makani.Tests/TestResults/**/coverage.info 
+            path-to-lcov: ${{ steps.get_lcov_path.outputs.lcov_path }}
