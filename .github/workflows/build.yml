@@ -20,4 +20,4 @@
           run: dotnet build src/Makani/Makani.csproj -c Release
         
         - name: Run unit tests
-          run: dotnet test ./src
+          run: dotnet test ./src/Makani.Tests
