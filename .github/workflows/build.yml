@@ -20,4 +20,10 @@
           run: dotnet build src/Makani/Makani.csproj -c Release
         
         - name: Run unit tests
-          run: dotnet test ./src/Makani.Tests
+          run: dotnet test ./src/Makani.Tests /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+        
+        - name: Publish coverage report to coveralls.io   
+          uses: coverallsapp/github-action@master   
+          with:
+            github-token: ${{ secrets.GITHUB_TOKEN }} 
+            path-to-lcov: ./src/Makani.Tests/TestResults/coverage.info 
