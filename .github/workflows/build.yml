@@ -13,14 +13,11 @@
               curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 6.0.300-preview.22204.3 --quality preview
               dotnet --version
               
-        - name: Install MAUI Workloads
-          run: |
-            dotnet workload install maui --ignore-failed-sources
         - name: Restore Dependencies
           run: dotnet restore src/Makani/Makani.csproj
 
         - name: Build Makani
-          run: dotnet build src -c Release
+          run: dotnet build src/Makani/Makani.csproj -c Release
         
         - name: Run unit tests
           run: dotnet test ./src
