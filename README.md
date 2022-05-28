@@ -13,7 +13,7 @@ Makani was born based on the need for lightweight, performant, and customizable 
 - Components should be composable, extensible, and performant
 - Always listen to the community
 
-**This library is currently under active development. You may experience bugs, breaking changes, or missing functionality.**
+> ⚠️ This library is currently under active development. You may experience bugs, breaking changes, or missing functionality.
 
 ## 🚀 Getting Started
 
