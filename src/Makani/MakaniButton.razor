@@ -1,15 +1,17 @@
 ﻿@using System.Text
-<button class="@css">@ChildContent</button>
+<button class="@internalCss">@ChildContent</button>
 
 @code {
-    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:outline-none rounded text-base mt-4 md:mt-0";
-    private string DefaultSize { get; set; } = "py-1 px-3 text-base mt-4 md:mt-0";
-    private string DefaultColor { get; set; } = "bg-gray-800 hover:bg-gray-700";
-    private string tailwind => "inline-flex items-center border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 bg-gray-800 hover:bg-gray-700";
-    private string css => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
+    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:ring-2 rounded text-base my-4 md:mt-0 rounded";
+    private string DefaultSize { get; set; } = "py-1 px-3 text-base mt-4 md:mt-0 tracking-wide";
+    private string DefaultColor { get; set; } = "dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 ring-white";
+    private string internalCss => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
 
     [Parameter]
     public string? Tailwind { get; set; }
+
+    [Parameter]
+    public string? Css { get; set; }
 
     [Parameter]
     public MkSize Size { get; set; }
@@ -24,44 +26,37 @@
     {
         if (Size == MkSize.Default && Color == MkColor.Default)
         {
-            return tailwind;
+            return $"{BaseCss} {DefaultSize} {DefaultColor} {Css}";
         }
 
-        var css = string.Empty;
+        var size = string.Empty;
         switch (Size)
         {
+            case MkSize.Large:
+                size = "py-2 px-8 text-xl font-semibold mt-4 md:mt-0 tracking-wide";
+                break;
+            case MkSize.Small:
+                size = "py-1 px-2 text-sm mt-4 md:mt-0";
+                break;
+            case MkSize.Medium:
             case MkSize.Default:
+                size = DefaultSize;
                 break;
         }
 
+        var color = string.Empty;
         switch (Color)
         {
+            case MkColor.Primary:
+                color = "text-white bg-indigo-500 border-0 py-1 px-3 ring-indigo-200 hover:bg-indigo-600 rounded";
+                break;
+            case MkColor.Secondary:
             case MkColor.Default:
+                color = DefaultColor;
                 break;
         }
 
-        return tailwind;
-    }
 
-    public class TailwindBuilder
-    {
-        private readonly StringBuilder color;
-        private readonly StringBuilder size;
-
-        public TailwindBuilder(string defaultColor, string defaultSize)
-        {
-            color = new StringBuilder(defaultColor);
-            size = new StringBuilder(defaultSize);
-        }
-
-        public TailwindBuilder AddSize(MkSize size)
-        {
-            return this;
-        }
-
-        public TailwindBuilder AddColor(MkColor color)
-        {
-            return this;
-        }
+        return $"{BaseCss} {size} {color} {Css ?? string.Empty}";
     }
 }
