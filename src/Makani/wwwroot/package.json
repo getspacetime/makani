@@ -1,0 +1,30 @@
+{
+  "name": "makani",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getspacetime/makani.git"
+  },
+  "keywords": [
+    "tailwindcss",
+    "dotnet",
+    "blazor"
+  ],
+  "author": "Spacetime Software, LLC",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/getspacetime/makani/issues"
+  },
+  "homepage": "https://github.com/getspacetime/makani#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.0.24"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.7"
+  }
+}

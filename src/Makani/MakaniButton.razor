@@ -1,6 +1,67 @@
-﻿<button class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0">@ChildContent</button>
+﻿@using System.Text
+<button class="@css">@ChildContent</button>
 
 @code {
+    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:outline-none rounded text-base mt-4 md:mt-0";
+    private string DefaultSize { get; set; } = "py-1 px-3 text-base mt-4 md:mt-0";
+    private string DefaultColor { get; set; } = "bg-gray-800 hover:bg-gray-700";
+    private string tailwind => "inline-flex items-center border-0 py-1 px-3 focus:outline-none rounded text-base mt-4 md:mt-0 bg-gray-800 hover:bg-gray-700";
+    private string css => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
+
+    [Parameter]
+    public string? Tailwind { get; set; }
+
+    [Parameter]
+    public MkSize Size { get; set; }
+
+    [Parameter]
+    public MkColor Color { get; set; }
+
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    public string BuildCss()
+    {
+        if (Size == MkSize.Default && Color == MkColor.Default)
+        {
+            return tailwind;
+        }
+
+        var css = string.Empty;
+        switch (Size)
+        {
+            case MkSize.Default:
+                break;
+        }
+
+        switch (Color)
+        {
+            case MkColor.Default:
+                break;
+        }
+
+        return tailwind;
+    }
+
+    public class TailwindBuilder
+    {
+        private readonly StringBuilder color;
+        private readonly StringBuilder size;
+
+        public TailwindBuilder(string defaultColor, string defaultSize)
+        {
+            color = new StringBuilder(defaultColor);
+            size = new StringBuilder(defaultSize);
+        }
+
+        public TailwindBuilder AddSize(MkSize size)
+        {
+            return this;
+        }
+
+        public TailwindBuilder AddColor(MkColor color)
+        {
+            return this;
+        }
+    }
 }

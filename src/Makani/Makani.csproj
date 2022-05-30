@@ -38,4 +38,17 @@
 		<PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="6.0.5" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <Content Update="wwwroot\dist\output.css">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<Target Name="NpmInstall" BeforeTargets="BeforeBuild">
+		<Exec WorkingDirectory="wwwroot" Command="npm install" />
+	</Target>
+
+	<Target Name="Tailwind" DependsOnTargets="NpmInstall" BeforeTargets="Build">
+		<Exec WorkingDirectory="wwwroot" Command="npx tailwindcss -i .\app.css -o .\dist\output.css" />
+	</Target>
 </Project>
