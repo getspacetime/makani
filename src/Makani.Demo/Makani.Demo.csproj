@@ -52,6 +52,12 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\Makani\Makani.csproj" />
 	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Update="wwwroot\app.css">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </Content>
+	</ItemGroup>
 	<Target Name="NpmInstall" BeforeTargets="BeforeBuild">
 		<Exec WorkingDirectory="wwwroot" Command="npm install" />
 	</Target>
