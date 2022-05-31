@@ -33,6 +33,11 @@ dotnet add package Makani
 @using Makani
 ```
 
+**3. Build away!**
+```razor
+<MkButton Color="MkColor.Primary">Hello world!</MkButton>
+```
+
 ## 📖 Documentation
 
 [Extensible Design Documentation](https://github.com/getspacetime/makani/wiki/Extensible-Design)
