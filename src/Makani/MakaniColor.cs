@@ -10,8 +10,7 @@ namespace Makani
     {
         Default,
         Primary,
-        Secondary,
-        Link
+        Secondary
     }
 
     public enum MkSize
