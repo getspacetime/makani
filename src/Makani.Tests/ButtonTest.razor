@@ -3,7 +3,7 @@
     public void Button_ShouldRender()
     {
         using var ctx = new TestContext();
-        var sut = ctx.Render(@<MakaniButton>Hello World</MakaniButton>);
+        var sut = ctx.Render(@<MkButton>Hello World</MkButton>);
         sut.MarkupMatches(@<button class:ignore>Hello World</button>);
     }
 }

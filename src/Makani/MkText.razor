@@ -1,0 +1,39 @@
+﻿<h1 class="@Tailwind">@ChildContent</h1>
+
+@code {
+
+    [Parameter]
+    public string? Css { get; set; }
+
+    [Parameter]
+    public TextType? Type { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    public string Tailwind => $"{BuildCss()} {Css}";
+
+    private string BuildCss()
+    {
+        switch (Type)
+        {
+            case TextType.H1:
+                return "text-4xl dark:text-white font-bold tracking-wide my-4";
+            case TextType.H2:
+                return "text-3xl dark:text-white font-bold tracking-wide my-4";
+            case TextType.H3:
+                return "text-2xl dark:text-white font-bold tracking-wide my-4";
+            case TextType.H4:
+                return "text-xl dark:text-white font-bold tracking-wide my-4";
+            case TextType.H5:
+                return "text-base dark:text-white font-bold tracking-wide my-4";
+            case TextType.H6:
+                return "text-sm dark:text-white font-bold tracking-wide my-4";
+            case TextType.Caption:
+                return "font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400";
+            case TextType.Body:
+            default:
+                return "text-base dark:text-white my-2";
+        }
+    }
+}

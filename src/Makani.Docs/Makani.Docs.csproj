@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -10,5 +10,23 @@
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.5" PrivateAssets="all" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Makani\Makani.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="wwwroot\app.css">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+	<Target Name="NpmInstall" BeforeTargets="BeforeBuild">
+		<Exec WorkingDirectory="wwwroot" Command="npm install" />
+	</Target>
+
+	<Target Name="Tailwind" DependsOnTargets="NpmInstall" BeforeTargets="Build">
+		<Exec WorkingDirectory="wwwroot" Command="npx tailwindcss -i app.css -o ./dist/docs.css" />
+	</Target>
 
 </Project>

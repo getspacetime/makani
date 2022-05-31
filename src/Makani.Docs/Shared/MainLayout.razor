@@ -1,17 +1,9 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<MkHeader Title="Makani Docs">
+    <a href="https://github.com/getspacetime/makani" target="_blank" class="mr-5 hover:text-white cursor-pointer">GitHub</a>
+</MkHeader>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
-        </div>
-
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+<article class="container mx-auto px-4">
+    @Body
+</article>
