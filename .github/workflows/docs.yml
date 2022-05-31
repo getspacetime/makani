@@ -24,6 +24,9 @@
               
         - name: Restore Dependencies
           run: dotnet restore src/Makani.Docs/Makani.Docs.csproj
+          
+        - name: Build Makani Docs
+          run: dotnet build src/Makani.Docs/Makani.Docs.csproj -c Release
 
         - name: Publish Makani Docs
           run: dotnet publish src/Makani.Docs/Makani.Docs.csproj -c Release --output build
