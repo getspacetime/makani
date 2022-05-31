@@ -23,10 +23,10 @@
             node-version: 16
               
         - name: Restore Dependencies
-          run: dotnet restore src/Makani.Demo/Makani.Demo.csproj
+          run: dotnet restore src/Makani.Docs/Makani.Docs.csproj
 
-        - name: Publish Makani
-          run: dotnet publish src/Makani.Demo/Makani.Demo.csproj -c Release --output build
+        - name: Publish Makani Docs
+          run: dotnet publish src/Makani.Docs/Makani.Docs.csproj -c Release --output build
         
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@releases/v3
