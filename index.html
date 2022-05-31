@@ -19,15 +19,24 @@
             z-index: 1000;
         }
 
-        #blazor-error-ui .dismiss {
-            cursor: pointer;
-            position: absolute;
-            right: 0.75rem;
-            top: 0.5rem;
-        }
+            #blazor-error-ui .dismiss {
+                cursor: pointer;
+                position: absolute;
+                right: 0.75rem;
+                top: 0.5rem;
+            }
     </style>
+    <!-- todo: remove dist folder and just have it at the parent level -->
     <link href="_content/Makani/dist/makani.css" rel="stylesheet" />
     <link href="dist/docs.css" rel="stylesheet" />
+
+    <!-- needed for syntax highlighter, todo: figure out best way for consumers to use this with less friction -->
+    <link href="_content/Makani/css/vscode-dark-plus.css" rel="stylesheet" />
+
+    <!--<link href="_content/Makani/css/atom-dark.css" rel="stylesheet" />
+    <link href="_content/Makani/css/coy.css" rel="stylesheet" />
+    <link href="_content/Makani/css/okaidia.css" rel="stylesheet" />
+    <link href="_content/Makani/css/tomorrow-night.css" rel="stylesheet" />-->
 </head>
 
 <body class="bg-gray-900">
@@ -38,7 +47,9 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-    <script src="_framework/blazor.webassembly.js"></script>
+<script src="_framework/blazor.webassembly.js"></script>
+<!--<script src="_content/Makani/makani.js" type="module"></script>-->
+<script src="_content/Makani/prism.js"></script>
 </body>
 
 </html>
