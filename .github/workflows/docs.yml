@@ -31,7 +31,7 @@
         - name: Rewrite base href
           uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
           with:
-            html_path: build/index.html
+            html_path: build/wwwroot/index.html
             base_href: /makani/
 
         - name: Deploy to Github Pages
