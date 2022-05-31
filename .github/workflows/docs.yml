@@ -33,6 +33,9 @@
           with:
             html_path: build/wwwroot/index.html
             base_href: /makani/
+        
+        - name: Add .nojekyll file
+          run: touch release/wwwroot/.nojekyll
 
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@v4.3.3
