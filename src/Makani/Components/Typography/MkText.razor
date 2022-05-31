@@ -1,12 +1,22 @@
-﻿<h1 class="@Tailwind">@ChildContent</h1>
+﻿@namespace Makani
+
+<h1 class="@Tailwind">@ChildContent</h1>
 
 @code {
+    public const string H1 = "h1";
+    public const string H2 = "h2";
+    public const string H3 = "h3";
+    public const string H4 = "h4";
+    public const string H5 = "h5";
+    public const string H6 = "h6";
+    public const string Caption = "caption";
+    public const string Body = "body";
 
     [Parameter]
     public string? Css { get; set; }
 
     [Parameter]
-    public TextType? Type { get; set; }
+    public string? Type { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
@@ -17,21 +27,21 @@
     {
         switch (Type)
         {
-            case TextType.H1:
+            case H1:
                 return "text-4xl dark:text-white font-bold tracking-wide my-4";
-            case TextType.H2:
+            case H2:
                 return "text-3xl dark:text-white font-bold tracking-wide my-4";
-            case TextType.H3:
+            case H3:
                 return "text-2xl dark:text-white font-bold tracking-wide my-4";
-            case TextType.H4:
+            case H4:
                 return "text-xl dark:text-white font-bold tracking-wide my-4";
-            case TextType.H5:
-                return "text-base dark:text-white font-bold tracking-wide my-4";
-            case TextType.H6:
-                return "text-sm dark:text-white font-bold tracking-wide my-4";
-            case TextType.Caption:
+            case H5:
+                return "text-base dark:text-white font-bold tracking-wide mt-4";
+            case H6:
+                return "text-sm dark:text-white font-bold tracking-wide mt-4";
+            case Caption:
                 return "font-medium text-sm text-slate-500 font-mono mb-3 dark:text-slate-400";
-            case TextType.Body:
+            case Body:
             default:
                 return "text-base dark:text-white my-2";
         }

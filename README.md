@@ -33,9 +33,33 @@ dotnet add package Makani
 @using Makani
 ```
 
-**3. Build away!**
+**3. Add Makani**
+```csharp
+builder.Services.AddMakani();
+```
+
+**4. Build away!**
 ```razor
 <MkButton Color="MkColor.Primary">Hello world!</MkButton>
+```
+
+### Using Syntax Highlighting
+Makani is using [Prism](https://prismjs.com/) for syntax highlighting, so a few more steps are needed. 
+
+In your `index.html`, add **only one** of the following themes to the `<head>...</head>` section:
+```html
+<!-- vscode-dark-plus is the one used in the Makani docs -->
+<link href="_content/Makani/css/vscode-dark-plus.css" rel="stylesheet" />
+
+<!--<link href="_content/Makani/css/atom-dark.css" rel="stylesheet" />
+<link href="_content/Makani/css/coy.css" rel="stylesheet" />
+<link href="_content/Makani/css/okaidia.css" rel="stylesheet" />
+<link href="_content/Makani/css/tomorrow-night.css" rel="stylesheet" />-->
+```
+
+Add the following JS to the end of the `<body>...</body>` section:
+```html
+<script src="_content/Makani/prism.js"></script>
 ```
 
 ## 📖 Documentation

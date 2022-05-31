@@ -1,9 +1,10 @@
-﻿@using System.Text
-<button class="@internalCss">@ChildContent</button>
+﻿@namespace Makani
+@using System.Text
+<button class="@internalCss" @onclick="OnClick">@ChildContent</button>
 
 @code {
-    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:ring-2 rounded text-base my-4 md:mt-0 rounded";
-    private string DefaultSize { get; set; } = "py-1 px-3 text-base mt-4 md:mt-0 tracking-wide";
+    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:ring-2 rounded text-base my-2 md:mt-0 rounded";
+    private string DefaultSize { get; set; } = "py-2 px-4 text-base mt-4 md:mt-0 tracking-wide";
     private string DefaultColor { get; set; } = "dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 ring-white";
     private string internalCss => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
 
@@ -21,6 +22,9 @@
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
 
     public string BuildCss()
     {
@@ -48,7 +52,7 @@
         switch (Color)
         {
             case MkColor.Primary:
-                color = "text-white bg-indigo-500 border-0 py-1 px-3 ring-indigo-200 hover:bg-indigo-600 rounded";
+                color = "text-white bg-indigo-500 border-0 ring-indigo-200 hover:bg-indigo-600 rounded";
                 break;
             case MkColor.Secondary:
             case MkColor.Default:

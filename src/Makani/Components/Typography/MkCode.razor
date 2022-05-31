@@ -1,0 +1,63 @@
+﻿@namespace Makani
+
+@inject Makani.Utilities.JsInterop JSInterop
+
+<figure class="@Css">
+    <figcaption class="dark:text-gray-200 font-semibold text-sm tracking-wide">@Caption</figcaption>
+    <pre>            
+        <code class="@LanguageClass">
+                @Text
+        </code>
+    </pre>
+</figure>
+
+@code {
+
+    // handy helpers for callers
+    // not all supported languages from prism have been added:
+    // https://prismjs.com/index.html#supported-languages
+    public static string Html = "html";
+    public static string Markup = "markup";
+    public static string Xml = "xml";
+    public static string Svg = "svg";
+    public static string MathMl = "mathml";
+    public static string Rss = "rss";
+    public static string Stylesheet = "css";
+    public static string Javascript = "js";
+    public static string Razor = "razor";
+    public static string Csharp = "csharp";
+    // protobuf
+    // powershell
+    // solution file
+    // solidity file
+    // sql file
+    // typescript file
+    // yaml file
+
+    private string LanguageClass => $"language-{language}";
+
+    // default to html unless language is specifically supplied
+    private string language => !string.IsNullOrWhiteSpace(Language) ? Language : Html;
+
+    [Parameter]
+    public string? Caption { get; set; }
+
+    [Parameter]
+    public string? Language { get; set; }
+
+    [Parameter]
+    public string? Css { get; set; }
+
+    [Parameter]
+    public string? Text { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            await JSInterop.HighlightAll();
+        }
+
+        await base.OnAfterRenderAsync(firstRender);
+    }
+}
