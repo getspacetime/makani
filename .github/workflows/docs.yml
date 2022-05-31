@@ -28,10 +28,15 @@
         - name: Publish Makani Docs
           run: dotnet publish src/Makani.Docs/Makani.Docs.csproj -c Release --output build
         
+        - name: Rewrite base href
+          uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
+          with:
+            html_path: build/index.html
+            base_href: /makani/
+
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@v4.3.3
           with:
             token: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
-            repository-name: getspacetime/getspacetime.github.io
             branch: makani # The branch the action should deploy to.
             folder: build/wwwroot # The folder the action should deploy.
