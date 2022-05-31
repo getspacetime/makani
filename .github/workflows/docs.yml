@@ -31,7 +31,7 @@
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@releases/v3
           with:
-            ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            ACCESS_TOKEN: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
             BASE_BRANCH: main # The branch the action should deploy from.
             REPOSITORY_NAME: getspacetime/getspacetime.github.io
             BRANCH: makani # The branch the action should deploy to.
