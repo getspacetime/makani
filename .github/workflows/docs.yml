@@ -1,0 +1,38 @@
+  name: Docs
+
+  on: 
+    push:
+      branches: [ main ]
+    workflow_dispatch:
+    
+  jobs:      
+    build-ci:
+      runs-on: macos-latest
+      name: Mac Build
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+
+        - name: Install .NET 6.0.300-preview.22204.3
+          run: |
+              curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 6.0.300-preview.22204.3 --quality preview
+              dotnet --version
+              
+        - uses: actions/setup-node@v3
+          with:
+            node-version: 16
+              
+        - name: Restore Dependencies
+          run: dotnet restore src/Makani.Demo/Makani.Demo.csproj
+
+        - name: Publish Makani
+          run: dotnet publish src/Makani.Demo/Makani.Demo.csproj -c Release --output build
+        
+        - name: Deploy to Github Pages
+          uses: JamesIves/github-pages-deploy-action@releases/v3
+          with:
+            ACCESS_TOKEN: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
+            BASE_BRANCH: main # The branch the action should deploy from.
+            BRANCH: makani # The branch the action should deploy to.
+            FOLDER: build/wwwroot # The folder the action should deploy.
+            SINGLE_COMMIT: true
