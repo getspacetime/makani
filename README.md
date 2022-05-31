@@ -67,3 +67,5 @@ Add the following JS to the end of the `<body>...</body>` section:
 [Extensible Design Documentation](https://github.com/getspacetime/makani/wiki/Extensible-Design)
 
 [View All Components](https://github.com/getspacetime/makani/wiki/Makani-UI-Components)
+
+[Live Documentation](https://getspacetime.github.io/makani/)
