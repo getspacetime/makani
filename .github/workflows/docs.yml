@@ -29,11 +29,9 @@
           run: dotnet publish src/Makani.Docs/Makani.Docs.csproj -c Release --output build
         
         - name: Deploy to Github Pages
-          uses: JamesIves/github-pages-deploy-action@releases/v3
+          uses: JamesIves/github-pages-deploy-action@v4.3.3
           with:
-            TOKEN: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
-            BASE_BRANCH: main # The branch the action should deploy from.
-            REPOSITORY_NAME: getspacetime/getspacetime.github.io
-            BRANCH: makani # The branch the action should deploy to.
-            FOLDER: build/wwwroot # The folder the action should deploy.
-            SINGLE_COMMIT: true
+            token: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
+            repository-name: getspacetime/getspacetime.github.io
+            branch: makani # The branch the action should deploy to.
+            folder: build/wwwroot # The folder the action should deploy.
