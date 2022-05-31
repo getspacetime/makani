@@ -35,7 +35,7 @@
             base_href: /makani/
         
         - name: Add .nojekyll file
-          run: touch release/wwwroot/.nojekyll
+          run: touch build/wwwroot/.nojekyll
 
         - name: Deploy to Github Pages
           uses: JamesIves/github-pages-deploy-action@v4.3.3
