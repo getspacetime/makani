@@ -28,12 +28,18 @@
         - name: Publish Makani Docs
           run: dotnet publish src/Makani.Docs/Makani.Docs.csproj -c Release --output build
         
-        - name: Deploy to Github Pages
-          uses: JamesIves/github-pages-deploy-action@releases/v3
+        - name: Rewrite base href
+          uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
           with:
-            ACCESS_TOKEN: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
-            BASE_BRANCH: main # The branch the action should deploy from.
-            REPOSITORY_NAME: getspacetime/getspacetime.github.io
-            BRANCH: makani # The branch the action should deploy to.
-            FOLDER: build/wwwroot # The folder the action should deploy.
-            SINGLE_COMMIT: true
+            html_path: build/wwwroot/index.html
+            base_href: /makani/
+        
+        - name: Add .nojekyll file
+          run: touch build/wwwroot/.nojekyll
+
+        - name: Deploy to Github Pages
+          uses: JamesIves/github-pages-deploy-action@v4.3.3
+          with:
+            token: ${{ secrets.GH_PAGES_ACCESS_TOKEN }}
+            branch: makani # The branch the action should deploy to.
+            folder: build/wwwroot # The folder the action should deploy.
