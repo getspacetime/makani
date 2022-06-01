@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["../**/*.razor", "../*.razor"],
+  content: ["../**/*.razor", "../*.razor", "index.html"],
   theme: {
     extend: {},
   },
