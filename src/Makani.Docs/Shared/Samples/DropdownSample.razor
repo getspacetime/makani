@@ -1,0 +1,39 @@
+﻿<div class="border-b border-slate-600 mb-4">
+    <MkText Type="@MkText.H1">Dropdowns (coming soon!)</MkText>
+</div>
+<div class="mb-10">
+    <MkText Type="@MkText.H5">Button dropdown</MkText>
+    <div class="flex items-baseline">
+        <MkDropdown Items="Items">Settings</MkDropdown>
+        <p class="dark:text-gray-200 ml-4 mb-4"><strong>Selected: </strong> @MenuItemClicked</p>
+    </div>
+
+    <MkCode Text="@Markup" Language="@MkCode.Razor" Caption="Example" Css="my-4" />
+</div>
+
+@code {
+    public string MenuItemClicked { get; set; } = "Select a menu item";
+
+    public List<MkDropdown.MkMenuItem> Items { get; set; } = new List<MkDropdown.MkMenuItem>();
+
+    protected override void OnInitialized()
+    {
+        Items.Add(new MkDropdown.MkMenuItem { Text = "Menu item 1", Action = (_) => MenuItemClicked = "Menu item 1"});
+        Items.Add(new MkDropdown.MkMenuItem { Text = "Menu item 2", Action = (_) => MenuItemClicked = "Menu item 2" });
+        Items.Add(new MkDropdown.MkMenuItem { Text = "Menu item 3", Action = (_) => MenuItemClicked = "Menu item 3" });
+        Items.Add(new MkDropdown.MkMenuItem { Text = "Menu item 4", Action = (_) => MenuItemClicked = "Menu item 4" });
+    }
+
+    private string Markup = @"<MkDropdown Items=""Items"">Settings</MkDropdown>
+
+@code {
+    private List<MkDropdown.MkMenuItem> Items = new List<MkDropdown.MkMenuItem>
+    {
+        new MkDropdown.MkMenuItem {Text = ""Menu item 1"", Action = (_) => MenuItemClicked = ""Menu item 1""}},
+        new MkDropdown.MkMenuItem {Text = ""Menu item 2"", Action = (_) => MenuItemClicked = ""Menu item 2""}},
+        new MkDropdown.MkMenuItem {Text = ""Menu item 3"", Action = (_) => MenuItemClicked = ""Menu item 3""}},
+        new MkDropdown.MkMenuItem {Text = ""Menu item 4"", Action = (_) => MenuItemClicked = ""Menu item 4""}},
+    };
+}
+";
+}
