@@ -74,7 +74,7 @@ Add the following JS to the end of the `<body>...</body>` section:
 [Live Documentation](https://getspacetime.github.io/makani/)
 
 ## Performance / Benchmarks
-Providing a **lightweight** and **performant** component library is a major goal of this project. Without benchmarks or tracking, this is more of a wish and not a real goal.
+Providing a **lightweight** and **performant** component library is a major goal of this project.
 
 | Area | Target | Actual | Passing
 | --- | --- | --- | --- |
