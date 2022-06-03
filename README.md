@@ -91,9 +91,11 @@ Providing a **lightweight** and **performant** component library is a major goal
 
 _The targets specified are only initial estimates and are open to change over time based on a reasonable standard._
 
-## Accessibility
-TBD
-
 **Sources**
 - https://blog.openreplay.com/top-metrics-you-need-to-understand-when-measuring-front-end-performance
 - https://developer.mozilla.org/en-US/docs/Learn/Performance/Measuring_performance
+
+## Accessibility
+A UI component library isn't helpful if it isn't useful to **everyone**.
+
+TBD
