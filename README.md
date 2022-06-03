@@ -76,17 +76,6 @@ Add the following JS to the end of the `<body>...</body>` section:
 ## Performance / Benchmarks
 Providing a **lightweight** and **performant** component library is a major goal of this project. Without benchmarks or tracking, this is more of a wish and not a real goal.
 
-We will track performance and benchmarks as below:
-
-1. Makani DLL Size
-2. RAM Usage
-3. CPU Usage
-4. Time to Interactive
-5. First Input Delay
-6. Total Blocking Time
-7. Cumulative Layout Shift
-8. First Contentful Paint
-
 | Area | Target | Actual | Passing
 | --- | --- | --- | --- |
 | DLL Size | | | |
