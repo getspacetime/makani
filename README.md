@@ -78,14 +78,18 @@ Providing a **lightweight** and **performant** component library is a major goal
 
 | Area | Target | Actual | Passing
 | --- | --- | --- | --- |
-| DLL Size | | | |
-| RAM Usage | | | |
-| CPU Usage | | | |
-| Time to Interactive | | | |
-| First Input Delay | | | |
-| Total Blocking Time | | | |
-| Cumulative Layout Shift | | | |
-| First Contentful Paint | | | |
+| DLL Size | 200kb | 26.4kb | ✔️ |
+| JS Bundle Size | 10kb | 392b | ✔️ |
+| CSS Bundle Size | 50kb | 4.6kb | ✔️ |
+| RAM Usage | TBD | | |
+| CPU Usage | TBD | | |
+| Time to Interactive | 1s | 0.6s | ✔️ |
+| First Input Delay | TBD | | |
+| Total Blocking Time | 200ms | 140ms | ✔️ |
+| Cumulative Layout Shift | 0 | 0 | ✔️ |
+| First Contentful Paint | 0.5s | 0.3s | ✔️ |
+
+_The targets specified are only initial estimates and are open to change over time based on a reasonable standard._
 
 **Sources**
 - https://blog.openreplay.com/top-metrics-you-need-to-understand-when-measuring-front-end-performance
