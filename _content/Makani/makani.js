@@ -1,4 +1,11 @@
 export function highlight() {
-    console.log('highlighting!');
     window.Prism.highlightAll();
+}
+
+export function blurActive() {
+    document.activeElement.blur();
+}
+
+export function blur(element) {
+    element.blur();
 }
