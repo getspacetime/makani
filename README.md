@@ -45,7 +45,9 @@ builder.Services.AddMakani();
 ```
 
 ### Using Syntax Highlighting
-Makani is using [Prism](https://prismjs.com/) for syntax highlighting, so a few more steps are needed. 
+The syntax highlighting component is an optional feature. If you don't need this feature, skip this section and avoid loading the additional resources.
+
+Makani is using [Prism](https://prismjs.com/) for syntax highlighting, so if you need this component, a few more steps are needed. 
 
 In your `index.html`, add **only one** of the following themes to the `<head>...</head>` section:
 ```html
@@ -70,3 +72,30 @@ Add the following JS to the end of the `<body>...</body>` section:
 [View All Components](https://github.com/getspacetime/makani/wiki/Makani-UI-Components)
 
 [Live Documentation](https://getspacetime.github.io/makani/)
+
+## Performance / Benchmarks
+Providing a **lightweight** and **performant** component library is a major goal of this project.
+
+| Area | Target | Actual | Passing
+| --- | --- | --- | --- |
+| DLL Size | 200kb | 26.4kb | ✔️ |
+| JS Bundle Size | 10kb | 392b | ✔️ |
+| CSS Bundle Size | 50kb | 4.6kb | ✔️ |
+| Time to Interactive | 1s | 0.6s | ✔️ |
+| Total Blocking Time | 200ms | 140ms | ✔️ |
+| Cumulative Layout Shift | 0 | 0 | ✔️ |
+| First Contentful Paint | 0.5s | 0.3s | ✔️ |
+| RAM Usage | TBD | | |
+| CPU Usage | TBD | | |
+| First Input Delay | TBD | | |
+
+_The targets specified are only initial estimates and are open to change over time based on a reasonable standard._
+
+**Sources**
+- https://blog.openreplay.com/top-metrics-you-need-to-understand-when-measuring-front-end-performance
+- https://developer.mozilla.org/en-US/docs/Learn/Performance/Measuring_performance
+
+## Accessibility
+A UI component library isn't helpful if it isn't useful to **everyone**.
+
+TBD
