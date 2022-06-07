@@ -502,6 +502,18 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 .invisible {
   visibility: hidden;
 }
@@ -609,12 +621,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 50%;
 }
 
-.w-2\/3 {
-  width: 66.666667%;
-}
-
 .w-full {
   width: 100%;
+}
+
+.w-2\/3 {
+  width: 66.666667%;
 }
 
 .grow {
@@ -899,6 +911,17 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.focus\:not-sr-only:focus {
+  position: static;
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  overflow: visible;
+  clip: auto;
+  white-space: normal;
 }
 
 .focus\:outline-none:focus {

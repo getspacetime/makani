@@ -1,0 +1,27 @@
+﻿@namespace Makani
+
+@code {
+    /// <summary>
+    /// Add additional Tailwind styles to this component. Does not override existing styles.
+    /// </summary>
+    [Parameter]
+    public string? Css { get; set; }
+
+    /// <summary>
+    /// Override the built-in color scheme for this component.
+    /// </summary>
+    [Parameter]
+    public string? Colors { get; set; }
+
+    /// <summary>
+    /// Overide the built-in layout scheme for this component.
+    /// </summary>
+    [Parameter]
+    public string? Layout { get; set; }
+
+    /// <summary>
+    /// Override the built-in CSS for this component.
+    /// </summary>
+    [Parameter]
+    public string? Tailwind { get; set; }
+}

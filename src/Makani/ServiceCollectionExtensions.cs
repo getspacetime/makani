@@ -7,7 +7,8 @@ namespace Makani
     {
         public static IServiceCollection AddMakani(this IServiceCollection services)
         {
-            services.AddTransient<JsInterop>();
+            services.AddTransient<ElementUtils>();
+            services.AddTransient<PrismUtils>();
             return services;
         }
     }

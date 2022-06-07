@@ -1,6 +1,6 @@
 ﻿@namespace Makani
 
-@inject Makani.Utilities.JsInterop JSInterop
+@inject Makani.Utilities.PrismUtils PrismUtils
 
 <figure class="@Css">
     <figcaption class="dark:text-gray-200 font-semibold text-sm tracking-wide">@Caption</figcaption>
@@ -55,7 +55,7 @@
     {
         if (firstRender)
         {
-            await JSInterop.HighlightAll();
+            await PrismUtils.HighlightAll();
         }
 
         await base.OnAfterRenderAsync(firstRender);

@@ -2,11 +2,11 @@
 
 namespace Makani.Utilities;
 
-public class JsInterop
+public class PrismUtils
 {
     private readonly Lazy<Task<IJSObjectReference>> moduleTask;
 
-    public JsInterop(IJSRuntime jsRuntime)
+    public PrismUtils(IJSRuntime jsRuntime)
     {
         moduleTask = new(() => jsRuntime.InvokeAsync<IJSObjectReference>(
             "import", "./_content/Makani/makani.js").AsTask());

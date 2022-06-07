@@ -1,8 +1,12 @@
-﻿@namespace Makani
+﻿@using Microsoft.Extensions.Logging
+@using Makani.Utilities
+@namespace Makani
+@inject ILogger<MkDropdown> Log
+@inject ElementUtils Utils
 
 <div class="relative inline-block text-left group">
     <div>
-        <MkButton OnClick="Toggle">
+        <MkButton>
             @ChildContent
             <svg class="-mr-1 ml-2 h-5 w-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                 <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -18,32 +22,42 @@
         <div class="py-1 dark:bg-gray-800 flex flex-col" role="none">
             @foreach (var item in Items)
             {
-                <button @onclick="@item.Action" class="text-gray-700 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 block px-4 py-2 text-sm grow text-left" role="menuitem" tabindex="-1" id="menu-item-0">@item.Text</button>
+                <button @onclick="async e => { await OnItemClick(e, item); }" class="text-gray-700 dark:text-white dark:bg-gray-800 dark:hover:bg-gray-700 block px-4 py-2 text-sm grow text-left" role="menuitem" tabindex="-1" id="menu-item-0">@item.Text</button>
             }
         </div>
     </div>
 </div>
 
 @code {
-    // TODO: this CSS only way is nice, but clicking on menu items does not close the dropdown
-    // need to use JS or find another way
-
+    /// <summary>
+    /// Inner content for the dropdown button.
+    /// </summary>
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    /// <summary>
+    /// Position (side) to open the dropdown menu.
+    /// </summary>
     [Parameter]
     public MkDropdownPosition Position { get; set; } = MkDropdownPosition.Left;
 
+    /// <summary>
+    /// Dropdown menu items.
+    /// </summary>
     [Parameter]
     public List<MkMenuItem> Items { get; set; } = new();
 
-    // todo: remove, unless we end up using JS instead of CSS only solution
-    public bool IsOpen { get; set; }
+    /// <summary>
+    /// Returns the menu item selected.
+    /// </summary>
+    [Parameter]
+    public EventCallback<MkMenuItem> OnItemSelected { get; set; }
 
-    // todo: remove, unless we end up using JS instead of CSS only solution
-    public void Toggle()
+    public async Task OnItemClick(MouseEventArgs args, MkMenuItem item)
     {
-        IsOpen = !IsOpen;
+        await Utils.Blur();
+
+        await OnItemSelected.InvokeAsync(item);
     }
 
     // todo: move to it's own file and update references
@@ -53,7 +67,6 @@
         /// The text to display on the menu item.
         /// </summary>
         public string? Text { get; set; }
-        public Action<MouseEventArgs> Action { get; set; } = e => { };
     }
 
     public enum MkDropdownPosition

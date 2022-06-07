@@ -1,94 +1,98 @@
 ﻿@page "/"
 
+<MkText Type="@MkText.H1">Components</MkText>
+<div class="mb-8">
+    <div class="border-b border-slate-600 mb-4">
+        <MkText Type="@MkText.H3">Buttons</MkText>
+    </div>
+    <div class="mb-10">
+        <MkText Type="@MkText.H5">Primary buttons</MkText>
+        <MkButton Color="MkColor.Primary" Size="MkSize.Small">Small</MkButton>
+        <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
+        <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
+
+        <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+    </div>
+    <div class="mb-10">
+        <MkText Type="@MkText.H5">Default buttons</MkText>
+        <MkButton Size="MkSize.Small">Small</MkButton>
+        <MkButton Css="ml-5">Default</MkButton>
+        <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
+
+        <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+    </div>
+    <div class="mb-10">
+        <MkText Type="@MkText.H5">Buttons with actions</MkText>
+        <div class="flex items-baseline">
+            <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
+            <p class="dark:text-gray-200 ml-4 mb-4"><strong>Count: </strong> @Count</p>
+        </div>
+        <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+    </div>
+
+    <div class="mb-10">
+        <MkText Type="@MkText.H5">Buttons with custom CSS</MkText>
+        <MkButton Css="border border-red-500 border-solid">I have a red border!</MkButton>
+        <MkCode Text="@buttonsWithCss" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+    </div>
+</div>
+
+<div class="mb-10">
+    <div class="border-b border-slate-600 mb-4">
+        <MkText Type="@MkText.H3">Syntax Highligher</MkText>
+    </div>
+    <div class="mb-10">
+        <p class="dark:text-gray-200">The below code snippet is your example and your documentation!</p>
+        <MkCode Text="@syntax" Language="@MkCode.Html" Caption="Example" Css="my-4" />
+    </div>
+
+    <div class="mb-10">
+        <p class="dark:text-gray-200 mt-4">Several languages have support built in, discoverable via intellisense in the <code>MkCode</code> component.</p>
+        <MkCode Text="@markup" Language="@MkCode.Csharp" Caption="Example" Css="my-4"></MkCode>
+    </div>
+</div>
+<div class="mb-10">
+    <div class="border-b border-slate-600 mb-4">
+        <MkText Type="@MkText.H3">Typography</MkText>
+    </div>
+
+    <MkText Type="@MkText.H1">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.H2">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.H3">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.H4">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.H5">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.H6">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.Body">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkText Type="@MkText.Caption">The quick brown fox jumps over the lazy dog.</MkText>
+
+    <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
+</div>
+
+<MkText Type="@MkText.H1">Preview Components</MkText>
+
+<div class="mb-8">
+    <DropdownSample />
+</div>
 
 <div>
-    <div class="mb-8">
-        <div class="border-b border-slate-600 mb-4">
-            <MkText Type="@MkText.H1">Buttons</MkText>
-        </div>
-        <div class="mb-10">
-            <MkText Type="@MkText.H5">Primary buttons</MkText>
-            <MkButton Color="MkColor.Primary" Size="MkSize.Small">Small</MkButton>
-            <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
-            <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
-
-            <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-        </div>
-        <div class="mb-10">
-            <MkText Type="@MkText.H5">Default buttons</MkText>
-            <MkButton Size="MkSize.Small">Small</MkButton>
-            <MkButton Css="ml-5">Default</MkButton>
-            <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
-
-            <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-        </div>
-        <div class="mb-10">
-            <MkText Type="@MkText.H5">Buttons with actions</MkText>
-            <div class="flex items-baseline">
-                <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
-                <p class="dark:text-gray-200 ml-4 mb-4"><strong>Count: </strong> @Count</p>
-            </div>
-            <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-        </div>
-
-        <div class="mb-10">
-            <MkText Type="@MkText.H5">Buttons with custom CSS</MkText>
-            <MkButton Css="border border-red-500 border-solid">I have a red border!</MkButton>
-            <MkCode Text="@buttonsWithCss" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-        </div>
-    </div>
-    
-    <div class="mb-8">
-        <DropdownSample />
-    </div>
-
-    @*    <div>
     <div class="border-b border-slate-600 mb-4">
-    <MkText Type="MkText.H1">Tabs</MkText>
+        <MkText Type="@MkText.H3">Tabs (coming soon!)</MkText>
+        <MkCode Text="@tabs" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
     </div>
     <MkTabs />
-    </div>*@
-    <div class="mb-10">
-        <div class="border-b border-slate-600 mb-4">
-            <MkText Type="@MkText.H1">Syntax Highligher</MkText>
-        </div>
-        <div class="mb-10">
-            <p class="dark:text-gray-200">The below code snippet is your example and your documentation!</p>
-            <MkCode Text="@syntax" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-        </div>
-
-        <div class="mb-10">
-            <p class="dark:text-gray-200 mt-4">Several languages have support built in, discoverable via intellisense in the <code>MkCode</code> component.</p>
-            <MkCode Text="@markup" Language="@MkCode.Csharp" Caption="Example" Css="my-4"></MkCode>
-        </div>
-    </div>
-    <div class="mb-10">
-        <div class="border-b border-slate-600 mb-4">
-            <MkText Type="@MkText.H1">Typography</MkText>
-        </div>
-
-        <MkText Type="@MkText.H1">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.H2">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.H3">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.H4">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.H5">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.H6">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.Body">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkText Type="@MkText.Caption">The quick brown fox jumps over the lazy dog.</MkText>
-
-        <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-    </div>
 </div>
 
 @code
 {
+    private string tabs = @"";
+
     private List<MkDropdown.MkMenuItem> Items = new List<MkDropdown.MkMenuItem>
     {
         new MkDropdown.MkMenuItem {Text = "Menu item 1"},

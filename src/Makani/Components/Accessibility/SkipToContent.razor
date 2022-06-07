@@ -1,0 +1,22 @@
+﻿@namespace Makani
+
+<a href="#@ContentID" class="sr-only focus:not-sr-only">
+    Skip to content
+</a>
+
+@code {
+
+    /// <summary>
+    /// The CSS ID for the content container.
+    /// </summary>
+    /// <remarks>
+    /// For accessibility, it is important for screenreaders or alternate forms
+    /// of navigation to be able to skip common, repeated elements such as navigation. As such,
+    /// the "Skip to Content" should always be the first element on the page.
+    ///
+    /// See <see cref="https://www.w3.org/TR/WCAG20-TECHS/G1.html"/> for more information.
+    /// </remarks>
+    [Parameter]
+    public string ContentID { get; set; } = "content";
+
+}

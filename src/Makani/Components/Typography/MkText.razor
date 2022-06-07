@@ -1,8 +1,11 @@
 ﻿@namespace Makani
+@inherits MkComponent
 
-<h1 class="@Tailwind">@ChildContent</h1>
+<h1 class="@InternalCss">@ChildContent</h1>
 
 @code {
+    public readonly record struct Theme(string element, string type, string css);
+
     public const string H1 = "h1";
     public const string H2 = "h2";
     public const string H3 = "h3";
@@ -13,15 +16,12 @@
     public const string Body = "body";
 
     [Parameter]
-    public string? Css { get; set; }
-
-    [Parameter]
     public string? Type { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
-    public string Tailwind => $"{BuildCss()} {Css}";
+    public string InternalCss => $"{BuildCss()} {Css}";
 
     private string BuildCss()
     {
