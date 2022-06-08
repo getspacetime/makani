@@ -3,9 +3,9 @@
 <button class="@internalCss" @onclick="OnClick">@ChildContent</button>
 
 @code {
-    private string BaseCss { get; set; } = "inline-flex items-center border-0 focus:ring-2 rounded text-base my-2 md:mt-0 rounded";
-    private string DefaultSize { get; set; } = "py-2 px-4 text-base mt-4 md:mt-0 tracking-wide";
-    private string DefaultColor { get; set; } = "bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 ring-white";
+    private string BaseCss { get; set; } = "btn";
+    private string DefaultSize { get; set; } = "btn-md";
+    private string DefaultColor { get; set; } = "btn-default";
     private string internalCss => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
 
     [Parameter]
@@ -37,10 +37,10 @@
         switch (Size)
         {
             case MkSize.Large:
-                size = "py-2 px-8 text-xl font-semibold mt-4 md:mt-0 tracking-wide";
+                size = "btn-lg";
                 break;
             case MkSize.Small:
-                size = "py-1 px-2 text-sm mt-4 md:mt-0";
+                size = "btn-sm";
                 break;
             case MkSize.Medium:
             case MkSize.Default:
@@ -52,7 +52,7 @@
         switch (Color)
         {
             case MkColor.Primary:
-                color = "text-white bg-indigo-500 border-0 ring-indigo-200 hover:bg-indigo-600 rounded";
+                color = "btn-primary";
                 break;
             case MkColor.Secondary:
             case MkColor.Default:
