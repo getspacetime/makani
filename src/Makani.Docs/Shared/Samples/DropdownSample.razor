@@ -3,7 +3,7 @@
 @inject ILogger<MkDropdown> Log
 
 <div class="border-b border-slate-600 mb-4">
-    <MkText Type="@MkText.H3">Dropdowns (coming soon!)</MkText>
+    <MkText Type="@MkText.H3">Dropdowns</MkText>
 </div>
 <div class="mb-10">
     <MkText Type="@MkText.H5">Button dropdown</MkText>
@@ -38,10 +38,8 @@
 @code {
     private List<MkDropdown.MkMenuItem> Items = new List<MkDropdown.MkMenuItem>
     {
-        new MkDropdown.MkMenuItem {Text = ""Menu item 1""}},
-        new MkDropdown.MkMenuItem {Text = ""Menu item 2""}},
-        new MkDropdown.MkMenuItem {Text = ""Menu item 3""}},
-        new MkDropdown.MkMenuItem {Text = ""Menu item 4""}},
+        new MkDropdown.MkMenuItem { Text = ""Menu item 1"" }},
+        new MkDropdown.MkMenuItem { Text = ""Menu item 2"" }}
     };
 }
 ";

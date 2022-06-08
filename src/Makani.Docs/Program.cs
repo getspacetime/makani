@@ -14,6 +14,7 @@ builder.Services.AddMakani();
 
 Log.Logger = new LoggerConfiguration()
     .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+    .MinimumLevel.Debug()
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.Debug()
