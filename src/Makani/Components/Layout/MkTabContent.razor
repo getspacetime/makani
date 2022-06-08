@@ -1,0 +1,24 @@
+﻿@namespace Makani
+
+@if (TabContainer.CurrentTab == this)
+{
+    <div class="flex flex-col text-center w-full">
+        @ChildContent
+    </div>
+}
+
+@code {
+    [CascadingParameter]
+    private MkTabs TabContainer { get; set; }
+
+    [Parameter]
+    public string Title { get; set; }
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    protected override void OnInitialized()
+    {
+        TabContainer.AddTab(this);
+    }
+}

@@ -1,0 +1,21 @@
+﻿<div class="border-b border-slate-600 mb-4">
+    <MkText Type="@MkText.H3">Tabs</MkText>
+</div>
+<div class="mb-10">
+    <MkTabs>
+        <MkTabContent Title="Tab 1">tab one content</MkTabContent>
+        <MkTabContent Title="Tab 2">tab two content</MkTabContent>
+        <MkTabContent Title="Tab 3">tab three content</MkTabContent>
+        <MkTabContent Title="Tab 4">tab four content</MkTabContent>
+    </MkTabs>
+    <MkCode Text="@docs" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+</div>
+
+@code {
+    private string docs = @"<MkTabs>
+    <MkTabContent Title=""Tab 1"">tab one content</MkTabContent>
+    <MkTabContent Title=""Tab 2"">tab two content</MkTabContent>
+    <MkTabContent Title=""Tab 3"">tab three content</MkTabContent>
+    <MkTabContent Title=""Tab 4"">tab four content</MkTabContent>
+</MkTabs>";
+}
