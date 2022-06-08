@@ -65,6 +65,48 @@ Add the following JS to the end of the `<body>...</body>` section:
 <script src="_content/Makani/prism.js"></script>
 ```
 
+### Further Customization with Tailwind
+
+At the core of this library is the ability to customize components using Tailwind CSS. For further customization, extra steps are required:
+
+1. Install the Tailwind CLI
+
+In the `wwwroot` of your application, follow the [Tailwind CLI installation](https://tailwindcss.com/docs/installation)
+
+2. Configure `.razor` and your `index.html` files in `tailwind.config.js`
+
+**Example**
+```js
+module.exports = {
+  content: ["../**/*.razor", "../*.razor", "index.html"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+3. Update your `.csproj` file to run the Tailwind CLI
+
+**Example**
+```
+<Target Name="NpmInstall" BeforeTargets="BeforeBuild">
+    <Exec WorkingDirectory="wwwroot" Command="npm install" />
+</Target>
+
+<Target Name="Tailwind" DependsOnTargets="NpmInstall" BeforeTargets="Build">
+    <Exec WorkingDirectory="wwwroot" Command="npx tailwindcss -i app.css -o ./dist/styles.css" />
+</Target>
+```
+
+4. Add the CSS to your `index.html`
+
+```html
+<head>
+    <link href="dist/styles.css" rel="stylesheet" />
+</head>
+```
+
 ## 📖 Documentation
 
 [Extensible Design Documentation](https://github.com/getspacetime/makani/wiki/Extensible-Design)
