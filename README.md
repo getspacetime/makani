@@ -1,6 +1,7 @@
 [![Build](https://github.com/getspacetime/makani/actions/workflows/build.yml/badge.svg)](https://github.com/getspacetime/makani/actions/workflows/build.yml)
 ![nuget](https://img.shields.io/nuget/dt/makani)
 ![nuget](https://img.shields.io/nuget/vpre/makani)
+<sup>[Discord](https://discord.gg/PeBbYy6WKq)</sup>
 
 # 🏖️ makani
 Collection of UI components built specifically for .NET MAUI Blazor
