@@ -1,9 +1,31 @@
-﻿@code {
+﻿@using Makani.Themes
+@using FluentAssertions
+@code {
     [Fact]
     public void Button_ShouldRender()
     {
         using var ctx = new TestContext();
+        ctx.Services.AddSingleton<ButtonTheme>();
+
         var sut = ctx.Render(@<MkButton>Hello World</MkButton>);
         sut.MarkupMatches(@<button class:ignore>Hello World</button>);
+    }
+
+    [Fact]
+    public void Button_ShouldCallback()
+    {
+        using var ctx = new TestContext();
+        ctx.Services.AddSingleton<ButtonTheme>();
+
+        var clicked = false;
+        Action<MouseEventArgs> action = _ => { };
+        var sut = ctx.RenderComponent<MkButton>(p =>
+            p.AddChildContent("Hello world")
+                .Add(r => r.OnClick, () => { clicked = true; }
+        ));
+
+        var btn = sut.Find("button");
+        btn.Click();
+        clicked.Should().BeTrue();
     }
 }
