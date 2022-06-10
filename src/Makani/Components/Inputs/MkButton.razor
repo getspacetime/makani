@@ -1,18 +1,11 @@
 ﻿@namespace Makani
-@using System.Text
+@inherits MkComponent
+@inject ButtonTheme Theme
+
 <button class="@internalCss" @onclick="OnClick">@ChildContent</button>
 
 @code {
-    private string BaseCss { get; set; } = "btn";
-    private string DefaultSize { get; set; } = "btn-md";
-    private string DefaultColor { get; set; } = "btn-default";
     private string internalCss => !string.IsNullOrWhiteSpace(Tailwind) ? Tailwind : BuildCss();
-
-    [Parameter]
-    public string? Tailwind { get; set; }
-
-    [Parameter]
-    public string? Css { get; set; }
 
     [Parameter]
     public MkSize Size { get; set; }
@@ -28,39 +21,9 @@
 
     public string BuildCss()
     {
-        if (Size == MkSize.Default && Color == MkColor.Default)
-        {
-            return $"{BaseCss} {DefaultSize} {DefaultColor} {Css}";
-        }
+        Theme.Size.TryGetValue(Size, out var size);
+        Theme.Color.TryGetValue(Color, out var color);
 
-        var size = string.Empty;
-        switch (Size)
-        {
-            case MkSize.Large:
-                size = "btn-lg";
-                break;
-            case MkSize.Small:
-                size = "btn-sm";
-                break;
-            case MkSize.Medium:
-            case MkSize.Default:
-                size = DefaultSize;
-                break;
-        }
-
-        var color = string.Empty;
-        switch (Color)
-        {
-            case MkColor.Primary:
-                color = "btn-primary";
-                break;
-            case MkColor.Secondary:
-            case MkColor.Default:
-                color = DefaultColor;
-                break;
-        }
-
-
-        return $"{BaseCss} {size} {color} {Css ?? string.Empty}";
+        return $"{Theme.Base} {size} {color} {Css ?? string.Empty}";
     }
 }
