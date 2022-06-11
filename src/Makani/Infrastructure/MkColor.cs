@@ -12,19 +12,4 @@ namespace Makani
         Primary,
         Secondary
     }
-
-    public enum MkSize
-    {
-        Default,
-        Small,
-        Medium,
-        Large
-    }
-
-    public enum MkVariant
-    {
-        Default,
-        Solid,
-        Link
-    }
 }
