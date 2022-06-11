@@ -1,4 +1,5 @@
-﻿using Makani.Utilities;
+﻿using Makani.Themes;
+using Makani.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Makani
@@ -7,8 +8,12 @@ namespace Makani
     {
         public static IServiceCollection AddMakani(this IServiceCollection services)
         {
+            // javascript
             services.AddTransient<ElementUtils>();
             services.AddTransient<PrismUtils>();
+
+            // themes
+            services.AddSingleton<ButtonTheme>();
             return services;
         }
     }

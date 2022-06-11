@@ -20,4 +20,11 @@ namespace Makani
         Medium,
         Large
     }
+
+    public enum MkVariant
+    {
+        Default,
+        Solid,
+        Link
+    }
 }

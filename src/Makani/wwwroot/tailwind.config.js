@@ -1,5 +1,10 @@
+// note: when relying on visual studio to rebuild these assets,
+// changes to this file may require a clean + build.
+
+const colors = require("tailwindcss/colors");
+
 module.exports = {
-  content: ["../*.razor",  "../**/*.razor", "../**/**/*.razor"],
+  content: ["../*.razor",  "../**/*.razor", "../**/**/*.razor", "../**/Themes/*.cs"],
   theme: {
       extend: {},
       colors: {
@@ -15,7 +20,7 @@ module.exports = {
           success: colors.emerald,
           error: colors.rose,
           info: colors.sky,
-          warning: colors.amber
+          warning: colors.amber,
       },
   },
   plugins: [],
