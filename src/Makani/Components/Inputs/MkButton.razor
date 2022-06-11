@@ -24,6 +24,6 @@
         Theme.Size.TryGetValue(Size, out var size);
         Theme.Color.TryGetValue(Color, out var color);
 
-        return $"{Theme.Base} {size} {color} {Css ?? string.Empty}";
+        return $"{Theme.Base} {size} {color} {Css ?? string.Empty}".Trim();
     }
 }
