@@ -1,0 +1,33 @@
+﻿@namespace Makani
+
+<!-- todo: change width of toast based on device, e.g. browser vs phone vs tablet -->
+<div class="@GetBorderColor() w-96 border-solid border-l-8 text-gray-900 bg-white shadow-md px-5 py-4 rounded mb-2 antialiased">
+    @ChildContent
+</div>
+
+@code {
+
+    private readonly Dictionary<MkState, string> _state = new()
+    {
+        {MkState.Success, "border-l-success-500"},
+        {MkState.Error, "border-l-error-500"},
+        {MkState.Info, "border-l-info-500"},
+        {MkState.Warning, "border-l-warning-500"},
+    };
+
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public MkState State { get; set; }
+
+    public string GetBorderColor()
+    {
+        if (_state.TryGetValue(State, out var color))
+        {
+            return color;
+        }
+
+        return string.Empty;
+    }
+}

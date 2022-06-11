@@ -19,7 +19,7 @@
         <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
         <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
 
-        <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+        <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
     <div class="mb-10">
         <MkText Type="@MkText.H5">Default buttons</MkText>
@@ -27,7 +27,7 @@
         <MkButton Css="ml-5">Default</MkButton>
         <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
 
-        <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+        <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
     <div class="mb-10">
         <MkText Type="@MkText.H5">Buttons with actions</MkText>
@@ -35,13 +35,13 @@
             <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
             <p class="dark:text-gray-200 ml-4 mb-4"><strong>Count: </strong> @Count</p>
         </div>
-        <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+        <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
 
     <div class="mb-10">
         <MkText Type="@MkText.H5">Customized buttons</MkText>
         <p class="dark:text-gray-200 mb-5">Customization is almost unlimited!</p>
-        
+
         <p class="dark:text-gray-200 font-semibold text-sm tracking-wide">Sample components below are for demonstration purposes only. You can use these samples or any other Tailwind styles you need.</p>
 
         <MkButton Tailwind="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">Customized button</MkButton>
@@ -50,7 +50,7 @@
         <MkButton Tailwind="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Customized button</MkButton>
         <MkButton Tailwind="inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9">:-)</MkButton>
 
-        <MkCode Text="@customButtons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+        <MkCode Text="@customButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
 </div>
 
@@ -100,6 +100,12 @@
     <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
 </div>
 
+<div class="mb-10">
+    <div class="border-b border-slate-600 mb-4">
+        <MkText Type="@MkText.H3">Alerts</MkText>
+    </div>
+    <ToastSample></ToastSample>
+</div>
 @code
 {
     private string customButtons = @"<MkButton Tailwind=""text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"">Customized button</MkButton>
