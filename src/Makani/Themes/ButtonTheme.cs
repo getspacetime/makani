@@ -17,15 +17,15 @@ public class ButtonTheme
     {
         {
             MkColor.Default,
-            "bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 ring-white"
+            "bg-secondary-200 hover:bg-secondary-300 text-secondary-900 dark:bg-secondary-800 dark:hover:bg-secondary-700 dark:text-secondary-200 ring-white"
         },
         {
             MkColor.Secondary,
-            "bg-gray-200 hover:bg-gray-300 text-gray-900 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-gray-200 ring-white"
+            "bg-secondary-200 hover:bg-secondary-300 text-secondary-900 dark:bg-secondary-800 dark:hover:bg-secondary-700 dark:text-secondary-200 ring-white"
         },
         {
             MkColor.Primary,
-            "text-white bg-indigo-500 border-0 ring-indigo-200 hover:bg-indigo-600 rounded"
+            "text-white bg-primary-500 border-0 ring-primary-200 hover:bg-primary-600 rounded"
         }
     };
 

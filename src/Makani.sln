@@ -5,8 +5,6 @@ VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Makani", "Makani\Makani.csproj", "{4E61B1A7-F513-4AC6-B03F-A97B3B7D2C8C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Makani.Demo", "Makani.Demo\Makani.Demo.csproj", "{45BCA989-904C-49B8-9EF7-3E772D11F5D8}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Makani.Tests", "Makani.Tests\Makani.Tests.csproj", "{0F3BA767-038B-48E8-A5FF-6A5A7636EC68}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Makani.Docs", "Makani.Docs\Makani.Docs.csproj", "{5AC5B7DE-04C8-4B79-910B-2A04F5A4DF9D}"
@@ -21,12 +19,6 @@ Global
 		{4E61B1A7-F513-4AC6-B03F-A97B3B7D2C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E61B1A7-F513-4AC6-B03F-A97B3B7D2C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E61B1A7-F513-4AC6-B03F-A97B3B7D2C8C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45BCA989-904C-49B8-9EF7-3E772D11F5D8}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{0F3BA767-038B-48E8-A5FF-6A5A7636EC68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0F3BA767-038B-48E8-A5FF-6A5A7636EC68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F3BA767-038B-48E8-A5FF-6A5A7636EC68}.Release|Any CPU.ActiveCfg = Release|Any CPU
