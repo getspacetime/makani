@@ -22,7 +22,7 @@
 
 @code {
     [Parameter]
-    public RenderFragment ChildContent { get; set; }
+    public RenderFragment? ChildContent { get; set; }
     public MkTabContent? CurrentTab { get; set; }
 
     internal List<MkTabContent> Tabs { get; set; } = new List<MkTabContent>();

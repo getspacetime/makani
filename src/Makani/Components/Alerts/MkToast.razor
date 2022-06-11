@@ -1,8 +1,18 @@
 ﻿@namespace Makani
+@inherits MkComponent
 
 <!-- todo: change width of toast based on device, e.g. browser vs phone vs tablet -->
-<div class="@GetBorderColor() w-96 border-solid border-l-8 text-gray-900 bg-white shadow-md px-5 py-4 rounded mb-2 antialiased">
-    @ChildContent
+<div class="w-96 border-solid border-l-8 text-gray-900 bg-white shadow-md px-5 py-4 rounded mb-2 antialiased @GetBorderColor() @Css">
+    <div class="flex justify-between">
+        <div class="font-sm">
+        @ChildContent
+        </div>
+        <div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 cursor-pointer text-gray-400 hover:text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+        </div>
+    </div>
 </div>
 
 @code {

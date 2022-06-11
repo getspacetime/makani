@@ -1,5 +1,8 @@
 ﻿@page "/"
+@inject ToastService Service
+@inject ILogger<Index> Log
 
+<MkToastProvider />
 <MkText Type="@MkText.H1">Theme</MkText>
 <div class="mb-8">
     <MkText Type="@MkText.H3">Light & Dark Mode</MkText>
@@ -9,6 +12,13 @@
 
 
 <MkText Type="@MkText.H1">Components</MkText>
+<div class="mb-10">
+    <div class="border-b border-slate-600 mb-4">
+        <MkText Type="@MkText.H3">Alerts (preview)</MkText>
+    </div>
+    <ToastSample></ToastSample>
+</div>
+
 <div class="mb-8">
     <div class="border-b border-slate-600 mb-4">
         <MkText Type="@MkText.H3">Buttons</MkText>
@@ -99,15 +109,9 @@
 
     <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
 </div>
-
-<div class="mb-10">
-    <div class="border-b border-slate-600 mb-4">
-        <MkText Type="@MkText.H3">Alerts</MkText>
-    </div>
-    <ToastSample></ToastSample>
-</div>
 @code
 {
+
     private string customButtons = @"<MkButton Tailwind=""text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"">Customized button</MkButton>
 <MkButton Tailwind=""inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"">Customized button</MkButton>
 <MkButton Tailwind=""inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"">Customized button</MkButton>
