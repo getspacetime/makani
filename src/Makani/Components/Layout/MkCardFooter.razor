@@ -1,0 +1,11 @@
+﻿@namespace Makani
+@inherits MkComponent
+
+ <div class="pt-4">
+    @ChildContent
+  </div>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+}

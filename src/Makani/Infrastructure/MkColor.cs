@@ -12,4 +12,18 @@ namespace Makani
         Primary,
         Secondary
     }
+
+    public enum MkSize
+    {
+        Default,
+        Small,
+        Medium,
+        Large
+    }
+
+    public enum MkCardAlignment
+    {
+        Top,
+        Left
+    }
 }
