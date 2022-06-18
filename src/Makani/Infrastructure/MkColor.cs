@@ -13,14 +13,6 @@ namespace Makani
         Secondary
     }
 
-    public enum MkSize
-    {
-        Default,
-        Small,
-        Medium,
-        Large
-    }
-
     public enum MkCardAlignment
     {
         Top,
