@@ -1,0 +1,17 @@
+﻿@inject ToastService Service
+
+<MkToast State="MkState.Success">This is a success toast.</MkToast>
+<MkToast State="MkState.Info">This is an informational toast.</MkToast>
+<MkToast State="MkState.Warning">This is a warning toast.</MkToast>
+<MkToast State="MkState.Error">This is an error toast.</MkToast>
+
+<MkButton OnClick="() => AddToast(MkState.Success)">Success toast</MkButton>
+<MkButton OnClick="() => AddToast(MkState.Error)">Error toast</MkButton>
+<MkButton OnClick="() => AddToast(MkState.Info)">Info toast</MkButton>
+<MkButton OnClick="() => AddToast(MkState.Warning)">Warning toast</MkButton>
+@code {
+    public async Task AddToast(MkState state)
+    {
+        await Service.AddToast("Adding random toast", state);
+    }
+}

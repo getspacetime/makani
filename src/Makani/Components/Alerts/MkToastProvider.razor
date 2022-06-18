@@ -1,0 +1,23 @@
+﻿@namespace Makani
+@inject ToastService Service
+@inject ILogger<MkToastProvider> Log
+
+<div class="fixed bottom-0 left-0 p-4 z-20">
+@foreach (var msg in Service.Messages)
+    {
+        <MkToast State="msg.State" Css="@(msg.IsRemoving ? "opacity-0 transition-opacity ease-in duration-700" : "transition-opacity opacity-100 ease-in duration-700")">@msg.Message</MkToast>
+    }
+</div>
+
+@code {
+    protected override void OnInitialized()
+    {
+        Service.OnChange = OnChange;
+    }
+
+    private void OnChange(Toast obj)
+    {
+        StateHasChanged();
+    }
+
+}

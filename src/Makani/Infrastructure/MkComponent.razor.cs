@@ -6,11 +6,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using Microsoft.Extensions.Logging;
 
-namespace Makani
+namespace Makani;
+
+public partial class MkComponent
 {
-    public partial class MkComponent
-    {
-        [Inject]
-        protected ILogger<MkComponent> Log { get; set; }
-    }
+    [Inject]
+    protected ILogger<MkComponent> Log { get; set; }
 }

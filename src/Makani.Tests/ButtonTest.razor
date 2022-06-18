@@ -1,9 +1,84 @@
-﻿@code {
+﻿@using Makani.Themes
+@using FluentAssertions
+@code {
     [Fact]
     public void Button_ShouldRender()
     {
         using var ctx = new TestContext();
+        ctx.Services.AddSingleton<ButtonTheme>();
+
         var sut = ctx.Render(@<MkButton>Hello World</MkButton>);
         sut.MarkupMatches(@<button class:ignore>Hello World</button>);
+    }
+
+    [Fact]
+    public void Button_ShouldCallback()
+    {
+        using var ctx = new TestContext();
+        ctx.Services.AddSingleton<ButtonTheme>();
+
+        var clicked = false;
+        Action<MouseEventArgs> action = _ => { };
+        var sut = ctx.RenderComponent<MkButton>(p =>
+            p.AddChildContent("Hello world")
+                .Add(r => r.OnClick, () => { clicked = true; }
+        ));
+
+        var btn = sut.Find("button");
+        btn.Click();
+        clicked.Should().BeTrue();
+    }
+
+    [Theory]
+    [InlineData("base", "size", "color", "custom", "base size color custom")]
+    [InlineData("base", "size", "color", "", "base size color")]
+    [InlineData("base", "", "color", "custom", "base color custom")]
+    [InlineData("base", "size", "", "custom", "base size custom")]
+    [InlineData("", "", "", "custom", "custom")]
+    [InlineData("", "", "", "", "")]
+    public void Button_ShouldUseTheme_WhenSupplied(string baseCss, string size, string color, string customCss, string expected)
+    {
+        using var ctx = new TestContext();
+        var theme = new ButtonTheme();
+        theme.Size.Clear();
+        theme.Color.Clear();
+
+        theme.Base = baseCss;
+
+        if (!string.IsNullOrWhiteSpace(size))
+        {
+            theme.Size.Add(MkSize.Small, size);
+        }
+
+        if (!string.IsNullOrWhiteSpace(color))
+        {
+            theme.Color.Add(MkColor.Default, color);
+        }
+
+        ctx.Services.AddSingleton<ButtonTheme>(theme);
+
+        var sut = ctx.RenderComponent<MkButton>(p =>
+            p.AddChildContent("Hello world")
+                .Add(r => r.Css, customCss)
+            .Add(r => r.Size, MkSize.Small));
+
+        sut.MarkupMatches(@<button class="@expected">Hello world</button>);
+    }
+
+    [Fact]
+    public void Button_TailwindTakesPrecedence()
+    {
+        using var ctx = new TestContext();
+        var theme = new ButtonTheme();
+
+        ctx.Services.AddSingleton<ButtonTheme>(theme);
+
+        var sut = ctx.RenderComponent<MkButton>(p =>
+            p.AddChildContent("Hello world")
+                .Add(r => r.Css, "customCss")
+                .Add(r => r.Size, MkSize.Small)
+                .Add(r => r.Tailwind, "tailwind"));
+
+        sut.MarkupMatches(@<button class="tailwind">Hello world</button>);
     }
 }
