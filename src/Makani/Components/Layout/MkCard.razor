@@ -17,19 +17,19 @@
 }
 else
 {
-<div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded">
-     @if (!string.IsNullOrWhiteSpace(ImageUrl))
+    <div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded">
+        @if (!string.IsNullOrWhiteSpace(ImageUrl))
         {
-  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('@ImageUrl')">
-  </div>
+            <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('@ImageUrl')">
+            </div>
         }
-  <div class="p-4 flex flex-col justify-between leading-normal">
-    <div>
-      <div class="font-bold text-xl mb-2">@Title</div>
-      <p class="text-gray-700 text-base">@ChildContent</p>
+        <div class="p-4 flex flex-col justify-between leading-normal">
+            <div>
+                <div class="font-bold text-xl mb-2">@Title</div>
+                <p class="text-gray-700 text-base">@ChildContent</p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 }
 
 @code {

@@ -1,10 +1,14 @@
-﻿@code {
+﻿@using Makani.Themes
+@code {
     [Fact]
     public void DefaultCard_ShouldRender_When_No_ImageUrl_Is_Provided()
     {
         using var ctx = new TestContext();
-        var sut = ctx.Render(@<MkCard Title="Card Title">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-</MkCard>);
+        ctx.Services.AddSingleton<ButtonTheme>();
+
+        var sut = ctx.Render(@<MkCard Title="Card Title">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+    </MkCard>);
         sut.MarkupMatches(@<div class="max-w-xs rounded overflow-hidden shadow-lg">
         <div class="px-6 py-4">
             <div class="font-bold text-xl mb-2">Card Title</div>
@@ -19,25 +23,30 @@
     public void LeftAlignedCard_ShouldRender_When_No_Alignment_Parameter_Left_Is_Provided()
     {
         using var ctx = new TestContext();
-        var sut = ctx.Render(@<MkCard Title="Card Title" Alignment="@MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    <MkCardFooter>
-        <MkButton Color="MkColor.Primary">Default</MkButton>
-    </MkCardFooter>
-</MkCard>);
-        sut.MarkupMatches(@<div class="max-w-sm w-full lg:max-w-3xl lg:flex">
-  <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden" style="background-image: url('https://picsum.photos/400/300')"></div>
-  <div class="border-r border-b border-l border-gray-400 lg:border-l-0 lg:border-t lg:border-gray-400 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-    <div>
-      <div class="text-gray-900 font-bold text-xl mb-2">Card Title</div>
-      <p class="text-gray-700 text-base">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-      </p>
-      <div class="pt-4">
-        <button class="btn btn-md btn-primary ">Default</button>
-      </div>
-      <p></p>
-    </div>
-  </div>
+        ctx.Services.AddSingleton<ButtonTheme>();
+
+        var sut = ctx.Render(@<MkCard Title="Card Title" Alignment="@MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+        <MkCardFooter>
+            <MkButton Color="MkColor.Primary">Default</MkButton>
+        </MkCardFooter>
+    </MkCard>);
+
+        sut.MarkupMatches(@<div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded">
+        <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('https://picsum.photos/400/300')"></div>
+        <div class="p-4 flex flex-col justify-between leading-normal">
+            <div>
+                <div class="font-bold text-xl mb-2">Card Title</div>
+                <p class="text-gray-700 text-base">
+                    The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+                </p>
+                <div class="pt-4">
+                    <button class:ignore>Default</button>
+                </div>
+                <p></p>
+            </div>
         </div>
+    </div>
     );
     }
 
@@ -45,26 +54,30 @@
     public void TopAlignedCard_ShouldRender_When_No_Alignment_Parameter_Top_Is_Provided()
     {
         using var ctx = new TestContext();
+        ctx.Services.AddSingleton<ButtonTheme>();
+
         var sut = ctx.Render(
-    @<MkCard Title="Card Title" Alignment="@MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    <MkCardFooter>
-        <MkButton Color="MkColor.Primary">Default</MkButton>
-    </MkCardFooter>
-</MkCard>
-    );
+    @<MkCard Title="Card Title" Alignment="@MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+        <MkCardFooter>
+            <MkButton Color="MkColor.Primary">Default</MkButton>
+        </MkCardFooter>
+    </MkCard>
+        );
         sut.MarkupMatches(
     @<div class="max-w-xs rounded overflow-hidden shadow-lg">
-  <img src="https://picsum.photos/400/300">
-  <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">Card Title</div>
-    <p class="text-gray-700 text-base">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    </p>
-    <div class="pt-4">
-      <button class="btn btn-md btn-primary ">Default</button>
+        <img src="https://picsum.photos/400/300">
+        <div class="px-6 py-4">
+            <div class="font-bold text-xl mb-2">Card Title</div>
+            <p class="text-gray-700 text-base">
+                The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+            </p>
+            <div class="pt-4">
+                <button class:ignore>Default</button>
+            </div>
+            <p></p>
+        </div>
     </div>
-    <p></p>
-  </div>
-</div>
     );
     }
 }
