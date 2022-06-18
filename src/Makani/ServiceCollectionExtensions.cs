@@ -8,7 +8,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddMakani(this IServiceCollection services)
     {
         // javascript
-        services.AddTransient<ElementUtils>();
+        services.AddTransient<IElementUtils, ElementUtils>();
         services.AddTransient<PrismUtils>();
 
         // themes

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="description" content="Makani is a UI Component Library built for .NET MAUI Blazor and .NET Core Blazor apps. Components are customizable, performant, and extensible. Build Blazor apps fast using Tailwind CSS."/>
+    <meta name="description" content="Makani is a UI Component Library built for .NET MAUI Blazor and .NET Core Blazor apps. Components are customizable, performant, and extensible. Build Blazor apps fast using Tailwind CSS." />
     <title>Makani.Docs</title>
     <base href="/" />
     <style>
@@ -38,6 +38,12 @@
     <link href="_content/Makani/css/coy.css" rel="stylesheet" />
     <link href="_content/Makani/css/okaidia.css" rel="stylesheet" />
     <link href="_content/Makani/css/tomorrow-night.css" rel="stylesheet" />-->
+    
+    <!-- todo: see if there's a way for .NET Core or MAUI to inject this w/o having the user have to add it. -->
+    <script type="module">
+        import { addDarkModeSupport } from './_content/Makani/makani.js';
+        addDarkModeSupport();
+    </script>
 </head>
 
 <body class="dark:bg-gray-900 bg-white">
@@ -48,9 +54,8 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-<script src="_framework/blazor.webassembly.js"></script>
-<!--<script src="_content/Makani/makani.js" type="module"></script>-->
-<script src="_content/Makani/prism.js"></script>
+    <script src="_framework/blazor.webassembly.js"></script>
+    <script src="_content/Makani/prism.js"></script>
 </body>
 
 </html>

@@ -3,7 +3,14 @@ using Microsoft.JSInterop;
 
 namespace Makani.Utilities;
 
-public class ElementUtils
+public interface IElementUtils
+{
+    ValueTask Blur();
+    ValueTask ChangeDarkMode(bool on);
+    ValueTask<bool> IsDarkMode();
+}
+
+public class ElementUtils : IElementUtils
 {
     private readonly Lazy<Task<IJSObjectReference>> _moduleTask;
     public ElementUtils(IJSRuntime jsRuntime)
@@ -33,5 +40,17 @@ public class ElementUtils
         var module = await _moduleTask.Value;
 
         await module.InvokeVoidAsync("blur", element);
+    }
+
+    public async ValueTask ChangeDarkMode(bool on)
+    {
+        var module = await _moduleTask.Value;
+        await module.InvokeVoidAsync("changeDarkMode", on);
+    }
+
+    public async ValueTask<bool> IsDarkMode()
+    {
+        var module = await _moduleTask.Value;
+        return await module.InvokeAsync<bool>("isDarkMode");
     }
 }

@@ -1,0 +1,43 @@
+﻿@code {
+    [Theory, AutoMoqData]
+    public void Toggle_ShouldRender(TestContext ctx)
+    {
+        ctx.Should().NotBeNull();
+        var sut = ctx.Render(@<MkDarkModeToggle />);
+        sut.Should().NotBeNull();
+    }
+
+
+    [Theory, AutoMoqData]
+    public void OnLoad_ShouldCallElementUtils(TestContext ctx, Mock<IElementUtils> utils)
+    {
+        var sut = ctx.Render(@<MkDarkModeToggle />);
+
+        utils.Verify(p => p.IsDarkMode(), Times.Once);
+        utils.Verify(p => p.ChangeDarkMode(It.IsAny<bool>()), Times.Never);
+    }
+
+    [Theory, AutoMoqData]
+    public void ClickToggle_ShouldCallElementUtils(TestContext ctx, Mock<IElementUtils> utils)
+    {
+        var sut = ctx.Render(@<MkDarkModeToggle />);
+
+        utils.Verify(p => p.IsDarkMode(), Times.Once);
+
+        sut.Find("button").Click();
+        utils.Verify(p => p.ChangeDarkMode(It.IsAny<bool>()), Times.Once);
+    }
+
+    [Theory, AutoMoqData]
+    public void ClickToggle_ShouldChangeIcon(TestContext ctx, Mock<IElementUtils> utils)
+    {
+        utils.Setup(p => p.IsDarkMode()).Returns(ValueTask.FromResult(false));
+        var sut = ctx.Render(@<MkDarkModeToggle />);
+
+        sut.MarkupMatches(@<button class:ignore><svg diff:ignoreAttributes><title>Dark mode disabled</title><path diff:ignoreAttributes /></svg></button>);
+
+        sut.Find("button").Click();
+        sut.MarkupMatches(@<button class:ignore><svg diff:ignoreAttributes><title>Dark mode enabled</title><path diff:ignoreAttributes /></svg></button>);
+
+    }
+}
