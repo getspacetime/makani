@@ -20,4 +20,10 @@ namespace Makani
         Medium,
         Large
     }
+
+    public enum MkCardAlignment
+    {
+        Top,
+        Left
+    }
 }
