@@ -29,16 +29,16 @@
         <div class="col-span-2">
             <Entry Label="Immediate mode" @bind-Value="Username"></Entry>
         </div>
-        <div class="col-span-2 flex">
-            <MkText Type="Typo.Body" Css="self-end">Value: @Username</MkText>
+        <div class="col-span-2 flex items-end">
+            <MkText Type="Typo.Body">Value: @Username</MkText>
         </div>
     </div>
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-2">
             <Entry Label="Delayed mode" Mode="EntryMode.Blur" HelperText="Hint: hit tab or click outside the input" @bind-Value="Delayed"></Entry>
         </div>
-        <div class="col-span-2 flex">
-            <MkText Type="Typo.Body" Css="self-end">Value: @Delayed</MkText>
+        <div class="col-span-2 flex items-center">
+            <MkText Type="Typo.Body">Value: @Delayed</MkText>
         </div>
     </div>
 </div>
