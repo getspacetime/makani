@@ -19,12 +19,6 @@ The main focus of the Makani library is to provide a powerful set of components 
 
 > ⚠️ **This library is currently under active development.** You may experience bugs, breaking changes, or missing functionality.
 
-## 🛠️ Contributing
-
-We encourage you to contribute! People of all ages / occupations / experience are welcome. 
-
-Please read the [Contribution Guidelines](https://github.com/getspacetime/makani/blob/main/CONTRIBUTING.md) for how to proceed.
-
 ## 🚀 Getting Started
 
 ### Quick Start
@@ -149,3 +143,9 @@ _The targets specified are only initial estimates and are open to change over ti
 A UI component library isn't helpful if it isn't useful to **everyone**.
 
 TBD
+
+## 🛠️ Contributing
+
+We encourage you to contribute! People of all ages / occupations / experience are welcome. 
+
+Please read the [Contribution Guidelines](https://github.com/getspacetime/makani/blob/main/CONTRIBUTING.md) for how to proceed.
