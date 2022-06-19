@@ -6,6 +6,16 @@
 # 🏖️ makani
 Collection of UI components built specifically for .NET MAUI Blazor
 
+1. [Why Makani](#why-makani)
+2. [Getting Started](#getting-started)
+    - [Quick Start](#quick-start)
+    - [Using Syntax Highlighting](#using-syntax-highlighting)
+4. [Documentation](#documentation)
+    - [Live Documentation](https://getspacetime.github.io/makani/)
+    - [Roadmap](#roadmap)
+6. [Contributing](#contributing)
+
+
 ## Why Makani?
 Makani was born based on the need for lightweight, performant, and customizable UI components for .NET MAUI Blazor. Makani is built on the wonderful CSS framework, [Tailwind CSS](https://tailwindcss.com/). While a simple theme will be included, the hope is that the community is able to customize the theme to fit their needs. 
 
@@ -110,11 +120,13 @@ module.exports = {
 
 ## 📖 Documentation
 
-[Extensible Design Documentation](https://github.com/getspacetime/makani/wiki/Extensible-Design)
+### Roadmap
 
-[View All Components](https://github.com/getspacetime/makani/wiki/Makani-UI-Components)
+The [component roadmap](https://github.com/getspacetime/makani/wiki/Makani-UI-Components) tracks currently planned & available components.
 
-[Live Documentation](https://getspacetime.github.io/makani/)
+### Live Documentation
+
+You can browse the available components on the [Live Documentation](https://getspacetime.github.io/makani/) page.
 
 
 ## Performance / Benchmarks
@@ -144,7 +156,7 @@ A UI component library isn't helpful if it isn't useful to **everyone**.
 
 TBD
 
-## 🛠️ Contributing
+## Contributing
 
 We encourage you to contribute! People of all ages / occupations / experience are welcome. 
 
