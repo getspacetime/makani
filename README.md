@@ -7,10 +7,10 @@
 Collection of UI components built specifically for .NET MAUI Blazor
 
 1. [Why Makani](#why-makani)
-2. [Getting Started](#getting-started)
+2. Getting Started
     - [Quick Start](#quick-start)
     - [Using Syntax Highlighting](#using-syntax-highlighting)
-4. [Documentation](#documentation)
+4. Documentation
     - [Live Documentation](https://getspacetime.github.io/makani/)
     - [Roadmap](#roadmap)
 6. [Contributing](#contributing)
