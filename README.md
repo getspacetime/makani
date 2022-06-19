@@ -10,10 +10,9 @@ Collection of UI components built specifically for .NET MAUI Blazor
 2. Getting Started
     - [Quick Start](#quick-start)
     - [Using Syntax Highlighting](#using-syntax-highlighting)
-4. Documentation
-    - [Live Documentation](https://getspacetime.github.io/makani/)
-    - [Roadmap](#roadmap)
-6. [Contributing](#contributing)
+3. [Contributing](#contributing)
+4. [Live Documentation](https://getspacetime.github.io/makani/)
+5. [Roadmap & Components](https://github.com/getspacetime/makani/wiki/Roadmap-&-Components)
 
 
 ## Why Makani?
@@ -117,17 +116,6 @@ module.exports = {
     <link href="dist/styles.css" rel="stylesheet" />
 </head>
 ```
-
-## 📖 Documentation
-
-### Roadmap
-
-The [component roadmap](https://github.com/getspacetime/makani/wiki/Makani-UI-Components) tracks currently planned & available components.
-
-### Live Documentation
-
-You can browse the available components on the [Live Documentation](https://getspacetime.github.io/makani/) page.
-
 
 ## Performance / Benchmarks
 Providing a **lightweight** and **performant** component library is a major goal of this project.
