@@ -10,11 +10,6 @@ public class ToastService
 {
     private readonly ILogger<ToastService> _log;
 
-    /// <summary>
-    /// How long the toast should be visible before disappearing.
-    /// </summary>
-    private readonly int _durationMs = 1000 * 5;
-
     public Action<Toast>? OnChange { get; set; }
 
     public ToastService(ILogger<ToastService> log)
@@ -39,7 +34,7 @@ public class ToastService
 
         // don't wait for the remove to fire
 #pragma warning disable CS4014
-        Remove(toast, _durationMs);
+        Remove(toast, toast.Duration);
 #pragma warning restore CS4014
     }
 
@@ -75,14 +70,31 @@ public class ToastService
 
 public class Toast
 {
-    public Toast(string message, MkState state = MkState.Default)
+    public Toast(string message, MkState state = MkState.Default, int duration = 5 * 1000)
     {
         Message = message;
         State = state;
+        Duration = duration;
     }
 
+    /// <summary>
+    /// How long the toast should be visible before beginning to disappear.
+    /// </summary>
+    public int Duration { get; }
+
+    /// <summary>
+    /// The text message content of the toast.
+    /// </summary>
     public string Message { get; }
+
+    /// <summary>
+    /// The state of the toast, e.g. success, info, danger.
+    /// </summary>
     public MkState State { get; }
 
+    /// <summary>
+    /// Flag indicating the toast is being removed. Used for the UI to know to begin transitioning
+    /// this out of the UI (disappearing).
+    /// </summary>
     internal bool IsRemoving { get; set; }
 }

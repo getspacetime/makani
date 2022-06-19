@@ -1,8 +1,12 @@
-﻿using Makani.Themes;
+﻿using System.Runtime.CompilerServices;
+using Makani.Themes;
 using Makani.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 
+[assembly: InternalsVisibleTo("Makani.Tests")]
+
 namespace Makani;
+
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddMakani(this IServiceCollection services)
