@@ -10,6 +10,11 @@
            type="text"
            @onchange="OnChange" @oninput="OnInput"
            class="px-4 py-2 mt-2 border border-gray-200 dark:border-gray-600 focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md" />
+    @if (!string.IsNullOrWhiteSpace(HelperText))
+    {
+        <span class="text-xs font-sans text-gray-400 py-2">@HelperText</span>
+    }
+
 </div>
 
 @code {
@@ -28,6 +33,12 @@
     /// </summary>
     [Parameter]
     public string? Label { get; set; }
+
+    /// <summary>
+    /// Optional helper text
+    /// </summary>
+    [Parameter]
+    public string? HelperText { get; set; }
 
     [Parameter]
     public string? Value { get; set; }

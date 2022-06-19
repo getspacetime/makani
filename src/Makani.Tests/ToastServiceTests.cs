@@ -33,7 +33,7 @@ namespace Makani.Tests
             await Task.Delay(200);
             sut.Messages.First().IsRemoving.Should().BeTrue();
 
-            await Task.Delay(2010);
+            await Task.Delay(3000);
             sut.Messages.Count.Should().Be(0);
         }
     }
