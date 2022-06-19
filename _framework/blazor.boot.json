@@ -7,9 +7,9 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Makani.dll": "sha256-jWl1AzfhuJwGnhLTJ7TwLPPFb3n7et\/tgtOc2aON8n4=",
-      "Makani.Docs.dll": "sha256-CwPHkZfJlK4rcqzF35CxJjW7YTZ5Ao1BMGPG2yjAgFA=",
-      "Microsoft.AspNetCore.Components.dll": "sha256-8hFQ2rmr2f4m7FpWx2sd3qLu2Xk1pLIDBTQEJxBWv3s=",
+      "Makani.dll": "sha256-WjAq3o\/51csX3XotjsibS+wv6YzEXHJoPBDjJl6V9Kk=",
+      "Makani.Docs.dll": "sha256-qJr3zc6yjb6Y6k47cz2c0pCQvCBnvc7T2mEp1WG0ZwA=",
+      "Microsoft.AspNetCore.Components.dll": "sha256-ThcrsZ58PE\/ol5XyJcwCntnJ8DAZ9IlQSHG0x\/rq9wI=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-OC7FmUhOVgW4eEWvpQO9kizcPa8kwqwmc\/kQhvP2UAc=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-vkyYjU4R\/knzjnD7r2htGH2nTghyv8EJ2pax410lIQg=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-zhFtW4kE16TdrpPne9I1Cu9o0KYzrS50VE9MVSifJg4=",
