@@ -3,27 +3,27 @@
 @inject ILogger<Index> Log
 
 <MkToastProvider />
-<MkText Type="@MkText.H1">Theme</MkText>
+<MkText Type="Typo.H1">Theme</MkText>
 <div class="mb-8">
-    <MkText Type="@MkText.H3">Dark Mode</MkText>
+    <MkText Type="Typo.H3">Dark Mode</MkText>
     <p class="dark:text-gray-200">Components are compatible "out of the box" with light and dark modes. </p>
 </div>
 
 
-<MkText Type="@MkText.H1">Components</MkText>
+<MkText Type="Typo.H1">Components</MkText>
 <div class="mb-10">
     <div class="border-b border-slate-600 mb-4">
-        <MkText Type="@MkText.H3">Alerts</MkText>
+        <MkText Type="Typo.H3">Alerts</MkText>
     </div>
     <ToastSample></ToastSample>
 </div>
 
 <div class="mb-8">
     <div class="border-b border-slate-600 mb-4">
-        <MkText Type="@MkText.H3">Buttons</MkText>
+        <MkText Type="Typo.H3">Buttons</MkText>
     </div>
     <div class="mb-10">
-        <MkText Type="@MkText.H5">Primary buttons</MkText>
+        <MkText Type="Typo.H5">Primary buttons</MkText>
         <MkButton Color="MkColor.Primary" Size="MkSize.Small">Small</MkButton>
         <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
         <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
@@ -31,7 +31,7 @@
         <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
     <div class="mb-10">
-        <MkText Type="@MkText.H5">Default buttons</MkText>
+        <MkText Type="Typo.H5">Default buttons</MkText>
         <MkButton Size="MkSize.Small">Small</MkButton>
         <MkButton Css="ml-5">Default</MkButton>
         <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
@@ -39,7 +39,7 @@
         <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
     <div class="mb-10">
-        <MkText Type="@MkText.H5">Buttons with actions</MkText>
+        <MkText Type="Typo.H5">Buttons with actions</MkText>
         <div class="flex items-baseline">
             <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
             <p class="dark:text-gray-200 ml-4 mb-4"><strong>Count: </strong> @Count</p>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="mb-10">
-        <MkText Type="@MkText.H5">Customized buttons</MkText>
+        <MkText Type="Typo.H5">Customized buttons</MkText>
         <p class="dark:text-gray-200 mb-5">Customization is almost unlimited!</p>
 
         <p class="dark:text-gray-200 font-semibold text-sm tracking-wide">Sample components below are for demonstration purposes only. You can use these samples or any other Tailwind styles you need.</p>
@@ -61,6 +61,10 @@
 
         <MkCode Text="@customButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
     </div>
+</div>
+
+<div class="mb-8">
+    <FormSample />
 </div>
 
 <div class="mb-8">
@@ -77,7 +81,7 @@
 
 <div class="mb-10">
     <div class="border-b border-slate-600 mb-4">
-        <MkText Type="@MkText.H3">Syntax Highligher</MkText>
+        <MkText Type="Typo.H3">Syntax Highligher</MkText>
     </div>
     <div class="mb-10">
         <p class="dark:text-gray-200">The below code snippet is your example and your documentation!</p>
@@ -91,24 +95,24 @@
 </div>
 <div class="mb-10">
     <div class="border-b border-slate-600 mb-4">
-        <MkText Type="@MkText.H3">Typography</MkText>
+        <MkText Type="Typo.H3">Typography</MkText>
     </div>
 
-    <MkText Type="@MkText.H1">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H1">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.H2">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H2">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.H3">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H3">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.H4">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H4">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.H5">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H5">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.H6">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.H6">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.Body">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.Body">The quick brown fox jumps over the lazy dog.</MkText>
 
-    <MkText Type="@MkText.Caption">The quick brown fox jumps over the lazy dog.</MkText>
+    <MkText Type="Typo.Caption">The quick brown fox jumps over the lazy dog.</MkText>
 
     <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
 </div>
@@ -164,5 +168,5 @@ public static string Csharp = ""csharp"";
 
     private string buttonsWithActions = @"<MkButton OnClick=""() => { Count++; }"">Click me!</MkButton>";
     private string buttonsWithCss = @"<MkButton Css=""border border-red-500 border-solid"">I have a red border!</MkButton>";
-    private string h1 = @"<MkText Type=""@MkText.H1"">The quick brown fox jumps over the lazy dog.</MkText>";
+    private string h1 = @"<MkText Type=""Typo.H1"">The quick brown fox jumps over the lazy dog.</MkText>";
 }

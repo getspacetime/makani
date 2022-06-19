@@ -2,13 +2,13 @@
 
 @if (Alignment == MkCardAlignment.Top)
 {
-    <div class="max-w-xs rounded overflow-hidden shadow-lg">
+    <div class="max-w-xs rounded overflow-hidden shadow-lg border border-solid border-gray-200 dark:bg-gray-800 dark:border-transparent">
         @if (!string.IsNullOrWhiteSpace(ImageUrl))
         {
             <img src="@ImageUrl">
         }
         <div class="px-6 py-4">
-            <div class="font-bold text-xl mb-2">@Title</div>
+            <MkText Type="Typo.H4">@Title</MkText>
             <p class="text-gray-700 text-base">
                 @ChildContent
             </p>
@@ -17,7 +17,7 @@
 }
 else
 {
-    <div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded">
+    <div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded border border-solid border-gray-200 dark:bg-gray-800 dark:border-transparent">
         @if (!string.IsNullOrWhiteSpace(ImageUrl))
         {
             <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('@ImageUrl')">
@@ -25,7 +25,7 @@ else
         }
         <div class="p-4 flex flex-col justify-between leading-normal">
             <div>
-                <div class="font-bold text-xl mb-2">@Title</div>
+                <MkText Type="Typo.H4">@Title</MkText>
                 <p class="text-gray-700 text-base">@ChildContent</p>
             </div>
         </div>

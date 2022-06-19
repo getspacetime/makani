@@ -1,51 +1,66 @@
 ﻿<div class="border-b border-slate-600 mb-4">
-    <MkText Type="@MkText.H3">Cards</MkText>
+    <MkText Type="Typo.H3">Cards</MkText>
 </div>
 
 <div>
 
-<MkText Type="@MkText.H4">Default Card with optional image</MkText>
-<MkCard Title="Card Title">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    <MkCardFooter>
-        <MkButton Color="MkColor.Primary">Default</MkButton>
-    </MkCardFooter>
-</MkCard>
+<MkText Type="Typo.H4">Default Card with optional image</MkText>
+    <MkCard Title="Card Title">
+        <MkText Type="Typo.Body">
+            The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+        </MkText>
+        <MkCardFooter>
+            <MkButton Color="MkColor.Primary">Default</MkButton>
+        </MkCardFooter>
+    </MkCard>
 
- <MkText Type="@MkText.H4">Top Aligned Card</MkText>
-<MkCard Title="Card Title" Alignment="@MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    <MkCardFooter>
-        <MkButton Color="MkColor.Primary">Default</MkButton>
-    </MkCardFooter>
-</MkCard>
+ <MkText Type="Typo.H4">Top Aligned Card</MkText>
+    <MkCard Title="Card Title" Alignment="MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300">
+        <MkText Type="Typo.Body">
+            The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+        </MkText>
+        <MkCardFooter>
+            <MkButton Color="MkColor.Primary">Default</MkButton>
+        </MkCardFooter>
+    </MkCard>
 
 
-<MkText Type="@MkText.H4">Left Aligned Card</MkText>
-<MkCard Title="Card Title" Alignment="@MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300">The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
-    <MkCardFooter>
-        <MkButton Color="MkColor.Primary">Default</MkButton>
-    </MkCardFooter>
-</MkCard>
+<MkText Type="Typo.H4">Left Aligned Card</MkText>
+    <MkCard Title="Card Title" Alignment="MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300">
+        <MkText Type="Typo.Body">
+            The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+        </MkText>
+        <MkCardFooter>
+            <MkButton Color="MkColor.Primary">Default</MkButton>
+        </MkCardFooter>
+    </MkCard>
 <MkCode Text="@docs" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
 </div>
 
 
 @code {
 private string docs = @"<MkCard Title=""Card Title"">
-    The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+    <MkText Type=""Typo.Body"">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+    </MkText>
     <MkCardFooter>
         <MkButton Color=""MkColor.Primary"">Default</MkButton>
     </MkCardFooter>
 </MkCard>
 
-<MkCard Title=""Card Title"" Alignment=""@MkCardAlignment.Top"" ImageUrl=""https://picsum.photos/400/300"">
-    The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+<MkCard Title=""Card Title"" Alignment=""MkCardAlignment.Top"" ImageUrl=""https://picsum.photos/400/300"">
+    <MkText Type=""Typo.Body"">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+    </MkText>
     <MkCardFooter>
         <MkButton Color=""MkColor.Primary"">Default</MkButton>
     </MkCardFooter>
 </MkCard>
 
-<MkCard Title=""Card Title"" Alignment=""@MkCardAlignment.Left"" ImageUrl=""https://picsum.photos/400/300"">
-    The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+<MkCard Title=""Card Title"" Alignment=""MkCardAlignment.Left"" ImageUrl=""https://picsum.photos/400/300"">
+    <MkText Type=""Typo.Body"">
+        The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
+    </MkText>
     <MkCardFooter>
         <MkButton Color=""MkColor.Primary"">Default</MkButton>
     </MkCardFooter>

@@ -1,49 +1,40 @@
 ﻿@namespace Makani
 @inherits MkComponent
 
-<h1 class="@InternalCss">@ChildContent</h1>
+@switch (Type)
+{
+    case Typo.H1:
+        <h1 class="text-4xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4 @Css">@ChildContent</h1>
+        break;
+    case Typo.H2:
+        <h2 class="text-3xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4 @Css">@ChildContent</h2>
+        break;
+    case Typo.H3:
+        <h3 class="text-2xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4 @Css">@ChildContent</h3>
+        break;
+    case Typo.H4:
+        <h4 class="text-xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4 @Css">@ChildContent</h4>
+        break;
+    case Typo.H5:
+        <h5 class="text-base text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4 @Css">@ChildContent</h5>
+        break;
+    case Typo.H6:
+        <h6 class="text-sm text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4 @Css">@ChildContent</h6>
+        break;
+    case Typo.Caption:
+        <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400 @Css">@ChildContent</span>
+        break;
+    case Typo.Body:
+    default:
+        <p class="text-base text-gray-800 dark:text-gray-50 my-2 @Css">@ChildContent</p>
+        break;
+}
+
 
 @code {
-    public readonly record struct Theme(string element, string type, string css);
-
-    public const string H1 = "h1";
-    public const string H2 = "h2";
-    public const string H3 = "h3";
-    public const string H4 = "h4";
-    public const string H5 = "h5";
-    public const string H6 = "h6";
-    public const string Caption = "caption";
-    public const string Body = "body";
-
     [Parameter]
-    public string? Type { get; set; }
+    public Typo Type { get; set; }
 
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
-
-    public string InternalCss => $"{BuildCss()} {Css}";
-
-    private string BuildCss()
-    {
-        switch (Type)
-        {
-            case H1:
-                return "text-4xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4";
-            case H2:
-                return "text-3xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4";
-            case H3:
-                return "text-2xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4";
-            case H4:
-                return "text-xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4";
-            case H5:
-                return "text-base text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4";
-            case H6:
-                return "text-sm text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4";
-            case Caption:
-                return "font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400";
-            case Body:
-            default:
-                return "text-base text-gray-800 dark:text-gray-50 my-2";
-        }
-    }
 }

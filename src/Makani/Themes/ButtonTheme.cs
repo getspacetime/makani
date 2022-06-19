@@ -3,7 +3,7 @@
 public class ButtonTheme
 {
     public string Base { get; set; } =
-        "inline-flex items-center border-0 focus:ring-2 rounded text-base my-2 md:mt-0 rounded";
+        "inline-flex items-center border-0 focus:ring-2 rounded text-base my-2 md:mt-0 rounded outline-offset-2 outline-primary-500";
 
     public Dictionary<MkSize, string> Size { get; set; } = new()
         {
