@@ -592,16 +592,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
+.items-center {
+  align-items: center;
+}
+
 .items-baseline {
   align-items: baseline;
 }
 
 .gap-4 {
   gap: 1rem;
-}
-
-.self-end {
-  align-self: flex-end;
 }
 
 .rounded {
