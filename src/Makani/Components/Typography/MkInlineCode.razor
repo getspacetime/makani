@@ -1,0 +1,8 @@
+﻿@namespace Makani
+
+<code class="bg-gray-200 dark:text-gray-800 font-mono font-sm p-1 rounded-sm">@ChildContent</code>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}

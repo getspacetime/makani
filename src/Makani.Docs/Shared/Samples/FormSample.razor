@@ -2,8 +2,9 @@
     <MkText Type="Typo.H3">Entry</MkText>
 </div>
 <div class="mb-10">
+    <MkText Type="Typo.H5">Sizing</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
-        Control the size of <code class="bg-gray-200 dark:text-gray-800 font-mono font-sm p-1 rounded-sm">MkEntry</code> by using <a class="font-bold dark:text-slate-200 decoration-2 underline decoration-sky-500/[.33] hover:decoration-sky-500" href="https://tailwindcss.com/docs/grid-template-columns" target="_blank">Tailwind Grid Template Columns</a>.
+        Control the size of <MkInlineCode>MkEntry</MkInlineCode> by using <MkLink Url="https://tailwindcss.com/docs/grid-template-columns" Target="LinkTarget.NewTab">Tailwind Grid Template Columns</MkLink>.
     </MkText>
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
@@ -17,11 +18,34 @@
         </div>
     </div>
     <MkCode Text="@markup" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+</div>
 
+<div class="mb-10">
+    <MkText Type="Typo.H5">Data binding</MkText>
+    <MkText Type="Typo.Body" Css="mb-4">
+        The <MkInlineCode>MkEntry</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
+    </MkText>
+    <div class="grid grid-cols-4 gap-4 mb-4">
+        <div class="col-span-2">
+            <Entry Label="Immediate mode" @bind-Value="Username"></Entry>
+        </div>
+        <div class="col-span-2 flex">
+            <MkText Type="Typo.Body" Css="self-end">Value: @Username</MkText>
+        </div>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-span-2">
+            <Entry Label="Delayed mode" Mode="EntryMode.Blur" @bind-Value="Delayed"></Entry>
+        </div>
+        <div class="col-span-2 flex">
+            <MkText Type="Typo.Body" Css="self-end">Value: @Delayed</MkText>
+        </div>
+    </div>
 </div>
 
 @code {
-
+    public string Username { get; set; }
+    public string Delayed { get; set; }
     private string markup = @"<div class=""grid grid-cols-4 gap-4"">
     <div class=""col-span-4"">
         <Entry Label=""Full width""/>

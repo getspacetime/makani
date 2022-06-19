@@ -1,13 +1,15 @@
 ﻿@namespace Makani
+@inject ILogger<Entry> Log
 
 <div class="flex flex-col">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
         <label class="text-gray-700 dark:text-gray-300" for="@Id">@Label</label>
     }
-    <input class="px-4 py-2 mt-2 border border-gray-200 dark:border-gray-600 focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md"
-           id="@Id" 
-           type="text" />
+    <input id="@Id"
+           type="text"
+           @onchange="OnChange" @oninput="OnInput"
+           class="px-4 py-2 mt-2 border border-gray-200 dark:border-gray-600 focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md" />
 </div>
 
 @code {
@@ -16,8 +18,37 @@
     internal string Id => $"entry-{_guid}";
 
     /// <summary>
+    /// Defaults to immediate mode
+    /// </summary>
+    [Parameter]
+    public EntryMode Mode { get; set; } = EntryMode.Immediate;
+
+    /// <summary>
     /// Optional label (recommended)
     /// </summary>
     [Parameter]
     public string? Label { get; set; }
+
+    [Parameter]
+    public string? Value { get; set; }
+
+    [Parameter]
+    public EventCallback<string> ValueChanged { get; set; }
+
+    public async Task OnChange(ChangeEventArgs args)
+    {
+        Log.LogInformation("Value changed for {id}: {value}", Id, args.Value);
+        await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
+    }
+
+    public async Task OnInput(ChangeEventArgs args)
+    {
+        if (Mode != EntryMode.Immediate)
+        {
+            return;
+        }
+
+        Log.LogInformation("Input changed for {id}: {value}", Id, args.Value);
+        await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
+    }
 }

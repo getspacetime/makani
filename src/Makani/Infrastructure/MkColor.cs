@@ -4,18 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Makani
+namespace Makani;
+public enum MkColor
 {
-    public enum MkColor
-    {
-        Default,
-        Primary,
-        Secondary
-    }
+    Default,
+    Primary,
+    Secondary
+}
 
-    public enum MkCardAlignment
-    {
-        Top,
-        Left
-    }
+public enum MkCardAlignment
+{
+    Top,
+    Left
 }

@@ -1,0 +1,26 @@
+﻿@namespace Makani
+
+<a class="font-bold dark:text-slate-200 decoration-2 underline decoration-sky-500/[.33] hover:decoration-sky-500"
+   href="@Url" target="@GetTarget()">@ChildContent</a>
+
+@code {
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string Url { get; set; }
+
+    [Parameter]
+    public LinkTarget Target { get; set; }
+
+    public string GetTarget()
+    {
+        switch (Target)
+        {
+            case LinkTarget.NewTab:
+                return "_blank";
+            default:
+                return "_self";
+        }
+    }
+}
