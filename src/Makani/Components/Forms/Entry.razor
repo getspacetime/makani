@@ -1,4 +1,5 @@
 ﻿@namespace Makani
+@using Makani.Components.Forms.Validators
 @inject ILogger<Entry> Log
 
 <div class="flex flex-col">
@@ -9,18 +10,46 @@
     <input id="@Id"
            type="text"
            @onchange="OnChange" @oninput="OnInput"
-           class="px-4 py-2 mt-2 border border-gray-200 dark:border-gray-600 focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md" />
-    @if (!string.IsNullOrWhiteSpace(HelperText))
+           class="@baseCss @(hasError ? errorBorder : defaultBorder)" />
+    @if (!string.IsNullOrWhiteSpace(HelperText) && string.IsNullOrWhiteSpace(errorMessage))
     {
         <span class="text-xs font-sans dark:text-gray-400 text-gray-600 py-2">@HelperText</span>
+    }
+    else if (!string.IsNullOrWhiteSpace(errorMessage))
+    {
+        <span class="text-xs font-sans dark:text-error-600 text-error-800 py-2">@errorMessage</span>
     }
 
 </div>
 
 @code {
+    private readonly List<IEntryValidator> _validators = new();
     private readonly Guid _guid = Guid.NewGuid();
+    private bool hasError = false;
+    private string baseCss = "px-4 py-2 mt-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
+    private string defaultBorder = "border-gray-200 dark:border-gray-600";
+    private string errorBorder = "border-error-800 dark:border-error-600";
+    private string? errorMessage;
 
     internal string Id => $"entry-{_guid}";
+
+    protected override void OnInitialized()
+    {
+        if (Required == true)
+        {
+            _validators.Add(new RequiredValidator());
+        }
+
+        if (MinLength.HasValue)
+        {
+            _validators.Add(new MinLengthValidator(MinLength.Value));
+        }
+
+        if (MaxLength.HasValue)
+        {
+            _validators.Add(new MaxLengthValidator(MaxLength.Value));
+        }
+    }
 
     /// <summary>
     /// Defaults to immediate mode
@@ -46,9 +75,28 @@
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
 
+    // validators
+    [Parameter]
+    public bool? Required { get; set; }
+
+    [Parameter]
+    public int? MinLength { get; set; }
+
+    [Parameter]
+    public int? MaxLength { get; set; }
+
+    /// <summary>
+    /// Invoked when a validator indicates a validation error.
+    /// </summary>
+    [Parameter]
+    public EventCallback<IList<ValidationResult>> OnError { get; set; }
+
     public async Task OnChange(ChangeEventArgs args)
     {
         Log.LogInformation("Value changed for {id}: {value}", Id, args.Value);
+
+        // pass in args value, the Value property is not updated at this point
+        Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
 
@@ -60,6 +108,31 @@
         }
 
         Log.LogInformation("Input changed for {id}: {value}", Id, args.Value);
+
+        // pass in args value, the Value property is not updated at this point
+        Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
+    }
+
+    internal void Validate(object? value)
+    {
+        var strValue = value?.ToString();
+        var results = new List<ValidationResult>();
+        foreach (var v in _validators)
+        {
+            results.Add(v.Validate(strValue));
+        }
+
+        if (results.Any(p => !p.Valid))
+        {
+            hasError = true;
+            errorMessage = results.First(p => !p.Valid).Message;
+            OnError.InvokeAsync(results);
+        }
+        else
+        {
+            errorMessage = null;
+            hasError = false;
+        }
     }
 }
