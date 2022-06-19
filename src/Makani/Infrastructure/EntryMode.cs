@@ -19,11 +19,3 @@ public enum EntryMode
     /// </summary>
     Blur
 }
-
-
-public enum LinkTarget
-{
-    Default,
-    Current,
-    NewTab
-}
