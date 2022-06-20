@@ -1,6 +1,9 @@
-[![Build](https://github.com/getspacetime/makani/actions/workflows/build.yml/badge.svg)](https://github.com/getspacetime/makani/actions/workflows/build.yml)
-![nuget](https://img.shields.io/nuget/dt/makani)
-![nuget](https://img.shields.io/nuget/vpre/makani)
+[![Build](https://github.com/getspacetime/makani/actions/workflows/build.yml/badge.svg)](https://github.com/getspacetime/makani/actions/workflows/build.yml?style=flat-square)
+![nuget](https://img.shields.io/nuget/dt/makani?style=flat-square)
+![nuget](https://img.shields.io/nuget/vpre/makani?style=flat-square)
+![GitHub stars](https://img.shields.io/github/stars/getspacetime/makani?style=flat-square)
+![last commit](https://img.shields.io/github/last-commit/getspacetime/makani?style=flat-square)
+![Discord](https://img.shields.io/discord/984241021225414787?style=flat-square)
 <sup>[Discord](https://discord.gg/PeBbYy6WKq)</sup>
 
 # 🏖️ makani
