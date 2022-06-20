@@ -1,16 +1,14 @@
 ﻿@inject ILogger<FormSample> Log
 
-<div class="border-b border-slate-600 mb-4">
-    <MkText Type="Typo.H3">Entry</MkText>
-</div>
+<MkText Type="Typo.H1">Entry</MkText>
 <div class="mb-10">
-    <MkText Type="Typo.H5">Sizing</MkText>
+    <MkText Type="Typo.H3">Sizing</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         Control the size of <MkInlineCode>MkEntry</MkInlineCode> by using <MkLink Url="https://tailwindcss.com/docs/grid-template-columns" Target="LinkTarget.NewTab">Tailwind Grid Template Columns</MkLink>.
     </MkText>
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
-            <Entry Label="Full width" />
+            <Entry Label="Full width"/>
         </div>
         <div class="col-span-2">
             <Entry Label="Medium width"></Entry>
@@ -23,7 +21,7 @@
 </div>
 
 <div class="mb-10">
-    <MkText Type="Typo.H5">Data binding</MkText>
+    <MkText Type="Typo.H3">Data binding</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         The <MkInlineCode>MkEntry</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
     </MkText>
@@ -44,7 +42,7 @@
         </div>
     </div>
 
-    <MkText Type="Typo.H5">Validation</MkText>
+    <MkText Type="Typo.H3">Validation</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         <strong>Built-in validation:</strong>
 

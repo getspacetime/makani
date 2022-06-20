@@ -2,171 +2,26 @@
 @inject ToastService Service
 @inject ILogger<Index> Log
 
-<MkToastProvider />
-<MkText Type="Typo.H1">Theme</MkText>
-<div class="mb-8">
-    <MkText Type="Typo.H3">Dark Mode</MkText>
-    <p class="dark:text-gray-200">Components are compatible "out of the box" with light and dark modes. </p>
-</div>
-
-
-<MkText Type="Typo.H1">Components</MkText>
-<div class="mb-10">
-    <div class="border-b border-slate-600 mb-4">
-        <MkText Type="Typo.H3">Alerts</MkText>
+<div class="grid grid-cols-4 pt-10">
+    <div class="col-span-1">
+        <MkVertNav/>
     </div>
-    <ToastSample></ToastSample>
-</div>
+    <div class="col-span-3">
+        <MkText Type="Typo.H4">Getting Started</MkText>
+        <div class="mb-10">
+            <MkText Type="Typo.H1">Quick Start</MkText>
+            <MkText Type="Typo.H3">Install via NuGet</MkText>
+            <MkCode Text="dotnet add package Makani"></MkCode>
 
-<div class="mb-8">
-    <div class="border-b border-slate-600 mb-4">
-        <MkText Type="Typo.H3">Buttons</MkText>
-    </div>
-    <div class="mb-10">
-        <MkText Type="Typo.H5">Primary buttons</MkText>
-        <MkButton Color="MkColor.Primary" Size="MkSize.Small">Small</MkButton>
-        <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
-        <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
+            <MkText Type="Typo.H3" Css="mt-4">Update your <code class="bg-gray-200 dark:text-gray-800 font-mono font-sm rounded-sm">_Imports.razor</code></MkText>
+            <MkCode Text="@("@using Makani")"></MkCode>
 
-        <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-    </div>
-    <div class="mb-10">
-        <MkText Type="Typo.H5">Default buttons</MkText>
-        <MkButton Size="MkSize.Small">Small</MkButton>
-        <MkButton Css="ml-5">Default</MkButton>
-        <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
-
-        <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-    </div>
-    <div class="mb-10">
-        <MkText Type="Typo.H5">Buttons with actions</MkText>
-        <div class="flex items-baseline">
-            <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
-            <p class="dark:text-gray-200 ml-4 mb-4"><strong>Count: </strong> @Count</p>
+            <MkText Type="Typo.H3" Css="mt-4">Add Makani in your <code class="bg-gray-200 dark:text-gray-800 font-mono font-sm rounded-sm">Program.cs</code></MkText>
+            <MkCode Text="builder.Services.AddMakani();"></MkCode>
         </div>
-        <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-    </div>
-
-    <div class="mb-10">
-        <MkText Type="Typo.H5">Customized buttons</MkText>
-        <p class="dark:text-gray-200 mb-5">Customization is almost unlimited!</p>
-
-        <p class="dark:text-gray-200 font-semibold text-sm tracking-wide">Sample components below are for demonstration purposes only. You can use these samples or any other Tailwind styles you need.</p>
-
-        <MkButton Tailwind="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">Customized button</MkButton>
-        <MkButton Tailwind="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Customized button</MkButton>
-        <MkButton Tailwind="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Customized button</MkButton>
-        <MkButton Tailwind="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Customized button</MkButton>
-        <MkButton Tailwind="inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9">:-)</MkButton>
-
-        <MkCode Text="@customButtons" Language="@MkCode.Html" Caption="Example" Css="my-4" />
+        <MkButton Size="MkSize.Large" Color="MkColor.Primary">Explore Components</MkButton>
     </div>
 </div>
 
-<div class="mb-8">
-    <FormSample />
-</div>
-
-<div class="mb-8">
-    <DropdownSample />
-</div>
-
-<div class="mb-8">
-    <TabSample />
-</div>
-
-<div class="mb-8">
-    <CardSample />
-</div>
-
-<div class="mb-10">
-    <div class="border-b border-slate-600 mb-4">
-        <MkText Type="Typo.H3">Syntax Highligher</MkText>
-    </div>
-    <div class="mb-10">
-        <p class="dark:text-gray-200">The below code snippet is your example and your documentation!</p>
-        <MkCode Text="@syntax" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-    </div>
-
-    <div class="mb-10">
-        <p class="dark:text-gray-200 mt-4">Several languages have support built in, discoverable via intellisense in the <code>MkCode</code> component.</p>
-        <MkCode Text="@markup" Language="@MkCode.Csharp" Caption="Example" Css="my-4"></MkCode>
-    </div>
-</div>
-<div class="mb-10">
-    <div class="border-b border-slate-600 mb-4">
-        <MkText Type="Typo.H3">Typography</MkText>
-    </div>
-
-    <MkText Type="Typo.H1">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.H2">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.H3">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.H4">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.H5">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.H6">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.Body">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkText Type="Typo.Caption">The quick brown fox jumps over the lazy dog.</MkText>
-
-    <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4" />
-</div>
-@code
-{
-
-    private string customButtons = @"<MkButton Tailwind=""text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"">Customized button</MkButton>
-<MkButton Tailwind=""inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"">Customized button</MkButton>
-<MkButton Tailwind=""inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"">Customized button</MkButton>
-<MkButton Tailwind=""inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"">Customized button</MkButton>
-<MkButton Tailwind=""inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9"">:-)</MkButton>";
-
-    private List<MkDropdown.MkMenuItem> Items = new List<MkDropdown.MkMenuItem>
-    {
-        new MkDropdown.MkMenuItem {Text = "Menu item 1"},
-        new MkDropdown.MkMenuItem {Text = "Menu item 2"},
-        new MkDropdown.MkMenuItem {Text = "Menu item 3"},
-        new MkDropdown.MkMenuItem {Text = "Menu item 4"},
-    };
-    public int Count { get; set; } = 0;
-
-    private string markup = @"public static string Html = ""html"";
-public static string Markup = ""markup"";
-public static string Xml = ""xml"";
-public static string Svg = ""svg"";
-public static string MathMl = ""mathml"";
-public static string Rss = ""rss"";
-public static string Css = ""css"";
-public static string Javascript = ""js"";
-public static string Razor = ""razor"";
-public static string Csharp = ""csharp"";
-";
-    private string syntax = @"<MkCode Text=""@markup"" Language=""@MkCode.Html"" />
-
-<!-- optional caption -->
- <MkCode Text=""@markup"" Language=""@MkCode.Html"" Caption=""Example""/>
-
-@code
-{
-    private string markup = @""<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>"";
-}
-";
-
-    private string buttons = @"<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>
-<MkButton Color=""MkColor.Primary"">Default</MkButton>
-<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>
-";
-
-    private string secondaryButtons = @"<MkButton Size=""MkSize.Small"">Small</MkButton>
-<MkButton>Default</MkButton>
-<MkButton Size=""MkSize.Small"">Small</MkButton>
-";
-
-    private string buttonsWithActions = @"<MkButton OnClick=""() => { Count++; }"">Click me!</MkButton>";
-    private string buttonsWithCss = @"<MkButton Css=""border border-red-500 border-solid"">I have a red border!</MkButton>";
-    private string h1 = @"<MkText Type=""Typo.H1"">The quick brown fox jumps over the lazy dog.</MkText>";
+@code {
 }

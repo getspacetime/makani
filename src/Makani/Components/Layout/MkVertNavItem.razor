@@ -1,0 +1,21 @@
+@namespace Makani
+
+<li class="px-2 py-2">
+    <NavLink href="@Url"
+             Match="NavLinkMatch.All"
+             ActiveClass="bg-slate-200 dark:bg-slate-700"
+             class="px-2 py-2 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-300 font-medium font-sans leading-6 rounded-md">
+        @ChildContent
+    </NavLink>
+</li>
+
+@code {
+    [Parameter]
+    public bool Active { get; set; }
+
+    [Parameter]
+    public string? Url { get; set; }
+    
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+}
