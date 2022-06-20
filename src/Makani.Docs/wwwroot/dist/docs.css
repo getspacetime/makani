@@ -506,6 +506,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: static;
 }
 
+.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+}
+
 .col-span-1 {
   grid-column: span 1 / span 1;
 }
@@ -578,6 +583,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .grid {
   display: grid;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .h-9 {

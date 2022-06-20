@@ -1,4 +1,8 @@
 ﻿@inherits LayoutComponentBase
+@using Makani.Utilities
+@inject NavigationManager Nav
+@inject IElementUtils ElementUtils
+@inject ILogger<MainLayout> Log
 
 <MkHeader Title="Makani Docs">
     <MkDarkModeToggle />
@@ -11,3 +15,31 @@
 <article class="container mx-auto px-4">
     @Body
 </article>
+
+@code {
+    protected override void OnAfterRender(bool firstRender)
+    {
+        if (firstRender)
+        {
+            Nav.LocationChanged += NavOnLocationChanged;
+        }
+    }
+
+    private void NavOnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        try
+        {
+            var uri = Nav.ToAbsoluteUri(Nav.Uri);
+            if (!string.IsNullOrWhiteSpace(uri.Fragment) && uri.Fragment.Length > 1)
+            {
+                Log.LogInformation("Scrolling to fragment {fragment}", uri.Fragment);
+                ElementUtils.ScrollToFragment(uri.Fragment.Substring(1));
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.LogError(ex, "Failed to scroll to fragment");
+        }
+    }
+
+}
