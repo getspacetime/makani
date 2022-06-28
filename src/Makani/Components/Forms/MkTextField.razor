@@ -1,6 +1,6 @@
 ﻿@namespace Makani
 @using Makani.Components.Forms.Validators
-@inject ILogger<Entry> Log
+@inject ILogger<MkTextField> Log
 
 <div class="flex flex-col">
     @if (!string.IsNullOrWhiteSpace(Label))
@@ -63,6 +63,11 @@
     [Parameter]
     public string? Label { get; set; }
 
+    /// <summary>
+    /// Optional label type
+    /// </summary>
+    public MkLabelType LabelType { get; set; }
+    
     /// <summary>
     /// Optional helper text
     /// </summary>

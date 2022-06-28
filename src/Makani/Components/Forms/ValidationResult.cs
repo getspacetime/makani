@@ -11,3 +11,9 @@ public class ValidationResult
     public bool Valid { get; }
     public string? Message { get; }
 }
+
+public enum MkLabelType
+{
+    Default,
+    Floating
+}

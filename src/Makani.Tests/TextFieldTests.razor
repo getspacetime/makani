@@ -2,7 +2,7 @@
     [Theory, AutoMoqData]
     public void Entry_ShouldRender(TestContext ctx)
     {
-        var sut = ctx.RenderComponent<Entry>();
+        var sut = ctx.RenderComponent<MkTextField>();
         sut.Should().NotBeNull();
 
         var id = sut.Instance.Id;
@@ -13,7 +13,7 @@
     public void Entry_ShouldRender_WithLabel(TestContext ctx)
     {
         var label = "My label";
-        var sut = ctx.RenderComponent<Entry>(r => r.Add(p => p.Label, label));
+        var sut = ctx.RenderComponent<MkTextField>(r => r.Add(p => p.Label, label));
         sut.Should().NotBeNull();
 
         sut.MarkupMatches(@<div class:ignore><label class:ignore for="@sut.Instance.Id">@label</label><input class:ignore id="@sut.Instance.Id" type="text"/></div>);
