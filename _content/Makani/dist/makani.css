@@ -542,6 +542,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
+.left-2 {
+  left: 0.5rem;
+}
+
+.-top-3 {
+  top: -0.75rem;
+}
+
 .right-0 {
   right: 0px;
 }
@@ -681,6 +689,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   cursor: pointer;
 }
 
+.cursor-text {
+  cursor: text;
+}
+
 .flex-col {
   flex-direction: column;
 }
@@ -812,6 +824,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
 }
 
 .bg-transparent {
@@ -1149,6 +1166,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   transition-duration: 150ms;
 }
 
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-700 {
   transition-duration: 700ms;
 }
@@ -1224,6 +1247,56 @@ Ensure the default browser behavior of the `hidden` attribute.
   visibility: visible;
 }
 
+.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:left-2 {
+  left: 0.5rem;
+}
+
+.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:left-2 {
+  left: 0.5rem;
+}
+
+.peer:placeholder-shown ~ .peer-placeholder-shown\:left-2 {
+  left: 0.5rem;
+}
+
+.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-5 {
+  top: 1.25rem;
+}
+
+.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:top-5 {
+  top: 1.25rem;
+}
+
+.peer:placeholder-shown ~ .peer-placeholder-shown\:top-5 {
+  top: 1.25rem;
+}
+
+.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:bg-transparent {
+  background-color: transparent;
+}
+
+.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:bg-transparent {
+  background-color: transparent;
+}
+
+.peer:placeholder-shown ~ .peer-placeholder-shown\:bg-transparent {
+  background-color: transparent;
+}
+
+.peer:focus ~ .peer-focus\:-top-3 {
+  top: -0.75rem;
+}
+
+.peer:focus ~ .peer-focus\:bg-slate-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(241 245 249 / var(--tw-bg-opacity));
+}
+
+.peer:focus ~ .peer-focus\:text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
 .dark .dark\:border-gray-600 {
   --tw-border-opacity: 1;
   border-color: rgb(75 85 99 / var(--tw-border-opacity));
@@ -1248,6 +1321,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
 }
 
+.dark .dark\:bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
+}
+
 .dark .dark\:bg-transparent {
   background-color: transparent;
 }
@@ -1255,11 +1333,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dark .dark\:bg-gray-800 {
   --tw-bg-opacity: 1;
   background-color: rgb(31 41 55 / var(--tw-bg-opacity));
-}
-
-.dark .dark\:bg-gray-900 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 .dark .dark\:bg-slate-700 {
@@ -1339,6 +1412,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .dark .dark\:hover\:text-slate-300:hover {
   --tw-text-opacity: 1;
   color: rgb(203 213 225 / var(--tw-text-opacity));
+}
+
+.dark .peer:focus ~ .dark\:peer-focus\:bg-gray-900 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(17 24 39 / var(--tw-bg-opacity));
 }
 
 @media (min-width: 640px) {
