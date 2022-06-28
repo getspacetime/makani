@@ -21,6 +21,19 @@
 </div>
 
 <div class="mb-10">
+    <MkText Type="Typo.H3">Labels</MkText>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Default label"></MkTextField>
+        </div>
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Floating label" LabelType="MkLabelType.Floating"></MkTextField>
+        </div>
+    </div>
+    <MkCode Text="@labelTypeMarkup" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+</div>
+
+<div class="mb-10">
     <MkText Type="Typo.H3">Data binding</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         The <MkInlineCode>MkTextField</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
@@ -86,7 +99,7 @@
     public string RequiredError { get; set; }
     public string MaxLenError { get; set; }
     public string MinLenError { get; set; }
-
+    private string labelTypeMarkup = @"<MkTextField Label=""Floating label"" LabelType=""MkLabelType.Floating""></MkTextField>";
     private string markup = @"<div class=""grid grid-cols-4 gap-4"">
     <div class=""col-span-4"">
         <MkTextField Label=""Full width""/>
