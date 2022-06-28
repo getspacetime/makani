@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Makani.dll": "sha256-cQYFwgRxLVon3NPLJ8Jmcaur\/PAvNerPpSqa9kNoSak=",
-      "Makani.Docs.dll": "sha256-xLZv19w6AXNiI9GbQx6BMHfz3I6QCAa58yE8fKNxPEM=",
+      "Makani.dll": "sha256-oMfDdeW0+FF+Auqdsgkc5YtzVD3CyIrjggDLLhWC1pM=",
+      "Makani.Docs.dll": "sha256-9UujmXhLJbz0EQSIG1\/E471uUZ31rc\/hQyRtrJ3grRc=",
       "Microsoft.AspNetCore.Components.dll": "sha256-0TVylEDqut8fVCay05Bea1da6QQYsEqaYXa+VOk5yb0=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-PdYKNU3JFUSCwZkUC2EvjucmTjwE3xrGoa+SvpFmvWs=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-zReTkSy8DtGkpmb1tQhBMFr43\/a1O2JgVAa38eLXw6w=",
