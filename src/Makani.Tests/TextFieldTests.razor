@@ -6,7 +6,7 @@
         sut.Should().NotBeNull();
 
         var id = sut.Instance.Id;
-        sut.MarkupMatches(@<div class:ignore><input class:ignore id="@id" type="text"/></div>);
+        sut.MarkupMatches(@<div class:ignore><input class:ignore id="@id" placeholder:ignore type="text"/></div>);
     }
 
     [Theory, AutoMoqData]
@@ -16,6 +16,6 @@
         var sut = ctx.RenderComponent<MkTextField>(r => r.Add(p => p.Label, label));
         sut.Should().NotBeNull();
 
-        sut.MarkupMatches(@<div class:ignore><label class:ignore for="@sut.Instance.Id">@label</label><input class:ignore id="@sut.Instance.Id" type="text"/></div>);
+        sut.MarkupMatches(@<div class:ignore><label class:ignore for="@sut.Instance.Id">@label</label><input class:ignore id="@sut.Instance.Id" placeholder:ignore type="text"/></div>);
     }
 }
