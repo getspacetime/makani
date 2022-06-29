@@ -7,8 +7,8 @@
   "linkerEnabled": true,
   "resources": {
     "assembly": {
-      "Makani.dll": "sha256-oMfDdeW0+FF+Auqdsgkc5YtzVD3CyIrjggDLLhWC1pM=",
-      "Makani.Docs.dll": "sha256-9UujmXhLJbz0EQSIG1\/E471uUZ31rc\/hQyRtrJ3grRc=",
+      "Makani.dll": "sha256-P9rZKvbguDiWNAZ4tWH3GAns8XiIYQD0CD7qolqKV+U=",
+      "Makani.Docs.dll": "sha256-V\/mK1\/9NcqHnYJpTdUwmIPsdHlzMG8SIufWL67U8588=",
       "Microsoft.AspNetCore.Components.dll": "sha256-0TVylEDqut8fVCay05Bea1da6QQYsEqaYXa+VOk5yb0=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-PdYKNU3JFUSCwZkUC2EvjucmTjwE3xrGoa+SvpFmvWs=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-zReTkSy8DtGkpmb1tQhBMFr43\/a1O2JgVAa38eLXw6w=",
@@ -44,7 +44,7 @@
       "System.Runtime.InteropServices.RuntimeInformation.dll": "sha256-zlvKyWTjIlOw13pIFckssuOQRDDDDUDJqh0oNRcmz6Y=",
       "System.Text.Encodings.Web.dll": "sha256-3PG1fujuYiNW+EfU6q1TW1P04HdvecVgmmswu68mwnU=",
       "System.Text.Json.dll": "sha256-jeSA4PNfKa7TX23koVYJuJ49yQby4tVBZEvaGlMijO8=",
-      "System.Text.RegularExpressions.dll": "sha256-p524qpPlMMZ+SRA8b74JqWPOrLbVUcA3zehem23ujsU=",
+      "System.Text.RegularExpressions.dll": "sha256-WH2jLyy4bUPXP0xiZ7RVYTab0nXCpTnlSbYLbZJItpI=",
       "System.Threading.dll": "sha256-bMiLQfYmwKZx4oVegAHC+My1gWOqTQKQga5ZNm5O3\/w="
     },
     "extensions": null,
