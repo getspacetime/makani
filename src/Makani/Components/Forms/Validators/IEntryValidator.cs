@@ -1,6 +1,6 @@
 ﻿namespace Makani.Components.Forms.Validators;
 
-public interface IEntryValidator
+internal interface IEntryValidator
 {
     /// <summary>
     /// Checks if the entry is valid. Runs <see cref="Validate"/> if the rule

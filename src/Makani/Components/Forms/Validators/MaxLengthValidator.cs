@@ -1,6 +1,6 @@
 ﻿namespace Makani.Components.Forms.Validators;
 
-public class MaxLengthValidator : EntryValidator
+internal class MaxLengthValidator : EntryValidator
 {
     private readonly int _maxLength;
 

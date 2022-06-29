@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Makani.Components.Forms.Validators;
 
-public abstract class EntryValidator : IEntryValidator
+internal abstract class EntryValidator : IEntryValidator
 {
     protected ValidationResult? Valid;
     protected string? Input;

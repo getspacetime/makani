@@ -1,6 +1,6 @@
 ﻿namespace Makani.Components.Forms.Validators;
 
-public class MinLengthValidator : EntryValidator
+internal class MinLengthValidator : EntryValidator
 {
     private readonly int _minLength;
 

@@ -1,6 +1,6 @@
 ﻿namespace Makani.Components.Forms.Validators;
 
-public class RequiredValidator : EntryValidator
+internal class RequiredValidator : EntryValidator
 {
     public override ValidationResult ExecuteValidate(string? input)
     {

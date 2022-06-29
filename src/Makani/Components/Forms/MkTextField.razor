@@ -15,7 +15,7 @@
            type="text"
            @onchange="OnChange" @oninput="OnInput"
            placeholder="@Placeholder"
-           class="@baseCss @(hasError ? errorBorder : defaultBorder)"/>
+           class="@baseCss @(hasError ? errorBorder : defaultBorder)" />
     @if (!string.IsNullOrWhiteSpace(Label) && LabelType == MkLabelType.Floating)
     {
         <!-- todo: integrate bg color with customization / user selected bg color -->
@@ -64,6 +64,11 @@
         {
             _validators.Add(new RegexValidator(new Regex(Regex)));
         }
+
+        if (Min.HasValue)
+        {
+            _validators.Add(new MinMaxValidator(Min.Value, Max));
+        }
     }
 
     /// <summary>
@@ -96,16 +101,39 @@
     [Parameter]
     public EventCallback<string> ValueChanged { get; set; }
 
-    // validators
+    /// <summary>
+    /// Makes the input required.
+    /// </summary>
     [Parameter]
     public bool? Required { get; set; }
 
+    /// <summary>
+    /// Enforces a minimum string length.
+    /// </summary>
     [Parameter]
     public int? MinLength { get; set; }
 
+    /// <summary>
+    /// Enforces a maximum string length.
+    /// </summary>
     [Parameter]
     public int? MaxLength { get; set; }
 
+    /// <summary>
+    /// Enforces a minimum for integers.
+    /// </summary>
+    [Parameter]
+    public int? Min { get; set; }
+
+    /// <summary>
+    /// Enforces a maximum for integers.
+    /// </summary>
+    [Parameter]
+    public int? Max { get; set; }
+
+    /// <summary>
+    /// Validates using the Regular Expression.
+    /// </summary>
     [Parameter]
     public string? Regex { get; set; }
 
@@ -120,9 +148,7 @@
 
     public async Task OnChange(ChangeEventArgs args)
     {
-        Log.LogInformation("Value changed for {id}: {value}", Id, args.Value);
-
-    // pass in args value, the Value property is not updated at this point
+        // pass in args value, the Value property is not updated at this point
         Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
@@ -134,9 +160,7 @@
             return;
         }
 
-        Log.LogInformation("Input changed for {id}: {value}", Id, args.Value);
-
-    // pass in args value, the Value property is not updated at this point
+        // pass in args value, the Value property is not updated at this point
         Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
@@ -162,5 +186,4 @@
             hasError = false;
         }
     }
-
 }

@@ -2,7 +2,7 @@
 
 namespace Makani.Components.Forms.Validators;
 
-public class RegexValidator : EntryValidator
+internal class RegexValidator : EntryValidator
 {
     private readonly Regex _rx;
 
