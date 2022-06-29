@@ -1,35 +1,46 @@
 ﻿@inject ILogger<FormSample> Log
 
-<div class="border-b border-slate-600 mb-4">
-    <MkText Type="Typo.H3">Entry</MkText>
-</div>
+<MkText Type="Typo.H1" Id="textfield">TextField (preview)</MkText>
 <div class="mb-10">
-    <MkText Type="Typo.H5">Sizing</MkText>
+    <MkText Type="Typo.H3">Sizing</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
-        Control the size of <MkInlineCode>MkEntry</MkInlineCode> by using <MkLink Url="https://tailwindcss.com/docs/grid-template-columns" Target="LinkTarget.NewTab">Tailwind Grid Template Columns</MkLink>.
+        Control the size of <MkInlineCode>MkTextField</MkInlineCode> by using <MkLink Url="https://tailwindcss.com/docs/grid-template-columns" Target="LinkTarget.NewTab">Tailwind Grid Template Columns</MkLink>.
     </MkText>
     <div class="grid grid-cols-4 gap-4">
         <div class="col-span-4">
-            <Entry Label="Full width" />
+            <MkTextField Label="Full width"/>
         </div>
         <div class="col-span-2">
-            <Entry Label="Medium width"></Entry>
+            <MkTextField Label="Medium width"></MkTextField>
         </div>
         <div class="col-start-1 col-span-1">
-            <Entry Label="Small width"></Entry>
+            <MkTextField Label="Small width"></MkTextField>
         </div>
     </div>
     <MkCode Text="@markup" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
 </div>
 
 <div class="mb-10">
-    <MkText Type="Typo.H5">Data binding</MkText>
+    <MkText Type="Typo.H3">Labels</MkText>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Default label"></MkTextField>
+        </div>
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Floating label" LabelType="MkLabelType.Floating"></MkTextField>
+        </div>
+    </div>
+    <MkCode Text="@labelTypeMarkup" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+</div>
+
+<div class="mb-10">
+    <MkText Type="Typo.H3">Data binding</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
-        The <MkInlineCode>MkEntry</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
+        The <MkInlineCode>MkTextField</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
     </MkText>
     <div class="grid grid-cols-4 gap-4 mb-4">
         <div class="col-span-2">
-            <Entry Label="Immediate mode" @bind-Value="Username"></Entry>
+            <MkTextField Label="Immediate mode" @bind-Value="Username"></MkTextField>
         </div>
         <div class="col-span-2 flex items-end">
             <MkText Type="Typo.Body">Value: @Username</MkText>
@@ -37,14 +48,14 @@
     </div>
     <div class="grid grid-cols-4 gap-4 mb-4">
         <div class="col-span-2">
-            <Entry Label="Delayed mode" Mode="EntryMode.Blur" HelperText="Hint: hit tab or click outside the input" @bind-Value="Delayed"></Entry>
+            <MkTextField Label="Delayed mode" Mode="EntryMode.Blur" HelperText="Hint: hit tab or click outside the input" @bind-Value="Delayed"></MkTextField>
         </div>
         <div class="col-span-2 flex items-center">
             <MkText Type="Typo.Body">Value: @Delayed</MkText>
         </div>
     </div>
 
-    <MkText Type="Typo.H5">Validation</MkText>
+    <MkText Type="Typo.H3">Validation</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         <strong>Built-in validation:</strong>
 
@@ -56,7 +67,7 @@
     </MkText>
     <div class="grid grid-cols-4 gap-4 mb-4">
         <div class="col-span-2">
-            <Entry Label="Required username" Required="true" OnError="OnRequiredError" @bind-Value="Username"></Entry>
+            <MkTextField Label="Required username" Required="true" OnError="OnRequiredError" @bind-Value="Username"></MkTextField>
         </div>
         <div class="col-span-2 flex items-end">
             <MkText Type="Typo.Body">Value: @Username, Error: @RequiredError</MkText>
@@ -65,7 +76,7 @@
 
     <div class="grid grid-cols-4 gap-4 mb-4">
         <div class="col-span-2">
-            <Entry Label="Min length username" MinLength="3" OnError="OnMinLenError" @bind-Value="Username"></Entry>
+            <MkTextField Label="Min length username" MinLength="3" OnError="OnMinLenError" @bind-Value="Username"></MkTextField>
         </div>
         <div class="col-span-2 flex items-end">
             <MkText Type="Typo.Body">Value: @Username, Error: @MinLenError</MkText>
@@ -74,7 +85,7 @@
 
     <div class="grid grid-cols-4 gap-4 mb-4">
         <div class="col-span-2">
-            <Entry Label="Max length username" MaxLength="10" OnError="OnMaxLenError" @bind-Value="Username"></Entry>
+            <MkTextField Label="Max length username" MaxLength="10" OnError="OnMaxLenError" @bind-Value="Username"></MkTextField>
         </div>
         <div class="col-span-2 flex items-end">
             <MkText Type="Typo.Body">Value: @Username, Error: @MaxLenError</MkText>
@@ -88,16 +99,16 @@
     public string RequiredError { get; set; }
     public string MaxLenError { get; set; }
     public string MinLenError { get; set; }
-
+    private string labelTypeMarkup = @"<MkTextField Label=""Floating label"" LabelType=""MkLabelType.Floating""></MkTextField>";
     private string markup = @"<div class=""grid grid-cols-4 gap-4"">
     <div class=""col-span-4"">
-        <Entry Label=""Full width""/>
+        <MkTextField Label=""Full width""/>
     </div>
     <div class=""col-span-2"">
-        <Entry Label=""Medium width""></Entry>
+        <MkTextField Label=""Medium width"" />
     </div>
     <div class=""col-start-1 col-span-1"">
-        <Entry Label=""Small width""></Entry>
+        <MkTextField Label=""Small width"" />
     </div>
 </div>";
 

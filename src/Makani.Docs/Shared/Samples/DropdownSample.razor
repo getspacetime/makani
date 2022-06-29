@@ -2,17 +2,17 @@
 
 @inject ILogger<MkDropdown> Log
 
-<div class="border-b border-slate-600 mb-4">
-    <MkText Type="Typo.H3">Dropdowns</MkText>
-</div>
+<MkText Type="Typo.H1" Id="dropdowns">Dropdowns</MkText>
 <div class="mb-10">
-    <MkText Type="Typo.H5">Button dropdown</MkText>
+    <MkText Type="Typo.H3">Button dropdown</MkText>
     <div class="flex items-baseline">
         <MkDropdown Items="Items" OnItemSelected="ItemSelected">Settings</MkDropdown>
-        <p class="dark:text-gray-200 ml-4 mb-4"><strong>Selected: </strong> @MenuItemClicked</p>
+        <p class="dark:text-gray-200 ml-4 mb-4">
+            <strong>Selected: </strong> @MenuItemClicked
+        </p>
     </div>
 
-    <MkCode Text="@Markup" Language="@MkCode.Razor" Caption="Example" Css="my-4" />
+    <MkCode Text="@Markup" Language="@MkCode.Razor" Caption="Example" Css="my-4"/>
 </div>
 
 @code {
@@ -43,4 +43,5 @@
     };
 }
 ";
+
 }

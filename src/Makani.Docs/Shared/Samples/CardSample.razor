@@ -1,11 +1,7 @@
-﻿<div class="border-b border-slate-600 mb-4">
-    <MkText Type="Typo.H3">Cards</MkText>
-</div>
-
+﻿<MkText Type="Typo.H1" Id="cards">Cards</MkText>
 <div>
-
-<MkText Type="Typo.H4">Default Card with optional image</MkText>
-    <MkCard Title="Card Title">
+    <MkText Type="Typo.H3">Default Card with optional image</MkText>
+    <MkCard Title="Card Title" Css="mb-8">
         <MkText Type="Typo.Body">
             The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
         </MkText>
@@ -14,8 +10,8 @@
         </MkCardFooter>
     </MkCard>
 
- <MkText Type="Typo.H4">Top Aligned Card</MkText>
-    <MkCard Title="Card Title" Alignment="MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300">
+    <MkText Type="Typo.H3">Top Aligned Card</MkText>
+    <MkCard Title="Card Title" Alignment="MkCardAlignment.Top" ImageUrl="https://picsum.photos/400/300" Css="mb-8">
         <MkText Type="Typo.Body">
             The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
         </MkText>
@@ -25,8 +21,8 @@
     </MkCard>
 
 
-<MkText Type="Typo.H4">Left Aligned Card</MkText>
-    <MkCard Title="Card Title" Alignment="MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300">
+    <MkText Type="Typo.H3">Left Aligned Card</MkText>
+    <MkCard Title="Card Title" Alignment="MkCardAlignment.Left" ImageUrl="https://picsum.photos/400/300" Css="mb-8">
         <MkText Type="Typo.Body">
             The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
         </MkText>
@@ -34,12 +30,13 @@
             <MkButton Color="MkColor.Primary">Default</MkButton>
         </MkCardFooter>
     </MkCard>
-<MkCode Text="@docs" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+    <MkCode Text="@docs" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
 </div>
 
 
 @code {
-private string docs = @"<MkCard Title=""Card Title"">
+
+    private string docs = @"<MkCard Title=""Card Title"">
     <MkText Type=""Typo.Body"">
         The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.The quick brown fox jumps over the lazy dog.
     </MkText>
@@ -65,4 +62,5 @@ private string docs = @"<MkCard Title=""Card Title"">
         <MkButton Color=""MkColor.Primary"">Default</MkButton>
     </MkCardFooter>
 </MkCard>";
+
 }

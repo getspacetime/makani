@@ -1,0 +1,48 @@
+@page "/components/advanced"
+<div class="grid grid-cols-4 pt-10">
+    <div class="hidden sm:block sm:col-span-1">
+        <MkVertNav/>
+    </div>
+    <div class="col-span-4 sm:col-span-3">
+        <MkText Type="Typo.H4">Advanced Components</MkText>
+        <div class="mb-8">
+            <MkText Type="Typo.H1">Syntax Highligher</MkText>
+            <div class="mb-10">
+                <p class="dark:text-gray-200">The below code snippet is your example and your documentation!</p>
+                <MkCode Text="@syntax" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+            </div>
+
+            <div class="mb-10">
+                <p class="dark:text-gray-200 mt-4">Several languages have support built in, discoverable via intellisense in the <code>MkCode</code> component.</p>
+                <MkCode Text="@markup" Language="@MkCode.Csharp" Caption="Example" Css="my-4"></MkCode>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private string syntax = @"<MkCode Text=""@markup"" Language=""@MkCode.Html"" />
+
+<!-- optional caption -->
+ <MkCode Text=""@markup"" Language=""@MkCode.Html"" Caption=""Example""/>
+
+@code
+{
+    private string markup = @""<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>"";
+}
+";
+
+    private string markup = @"public static string Html = ""html"";
+public static string Markup = ""markup"";
+public static string Xml = ""xml"";
+public static string Svg = ""svg"";
+public static string MathMl = ""mathml"";
+public static string Rss = ""rss"";
+public static string Css = ""css"";
+public static string Javascript = ""js"";
+public static string Razor = ""razor"";
+public static string Csharp = ""csharp"";
+";
+
+}

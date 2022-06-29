@@ -10,5 +10,7 @@ public enum Typo
     H5 = 5,
     H6 = 6,
     Body = 7,
-    Caption = 8
+    Caption = 8,
+    Subtitle = 9,
+    Section = 10
 }

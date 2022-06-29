@@ -8,6 +8,7 @@ public interface IElementUtils
     ValueTask Blur();
     ValueTask ChangeDarkMode(bool on);
     ValueTask<bool> IsDarkMode();
+    ValueTask ScrollToFragment(string elementId);
 }
 
 public class ElementUtils : IElementUtils
@@ -52,5 +53,11 @@ public class ElementUtils : IElementUtils
     {
         var module = await _moduleTask.Value;
         return await module.InvokeAsync<bool>("isDarkMode");
+    }
+    
+    public async ValueTask ScrollToFragment(string elementId)
+    {
+        var module = await _moduleTask.Value;
+        await module.InvokeVoidAsync("scrollToFragment", elementId);
     }
 }

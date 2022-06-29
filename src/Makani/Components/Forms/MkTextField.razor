@@ -1,16 +1,25 @@
 ﻿@namespace Makani
 @using Makani.Components.Forms.Validators
-@inject ILogger<Entry> Log
+@inject ILogger<MkTextField> Log
 
-<div class="flex flex-col">
+<div class="flex flex-col relative">
     @if (!string.IsNullOrWhiteSpace(Label))
     {
-        <label class="text-gray-700 dark:text-gray-300" for="@Id">@Label</label>
+        if (LabelType == MkLabelType.Default)
+        {
+            <label for="@Id" class="text-gray-700 dark:text-gray-300">@Label</label>
+        }
     }
     <input id="@Id"
            type="text"
            @onchange="OnChange" @oninput="OnInput"
-           class="@baseCss @(hasError ? errorBorder : defaultBorder)" />
+           placeholder=" "
+           class="@baseCss @(hasError ? errorBorder : defaultBorder)"/>
+    @if (!string.IsNullOrWhiteSpace(Label) && LabelType == MkLabelType.Floating)
+    {
+        <!-- todo: integrate bg color with customization / user selected bg color -->
+        <label for="@Id" class="cursor-text dark:bg-gray-900 bg-slate-100 absolute left-2 peer-placeholder-shown:left-2 -top-3 text-gray-700 dark:text-gray-300 text-sm transition-all peer-placeholder-shown:bg-transparent dark:peer-focus:bg-gray-900 peer-focus:bg-slate-100 peer-placeholder-shown:top-5 peer-focus:-top-3 peer-focus:text-sm">@Label</label>
+    }
     @if (!string.IsNullOrWhiteSpace(HelperText) && string.IsNullOrWhiteSpace(errorMessage))
     {
         <span class="text-xs font-sans dark:text-gray-400 text-gray-600 py-2">@HelperText</span>
@@ -26,7 +35,7 @@
     private readonly List<IEntryValidator> _validators = new();
     private readonly Guid _guid = Guid.NewGuid();
     private bool hasError = false;
-    private string baseCss = "px-4 py-2 mt-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
+    private string baseCss = "peer block px-4 py-2 mt-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
     private string defaultBorder = "border-gray-200 dark:border-gray-600";
     private string errorBorder = "border-error-800 dark:border-error-600";
     private string? errorMessage;
@@ -64,6 +73,12 @@
     public string? Label { get; set; }
 
     /// <summary>
+    /// Optional label type
+    /// </summary>
+    [Parameter]
+    public MkLabelType LabelType { get; set; }
+
+    /// <summary>
     /// Optional helper text
     /// </summary>
     [Parameter]
@@ -95,7 +110,7 @@
     {
         Log.LogInformation("Value changed for {id}: {value}", Id, args.Value);
 
-        // pass in args value, the Value property is not updated at this point
+    // pass in args value, the Value property is not updated at this point
         Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
@@ -109,7 +124,7 @@
 
         Log.LogInformation("Input changed for {id}: {value}", Id, args.Value);
 
-        // pass in args value, the Value property is not updated at this point
+    // pass in args value, the Value property is not updated at this point
         Validate(args.Value);
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
@@ -135,4 +150,5 @@
             hasError = false;
         }
     }
+
 }

@@ -1,0 +1,147 @@
+@page "/Components"
+<div class="grid grid-cols-4 pt-10">
+    <div class="hidden sm:block sm:col-span-1">
+        <MkVertNav/>
+    </div>
+    <div class="col-span-4 sm:col-span-3">
+        <MkText Type="Typo.H4">Components</MkText>
+        <div class="mb-10">
+            <ToastSample></ToastSample>
+        </div>
+
+        <div class="mb-10">
+            <MkText Type="Typo.H1" Id="buttons">Buttons</MkText>
+            <div class="mb-10">
+                <MkText Type="Typo.H3">Primary buttons</MkText>
+                <MkButton Color="MkColor.Primary" Size="MkSize.Small">Small</MkButton>
+                <MkButton Css="ml-5" Color="MkColor.Primary">Default</MkButton>
+                <MkButton Css='ml-5' Color="MkColor.Primary" Size="MkSize.Large">Large</MkButton>
+
+                <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+            </div>
+            <div class="mb-10">
+                <MkText Type="Typo.H3">Default buttons</MkText>
+                <MkButton Size="MkSize.Small">Small</MkButton>
+                <MkButton Css="ml-5">Default</MkButton>
+                <MkButton Css="ml-5" Size="MkSize.Large">Large</MkButton>
+
+                <MkCode Text="@secondaryButtons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+            </div>
+            <div class="mb-10">
+                <MkText Type="Typo.H3">Buttons with actions</MkText>
+                <div class="flex items-baseline">
+                    <MkButton OnClick="() => { Count++; }">Click me!</MkButton>
+                    <p class="dark:text-gray-200 ml-4 mb-4">
+                        <strong>Count: </strong> @Count
+                    </p>
+                </div>
+                <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+            </div>
+
+            <div class="mb-10">
+                <MkText Type="Typo.H3">Customized buttons</MkText>
+                <p class="dark:text-gray-200 mb-5">Customization is almost unlimited!</p>
+
+                <p class="dark:text-gray-200 font-semibold text-sm tracking-wide">Sample components below are for demonstration purposes only. You can use these samples or any other Tailwind styles you need.</p>
+
+                <MkButton Tailwind="text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">Customized button</MkButton>
+                <MkButton Tailwind="inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Customized button</MkButton>
+                <MkButton Tailwind="inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out">Customized button</MkButton>
+                <MkButton Tailwind="inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out">Customized button</MkButton>
+                <MkButton Tailwind="inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9">:-)</MkButton>
+
+                <MkCode Text="@customButtons" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+            </div>
+        </div>
+
+        <div class="mb-10">
+            <FormSample/>
+        </div>
+
+        <div class="mb-10">
+            <DropdownSample/>
+        </div>
+
+        <div class="mb-10">
+            <TabSample/>
+        </div>
+
+        <div class="mb-10">
+            <CardSample/>
+        </div>
+
+        <div class="mb-10">
+            <MkText Type="Typo.H1">Typography</MkText>
+
+            <MkText Type="Typo.H1">h1. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkText Type="Typo.H2">h2. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkText Type="Typo.H3">h3. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkText Type="Typo.H4">h4. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkText Type="Typo.Body">body. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkText Type="Typo.Caption">caption. The quick brown fox jumps over the lazy dog.</MkText>
+
+            <MkCode Text="@h1" Language="@MkCode.Html" Caption="Example" Css="my-4"/>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    private string customButtons = @"<MkButton Tailwind=""text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg"">Customized button</MkButton>
+<MkButton Tailwind=""inline-block px-6 py-2 border-2 border-green-500 text-green-500 font-medium text-xs leading-tight uppercase rounded hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"">Customized button</MkButton>
+<MkButton Tailwind=""inline-block px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded-full shadow-md hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg transition duration-150 ease-in-out"">Customized button</MkButton>
+<MkButton Tailwind=""inline-block px-6 py-2 border-2 border-red-600 text-red-600 font-medium text-xs leading-tight uppercase rounded-full hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out"">Customized button</MkButton>
+<MkButton Tailwind=""inline-block rounded-full bg-blue-600 text-white leading-normal uppercase shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out w-9 h-9"">:-)</MkButton>";
+
+    private List<MkDropdown.MkMenuItem> Items = new List<MkDropdown.MkMenuItem>
+    {
+        new MkDropdown.MkMenuItem { Text = "Menu item 1" },
+        new MkDropdown.MkMenuItem { Text = "Menu item 2" },
+        new MkDropdown.MkMenuItem { Text = "Menu item 3" },
+        new MkDropdown.MkMenuItem { Text = "Menu item 4" },
+    };
+
+    public int Count { get; set; } = 0;
+
+    private string markup = @"public static string Html = ""html"";
+public static string Markup = ""markup"";
+public static string Xml = ""xml"";
+public static string Svg = ""svg"";
+public static string MathMl = ""mathml"";
+public static string Rss = ""rss"";
+public static string Css = ""css"";
+public static string Javascript = ""js"";
+public static string Razor = ""razor"";
+public static string Csharp = ""csharp"";
+";
+
+    private string syntax = @"<MkCode Text=""@markup"" Language=""@MkCode.Html"" />
+
+<!-- optional caption -->
+ <MkCode Text=""@markup"" Language=""@MkCode.Html"" Caption=""Example""/>
+
+@code
+{
+    private string markup = @""<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>"";
+}
+";
+
+    private string buttons = @"<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>
+<MkButton Color=""MkColor.Primary"">Default</MkButton>
+<MkButton Color=""MkColor.Primary"" Size=""MkSize.Small"">Small</MkButton>
+";
+
+    private string secondaryButtons = @"<MkButton Size=""MkSize.Small"">Small</MkButton>
+<MkButton>Default</MkButton>
+<MkButton Size=""MkSize.Small"">Small</MkButton>
+";
+
+    private string buttonsWithActions = @"<MkButton OnClick=""() => { Count++; }"">Click me!</MkButton>";
+    private string buttonsWithCss = @"<MkButton Css=""border border-red-500 border-solid"">I have a red border!</MkButton>";
+    private string h1 = @"<MkText Type=""Typo.H1"">The quick brown fox jumps over the lazy dog.</MkText>";
+}

@@ -14,6 +14,20 @@ export function isDarkMode() {
     return localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
 }
 
+export function scrollToFragment(elementId) {
+    if (!elementId) {
+        return;
+    }
+    
+    const element = document.getElementById(elementId);
+
+    if (element) {
+        element.scrollIntoView({
+            behavior: 'smooth'
+        });
+    }
+}
+
 /**
  * Adds support for dark mode and reads the OS preference.
  *

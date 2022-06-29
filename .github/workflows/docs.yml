@@ -15,7 +15,7 @@
 
         - name: Install .NET 6.0.300-preview.22204.3
           run: |
-              curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --version 6.0.300-preview.22204.3 --quality preview
+              curl -sSL https://dot.net/v1/dotnet-install.sh | bash /dev/stdin --quality preview
               dotnet --version
               
         - uses: actions/setup-node@v3
