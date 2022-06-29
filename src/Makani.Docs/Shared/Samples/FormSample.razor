@@ -34,6 +34,40 @@
 </div>
 
 <div class="mb-10">
+    <MkText Type="Typo.H3">Adornments</MkText>
+    <div class="grid grid-cols-4 gap-4">
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Search">
+                <Suffix>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                    </svg>
+                </Suffix>
+            </MkTextField>
+        </div>
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Search with clickable suffix" HelperText="@($"Clicked {Clicked} times")" OnSuffixClick="(_) => { Clicked++; }">
+                <Suffix>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                    </svg>
+                </Suffix>
+            </MkTextField>
+        </div>
+        <div class="col-start-1 col-span-2">
+            <MkTextField Label="Works with floating labels" LabelType="MkLabelType.Floating" HelperText="@($"Clicked {Clicked} times")" OnSuffixClick="(_) => { Clicked++; }">
+                <Suffix>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"/>
+                    </svg>
+                </Suffix>
+            </MkTextField>
+        </div>
+    </div>
+    <MkCode Text="@suffixMarkup" Language="@MkCode.Razor" Caption="Example" Css="my-4"></MkCode>
+</div>
+
+<div class="mb-10">
     <MkText Type="Typo.H3">Data binding</MkText>
     <MkText Type="Typo.Body" Css="mb-4">
         The <MkInlineCode>MkTextField</MkInlineCode> component supports an immediate mode or blur mode. The default is <MkInlineCode>EntryMode.Immediate</MkInlineCode>.
@@ -94,6 +128,8 @@
 </div>
 
 @code {
+    public int Clicked { get; set; }
+
     public string Username { get; set; }
     public string Delayed { get; set; }
     public string RequiredError { get; set; }
@@ -111,6 +147,14 @@
         <MkTextField Label=""Small width"" />
     </div>
 </div>";
+
+    private string suffixMarkup = @"<MkTextField Label=""Search"" OnSuffixClick=""(_) => { Clicked++; }"">
+    <Suffix>
+        <svg xmlns=""http://www.w3.org/2000/svg"" class=""h-5 w-5 text-gray-500 group-hover:text-gray-800 dark:group-hover:text-gray-300"" viewBox=""0 0 20 20"" fill=""currentColor"" >
+            <path fill-rule=""evenodd"" d=""M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"" clip-rule=""evenodd""/>
+        </svg>
+    </Suffix>
+</MkTextField>";
 
     // todo: integrate form mapping, this ideally should be more dynamic. 
     // this is far too verbose and manual for a pleasant dev experience

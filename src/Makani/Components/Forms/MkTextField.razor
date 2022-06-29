@@ -8,7 +8,7 @@
     {
         if (LabelType == MkLabelType.Default)
         {
-            <label for="@Id" class="text-gray-700 dark:text-gray-300">@Label</label>
+            <label for="@Id" class="text-gray-700 dark:text-gray-300 mb-2">@Label</label>
         }
     }
     <input id="@Id"
@@ -16,10 +16,16 @@
            @onchange="OnChange" @oninput="OnInput"
            placeholder="@Placeholder"
            class="@baseCss @(hasError ? errorBorder : defaultBorder)" />
+    @if (Suffix != null)
+    {
+        <div @onclick="() => { OnSuffixClick.InvokeAsync(); }" class="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer group @suffixCss">
+            @Suffix
+        </div>
+    }
     @if (!string.IsNullOrWhiteSpace(Label) && LabelType == MkLabelType.Floating)
     {
         <!-- todo: integrate bg color with customization / user selected bg color -->
-        <label for="@Id" class="cursor-text dark:bg-gray-900 bg-slate-100 absolute left-2 peer-placeholder-shown:left-2 -top-3 text-gray-700 dark:text-gray-300 text-sm transition-all peer-placeholder-shown:bg-transparent dark:peer-focus:bg-gray-900 peer-focus:bg-slate-100 peer-placeholder-shown:top-5 peer-focus:-top-3 peer-focus:text-sm">@Label</label>
+        <label for="@Id" class="cursor-text dark:bg-gray-900 bg-slate-100 absolute left-2 peer-placeholder-shown:left-2 -top-3 text-gray-700 dark:text-gray-300 text-sm transition-all peer-placeholder-shown:bg-transparent dark:peer-focus:bg-gray-900 peer-focus:bg-slate-100 peer-placeholder-shown:top-3 peer-focus:-top-3 peer-focus:text-sm">@Label</label>
     }
     @if (!string.IsNullOrWhiteSpace(HelperText) && string.IsNullOrWhiteSpace(errorMessage))
     {
@@ -36,10 +42,14 @@
     private readonly List<IEntryValidator> _validators = new();
     private readonly Guid _guid = Guid.NewGuid();
     private bool hasError = false;
-    private string baseCss = "peer block px-4 py-2 mt-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
+    private string baseCss = "peer block px-4 py-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
     private string defaultBorder = "border-gray-200 dark:border-gray-600";
     private string errorBorder = "border-error-800 dark:border-error-600";
     private string? errorMessage;
+
+    // the suffix needs different margins depending on labels and helper text
+    private string suffixCss => GetSuffixCss();
+
 
     internal string Id => $"entry-{_guid}";
 
@@ -146,6 +156,12 @@
     [Parameter]
     public EventCallback<IList<ValidationResult>> OnError { get; set; }
 
+    [Parameter]
+    public RenderFragment? Suffix { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnSuffixClick { get; set; }
+
     public async Task OnChange(ChangeEventArgs args)
     {
         // pass in args value, the Value property is not updated at this point
@@ -185,5 +201,20 @@
             errorMessage = null;
             hasError = false;
         }
+    }
+
+    private string GetSuffixCss()
+    {
+        if (!string.IsNullOrWhiteSpace(Label) && LabelType != MkLabelType.Floating && string.IsNullOrWhiteSpace(HelperText))
+        {
+            return "mt-9";
+        }
+
+        if (LabelType == MkLabelType.Floating && (!string.IsNullOrWhiteSpace(HelperText) || !string.IsNullOrWhiteSpace(errorMessage)))
+        {
+            return "-mt-8";
+        }
+
+        return string.Empty;
     }
 }
