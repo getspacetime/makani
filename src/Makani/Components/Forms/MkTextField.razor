@@ -14,7 +14,7 @@
     <input id="@Id"
            type="text"
            @onchange="OnChange" @oninput="OnInput"
-           placeholder=" "
+           placeholder="@Placeholder"
            class="@baseCss @(hasError ? errorBorder : defaultBorder)"/>
     @if (!string.IsNullOrWhiteSpace(Label) && LabelType == MkLabelType.Floating)
     {
@@ -108,6 +108,9 @@
 
     [Parameter]
     public string? Regex { get; set; }
+
+    [Parameter]
+    public string? Placeholder { get; set; } = " "; // default placeholder to an empty string. required for floating labels.
 
     /// <summary>
     /// Invoked when a validator indicates a validation error.
