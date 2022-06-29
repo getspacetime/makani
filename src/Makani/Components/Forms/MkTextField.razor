@@ -1,5 +1,6 @@
 ﻿@namespace Makani
 @using Makani.Components.Forms.Validators
+@using System.Text.RegularExpressions
 @inject ILogger<MkTextField> Log
 
 <div class="flex flex-col relative">
@@ -58,6 +59,11 @@
         {
             _validators.Add(new MaxLengthValidator(MaxLength.Value));
         }
+
+        if (!string.IsNullOrWhiteSpace(Regex))
+        {
+            _validators.Add(new RegexValidator(new Regex(Regex)));
+        }
     }
 
     /// <summary>
@@ -99,6 +105,9 @@
 
     [Parameter]
     public int? MaxLength { get; set; }
+
+    [Parameter]
+    public string? Regex { get; set; }
 
     /// <summary>
     /// Invoked when a validator indicates a validation error.
