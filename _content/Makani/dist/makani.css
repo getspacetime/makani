@@ -534,6 +534,11 @@ Ensure the default browser behavior of the `hidden` attribute.
   position: relative;
 }
 
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
 .bottom-0 {
   bottom: 0px;
 }
@@ -542,16 +547,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0px;
 }
 
+.right-0 {
+  right: 0px;
+}
+
 .left-2 {
   left: 0.5rem;
 }
 
 .-top-3 {
   top: -0.75rem;
-}
-
-.right-0 {
-  right: 0px;
 }
 
 .z-20 {
@@ -585,8 +590,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 0.5rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
+.mt-9 {
+  margin-top: 2.25rem;
+}
+
+.-mt-8 {
+  margin-top: -2rem;
 }
 
 .-mr-1 {
@@ -595,6 +604,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-2 {
   margin-left: 0.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
 }
 
 .mb-4 {
@@ -1259,16 +1272,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   left: 0.5rem;
 }
 
-.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-5 {
-  top: 1.25rem;
+.peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:top-3 {
+  top: 0.75rem;
 }
 
-.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:top-5 {
-  top: 1.25rem;
+.peer:-ms-input-placeholder ~ .peer-placeholder-shown\:top-3 {
+  top: 0.75rem;
 }
 
-.peer:placeholder-shown ~ .peer-placeholder-shown\:top-5 {
-  top: 1.25rem;
+.peer:placeholder-shown ~ .peer-placeholder-shown\:top-3 {
+  top: 0.75rem;
 }
 
 .peer:-moz-placeholder-shown ~ .peer-placeholder-shown\:bg-transparent {
