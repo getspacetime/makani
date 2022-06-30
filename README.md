@@ -51,7 +51,14 @@ dotnet add package Makani
 builder.Services.AddMakani();
 ```
 
-**4. Build away!**
+**4. Add Static Assets**
+```html
+<head>
+    <link href="_content/Makani/dist/makani.css" rel="stylesheet" />
+</head>
+```
+
+**5. Build away!**
 ```razor
 <MkButton Color="MkColor.Primary">Hello world!</MkButton>
 ```
