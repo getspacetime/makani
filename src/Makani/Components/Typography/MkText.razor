@@ -4,36 +4,36 @@
 @switch (Type)
 {
     case Typo.H1:
-        <h1 id="@Id" class="text-2xl sm:text-3xl font-extrabold leading-6 antialiased text-slate-900 tracking-tight dark:text-slate-200 mb-4 @Css">@ChildContent</h1>
+        <h1 id="@Id" class="text-2xl sm:text-3xl font-extrabold leading-6 antialiased text-slate-900 tracking-tight dark:text-slate-200 @GetMargin("mb-4") @Css">@ChildContent</h1>
         @* <h1 class="text-4xl text-gray-800 dark:text-gray-50 font-bold tracking-wide my-4 @Css">@ChildContent</h1> *@
         break;
     case Typo.H2:
-        <h2 id="@Id" class="text-xl text-slate-900 dark:text-slate-200 font-bold tracking-wide my-4 @Css">@ChildContent</h2>
+        <h2 id="@Id" class="text-xl text-slate-900 dark:text-slate-200 font-bold tracking-wide @GetMargin(" my-4") @Css">@ChildContent</h2>
         break;
     case Typo.H3:
-        <h3 id="@Id" class="flex whitespace-pre-wrap -ml-4 pl-4 font-semibold text-lg mb-2.5 text-slate-900 dark:text-slate-200 @Css">@ChildContent</h3>
+        <h3 id="@Id" class="flex whitespace-pre-wrap -ml-4 pl-4 font-semibold text-lg @GetMargin("mb-2.5") text-slate-900 dark:text-slate-200 @Css">@ChildContent</h3>
         break;
     case Typo.H4:
-        <h4 id="@Id" class="group flex whitespace-pre-wrap -ml-4 pl-4 mb-2 text-sm leading-6 antialiased text-sky-500 font-semibold tracking-normal dark:text-sky-400 @Css">@ChildContent</h4>
+        <h4 id="@Id" class="group flex whitespace-pre-wrap -ml-4 pl-4 @GetMargin("mb-2")  text-sm leading-6 antialiased text-sky-500 font-semibold tracking-normal dark:text-sky-400 @Css">@ChildContent</h4>
         break;
     case Typo.H5:
-        <h5 id="@Id" class="text-base text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4 @Css">@ChildContent</h5>
+        <h5 id="@Id" class="text-base text-gray-800 dark:text-gray-50 font-bold tracking-wide @GetMargin("mt-4") @Css">@ChildContent</h5>
         break;
     case Typo.H6:
-        <h6 id="@Id" class="text-sm text-gray-800 dark:text-gray-50 font-bold tracking-wide mt-4 @Css">@ChildContent</h6>
+        <h6 id="@Id" class="text-sm text-gray-800 dark:text-gray-50 font-bold tracking-wide @GetMargin("mt-4") @Css">@ChildContent</h6>
         break;
     case Typo.Caption:
-        <span class="font-medium text-sm text-gray-500 font-mono mb-3 dark:text-gray-400 @Css">@ChildContent</span>
+        <span class="font-medium text-sm text-gray-500 font-mono @GetMargin("mb-3") dark:text-gray-400 @Css">@ChildContent</span>
         break;
     case Typo.Subtitle:
-        <p class="mt-2 text-lg text-slate-700 dark:text-slate-400 @Css">@ChildContent</p>
+        <p class="@GetMargin("mt-2") text-lg text-slate-700 dark:text-slate-400 @Css">@ChildContent</p>
         break;
         case Typo.Section:
-            <p class="mb-2 text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400 @Css">@ChildContent</p>
+        <p class="@GetMargin("mb-2") text-sm leading-6 font-semibold text-sky-500 dark:text-sky-400 @Css">@ChildContent</p>
             break;
     case Typo.Body:
     default:
-        <p class="text-base text-gray-800 dark:text-gray-50 my-2 @Css">@ChildContent</p>
+        <p class="text-base text-gray-800 dark:text-gray-50 @GetMargin("my-2") @Css">@ChildContent</p>
         break;
 }
 
@@ -47,6 +47,13 @@
     public Typo Type { get; set; }
 
     [Parameter]
+    public MkMargin Margin { get; set; } = MkMargin.Default;
+
+    [Parameter]
     public RenderFragment? ChildContent { get; set; }
 
+    private string GetMargin(string margin)
+    {
+        return Margin == MkMargin.Default ? margin : "";
+    }
 }
