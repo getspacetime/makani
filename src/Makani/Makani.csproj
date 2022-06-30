@@ -6,7 +6,7 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Makani</Title>
-		<Version>0.0.7</Version>
+		<Version>0.0.8</Version>
 		<Description>MAUI Blazor UI components, built with Tailwind CSS</Description>
 		<PackageProjectUrl>https://github.com/getspacetime/makani</PackageProjectUrl>
 		<RepositoryUrl>https://github.com/getspacetime/makani</RepositoryUrl>
