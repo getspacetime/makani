@@ -8,10 +8,10 @@
   "resources": {
     "assembly": {
       "Makani.dll": "sha256-tqviGhNk+JisFIr9029V1U5s5BsbHb4SSh\/+8EHDtP8=",
-      "Makani.Docs.dll": "sha256-GiWGBs4PyiKHwXSj0+8eLiK5ahZb8yCEQv9o3bk\/1kc=",
+      "Makani.Docs.dll": "sha256-RmxwH\/k3Cc\/QzaguxBqQGNkKf8vqe5jMfth5TX2i\/i4=",
       "Microsoft.AspNetCore.Components.dll": "sha256-EzVsL4XtfXivI\/Qb\/4GAVqoVcO3PaEcHwntXBQGJmw4=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-bxsed\/f9HGk8R07pPYy+tQtareorErblCp0tHBblkrE=",
-      "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-85cwXiS5pps9vX4D\/clFcpeGthc\/vA1BIDxINr1egoM=",
+      "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-zReTkSy8DtGkpmb1tQhBMFr43\/a1O2JgVAa38eLXw6w=",
       "Microsoft.Extensions.Configuration.Abstractions.dll": "sha256-zhFtW4kE16TdrpPne9I1Cu9o0KYzrS50VE9MVSifJg4=",
       "Microsoft.Extensions.Configuration.dll": "sha256-QPR+1IXNcA28b\/gXw3uZ8aRigHIZUJ1KWSH02kkCg7Q=",
       "Microsoft.Extensions.Configuration.Json.dll": "sha256-fF3xaP+hT6R3GYUctLIY1ixaXQ8mrHzwWHHf2dKfueU=",
@@ -22,7 +22,7 @@
       "Microsoft.Extensions.Options.dll": "sha256-1tB1TdOK1QaMSk7+PPe5sikuuMC9hs8bkujWqFMdAx4=",
       "Microsoft.Extensions.Primitives.dll": "sha256-YColTWA58whC+8aBjv1O7HgsyYrbHTba601EkNDWAlo=",
       "Microsoft.JSInterop.dll": "sha256-I6XN9DPS1nucAmX7YxMwkW7GTzVERcktgjyguBhVw0o=",
-      "Microsoft.JSInterop.WebAssembly.dll": "sha256-DI0RkZky47FtF3\/3VasOGjpMhrR+H3kb1cv\/2kzJoBQ=",
+      "Microsoft.JSInterop.WebAssembly.dll": "sha256-s2xsgdYKLwwiBtdxUf7w3xifWex\/saizGRq96DOIMF8=",
       "netstandard.dll": "sha256-FTumoGf6jCMkF3xXLNeztilEzDaXQgO5GIqVtkGul4g=",
       "Serilog.dll": "sha256-2wpMSiGhugk30cIglcKwcCQi79THpBqqV3YIKIouafw=",
       "Serilog.Extensions.Logging.dll": "sha256-cXcOC+lqlPPDan9otPYpy6KkmK1m6LVVCFlrnyUPz\/8=",
