@@ -6,7 +6,7 @@
 [![Discord](https://img.shields.io/discord/984241021225414787?style=flat-square)](https://discord.gg/PeBbYy6WKq)
 
 # 🏖️ makani
-Collection of UI components built specifically for .NET MAUI Blazor
+Collection of Headless UI components built specifically for Blazor.
 
 1. [Why Makani](#why-makani)
 2. Getting Started
