@@ -8,6 +8,9 @@
 # 🏖️ makani
 Collection of Headless UI components built specifically for Blazor.
 
+> **Note**
+> This readme is slightly outdated. The library will be pivoted to be a Headless UI component library for Blazor, but still allowing first class integration with Tailwind - or any other style library.
+
 1. [Why Makani](#why-makani)
 2. Getting Started
     - [Quick Start](#quick-start)
