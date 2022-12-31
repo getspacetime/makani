@@ -6,7 +6,7 @@
 [![Discord](https://img.shields.io/discord/984241021225414787?style=flat-square)](https://discord.gg/PeBbYy6WKq)
 
 # 🏖️ makani
-Collection of Headless UI components built specifically for Blazor.
+Headless UI Components for Blazor.
 
 > **Note**
 > This readme is slightly outdated. The library will be pivoted to be a Headless UI component library for Blazor, but still allowing first class integration with Tailwind - or any other style library.
