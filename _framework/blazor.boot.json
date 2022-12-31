@@ -8,7 +8,7 @@
   "resources": {
     "assembly": {
       "Makani.dll": "sha256-ZFf0bKhPlhyjcAHUWa3Ix9db1ZQAJPBrQEB0wZYqWAI=",
-      "Makani.Docs.dll": "sha256-JuqvFB0FzzMa4W3AAjS60OEqS+2tvyUIvuwmxBepTsE=",
+      "Makani.Docs.dll": "sha256-xPQ\/R4hYQLOjv5lxRYVIy5h7nLZ4\/yQCpaokv0d0UZg=",
       "Microsoft.AspNetCore.Components.dll": "sha256-\/eGSZNoIJqrm08IrCmGG54UtB3PNmUof8uM5SUi\/Ubg=",
       "Microsoft.AspNetCore.Components.Web.dll": "sha256-eJD83FRQvz4SIIRROxybH24yTv0YbDVo4VEwFqd8Wr8=",
       "Microsoft.AspNetCore.Components.WebAssembly.dll": "sha256-SsrS4rQS8MT5cRzpeNH4UcJ844vQNlgK3TqjTV9aAv8=",
@@ -26,7 +26,7 @@
       "netstandard.dll": "sha256-x6gwnYP5ztjeBaMlwEh6RfpSjMXPx+pMbq1n+bYi3YQ=",
       "Serilog.dll": "sha256-2wpMSiGhugk30cIglcKwcCQi79THpBqqV3YIKIouafw=",
       "Serilog.Extensions.Logging.dll": "sha256-cXcOC+lqlPPDan9otPYpy6KkmK1m6LVVCFlrnyUPz\/8=",
-      "Serilog.Sinks.Console.dll": "sha256-SsWf3uTdXwg6VgrkaGKTu9lVDslOZE+P9xO67qXlo9I=",
+      "Serilog.Sinks.Console.dll": "sha256-kNKHHBMkIXNNs7kyIefaw7IIVxefQCkuU1Xp0ywdu9k=",
       "Serilog.Sinks.Debug.dll": "sha256-2xR4bnO8DuhFXcpRthpszYhxwGiGM0owyag9O1cWY14=",
       "System.Collections.Concurrent.dll": "sha256-1t\/biO1NQQMNc9DM+oBjAja1LeWNorbRmYmJKngXSxw=",
       "System.Collections.dll": "sha256-EvYkXhrG3LEspcibq+nGecaaBX+JmwHksNLyczgG+IE=",
