@@ -9,7 +9,10 @@
             <img src="@ImageUrl">
         }
         <div class="px-6 py-4">
-            <MkText Type="Typo.H2">@Title</MkText>
+            @if (!string.IsNullOrWhiteSpace(Title))
+            {
+                <MkText Type="Typo.H2">@Title</MkText>
+            }
             <p class="text-gray-700 text-base">
                 @ChildContent
             </p>
@@ -26,7 +29,10 @@ else
         }
         <div class="p-4 flex flex-col justify-between leading-normal">
             <div>
-                <MkText Type="Typo.H2">@Title</MkText>
+                @if (!string.IsNullOrWhiteSpace(Title))
+                {
+                    <MkText Type="Typo.H2">@Title</MkText>
+                }
                 <p class="text-gray-700 text-base">@ChildContent</p>
             </div>
         </div>
