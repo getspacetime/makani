@@ -1,0 +1,24 @@
+﻿@namespace Makani
+<CascadingValue Value="this">
+    @ChildContent
+</CascadingValue>
+
+@code {
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    private List<IFormComponent> _components { get; set; } = new();
+    internal void AddControl(IFormComponent component)
+    {
+        if (!_components.Contains(component))
+        {
+            _components.Add(component);
+        }
+    }
+
+    public bool Validate()
+    {
+        _components.ForEach(p => p.Validate(p.Value));
+        return !_components.Any(p => p.HasError);
+    }
+}

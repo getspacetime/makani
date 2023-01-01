@@ -1,6 +1,8 @@
 ﻿@namespace Makani
 @using Makani.Components.Forms.Validators
 @using System.Text.RegularExpressions
+@using Makani.Components.Forms
+@implements IFormComponent
 @inject ILogger<MkTextField> Log
 
 <div class="flex flex-col relative">
@@ -13,9 +15,10 @@
     }
     <input id="@Id"
            type="text"
+           value="@Value"
            @onchange="OnChange" @oninput="OnInput"
            placeholder="@Placeholder"
-           class="@baseCss @(hasError ? errorBorder : defaultBorder)" />
+           class="@baseCss @(HasError ? errorBorder : defaultBorder)" />
     @if (Suffix != null)
     {
         <div @onclick="() => { OnSuffixClick.InvokeAsync(); }" class="absolute inset-y-0 right-0 flex items-center px-4 cursor-pointer group @suffixCss">
@@ -41,11 +44,11 @@
 @code {
     private readonly List<IEntryValidator> _validators = new();
     private readonly Guid _guid = Guid.NewGuid();
-    private bool hasError = false;
     private string baseCss = "peer block px-4 py-2 border focus:outline focus:outline-2 focus:outline-offset-2 outline-primary-500 dark:outline-gray-300 text-gray-700 dark:text-gray-300 dark:bg-transparent rounded-md";
     private string defaultBorder = "border-gray-200 dark:border-gray-600";
     private string errorBorder = "border-error-800 dark:border-error-600";
     private string? errorMessage;
+    private string value = string.Empty;
 
     // the suffix needs different margins depending on labels and helper text
     private string suffixCss => GetSuffixCss();
@@ -55,6 +58,8 @@
 
     protected override void OnInitialized()
     {
+        value = Value ?? string.Empty;
+
         if (Required == true)
         {
             _validators.Add(new RequiredValidator());
@@ -79,7 +84,14 @@
         {
             _validators.Add(new MinMaxValidator(Min.Value, Max));
         }
+
+        FormControl?.AddControl(this);
     }
+
+    public bool HasError { get; set; }
+
+    [CascadingParameter]
+    public MkFormControl? FormControl { get; set; }
 
     /// <summary>
     /// Defaults to immediate mode
@@ -181,7 +193,7 @@
         await ValueChanged.InvokeAsync(args.Value?.ToString() ?? string.Empty);
     }
 
-    internal void Validate(object? value)
+    public void Validate(object? value)
     {
         var strValue = value?.ToString();
         var results = new List<ValidationResult>();
@@ -192,14 +204,14 @@
 
         if (results.Any(p => !p.Valid))
         {
-            hasError = true;
+            HasError = true;
             errorMessage = results.First(p => !p.Valid).Message;
             OnError.InvokeAsync(results);
         }
         else
         {
             errorMessage = null;
-            hasError = false;
+            HasError = false;
         }
     }
 
