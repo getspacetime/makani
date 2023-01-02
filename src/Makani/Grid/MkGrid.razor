@@ -1,0 +1,37 @@
+﻿@using System.Diagnostics.CodeAnalysis
+@typeparam TItem
+
+<table>
+    <thead>
+        <tr class="border-b">@TableHeader</tr>
+    </thead>
+    <tbody class="border-b border-x">
+
+        @foreach (var item in Items)
+        {
+            if (RowTemplate is not null)
+            {
+                <tr class="border-b">
+                    @RowTemplate(item)
+                </tr>
+            }
+        }
+    @if (Items == null || !Items.Any())
+    {
+        <tr class="border-b">
+            <td colspan="100%" class="text-sm text-center">No data.</td>
+        </tr>
+    }
+    </tbody>
+</table>
+
+@code {
+    [Parameter, AllowNull]
+    public IReadOnlyList<TItem> Items { get; set; }
+
+    [Parameter]
+    public RenderFragment? TableHeader { get; set; }
+
+    [Parameter]
+    public RenderFragment<TItem>? RowTemplate { get; set; }
+}
