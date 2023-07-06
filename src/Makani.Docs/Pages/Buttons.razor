@@ -1,0 +1,143 @@
+﻿@page "/components/buttons"
+<div class="grid grid-cols-4 pt-10">
+    <div class="hidden sm:block sm:col-span-1">
+        <MkVertNav />
+    </div>
+    <div class="col-span-4 sm:col-span-3">
+        <MkText Type="Typo.H4">Components</MkText>
+        <MkText Type="Typo.H1" Id="buttons">Buttons</MkText>
+        <div class="mb-10">
+            <MkTabs Variant="TabVariant.Outline">
+                <MkTabContent Title="Usage">
+                    <MkCard>
+                        <EditForm Model="Model">
+                            <div class="flex justify-between divide-x">
+                                <div class="flex items-center justify-center w-2/3">
+                                    <MkButton Color="@Model.CurrentColor" Size="@Model.CurrentSize" Variant="@Model.CurrentVariant">Settings</MkButton>
+                                </div>
+                                <div class="flex flex-col w-1/3 p-2">
+                                    <div class="px-1.5"><strong>Color</strong></div>
+                                    <div class="flex flex-wrap justify-center mb-2">
+                                        @foreach (var color in Colors)
+                                        {
+                                            <div class="pr-0.5">
+                                                <MkButton Color="color" OnClick="() => ChangeColor(color)"></MkButton>
+                                            </div>
+                                        }
+                                    </div>
+                                    <div class="px-1.5"><strong>Variant</strong></div>
+                                    <div class="px-1 mb-2">
+                                        <InputSelect class="px-4 py-1.5 border rounded-sm w-full" @bind-Value="Model.CurrentVariant">
+                                            <option value="@ButtonVariant.Filled">Filled</option>
+                                            <option value="@ButtonVariant.Outline">Outline</option>
+                                            <option value="@ButtonVariant.Default">Default</option>
+                                            <option value="@ButtonVariant.Subtle">Subtle</option>
+                                        </InputSelect>
+                                    </div>
+                                    <div class="px-1.5"><strong>Size</strong></div>
+                                    <div class="px-1 mb-2">
+                                        <InputSelect class="px-4 py-1.5 border rounded-sm w-full" @bind-Value="Model.CurrentSize">
+                                            <option value="@MkSize.ExtraSmall">Extra Small</option>
+                                            <option value="@MkSize.Small">Small</option>
+                                            <option value="@MkSize.Medium">Medium</option>
+                                            <option value="@MkSize.Large">Large</option>
+                                        </InputSelect>
+                                    </div>
+                                    <div class="px-1.5"><strong>Shade</strong></div>
+
+                                    <div class="px-1">
+                                        <InputSelect class="px-4 py-1.5 border rounded-sm w-full" ValueExpression="() => Model.CurrentShade" Value="Model.CurrentShade" ValueChanged="(string value) => OnShadeChanged(value)">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                        </InputSelect>
+                                    </div>
+                                </div>
+                            </div>
+                        </EditForm>
+                    </MkCard>
+                </MkTabContent>
+                <MkTabContent Title="Documentation">
+                    <MkCard>
+                        <MkCode Text="@buttons" Language="@MkCode.Html" Caption="Filled buttons" Css="my-4" />
+
+                    </MkCard>
+                </MkTabContent>
+            </MkTabs>
+
+        </div>
+        <div class="mb-10">
+            <MkText Type="Typo.H3">Buttons with actions</MkText>
+            <div class="flex items-baseline">
+                <MkButton Color="MakaniColor.Blue" OnClick="() => { Count++; }">Click me!</MkButton>
+                <p class="dark:text-gray-200 ml-4 mb-4">
+                    <strong>Count: </strong> @Count
+                </p>
+            </div>
+            <MkCode Text="@buttonsWithActions" Language="@MkCode.Html" Caption="Example" Css="my-4" />
+        </div>
+    </div>
+</div>
+
+@code {
+    public class ButtonModel
+    {
+        public ColorWithShade CurrentColor { get; set; } = MakaniColor.Blue;
+
+        public MkSize CurrentSize { get; set; } = MkSize.Small;
+        public ButtonVariant CurrentVariant { get; set; } = ButtonVariant.Filled;
+        public string CurrentShade { get; set; } = "5";
+    }
+
+    public ButtonModel Model = new();
+    public List<ColorWithShade> Colors { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        LoadColors();
+    }
+
+    private void OnShadeChanged(string value)
+    {
+        Model.CurrentShade = value;
+        var shade = Convert.ToInt32(Model.CurrentShade);
+        foreach (var color in Colors)
+        {
+            color.Shade = shade;
+        }
+
+        Model.CurrentColor.Shade = shade;
+    }
+
+    private void LoadColors()
+    {
+        Colors = typeof(MakaniColor)
+    .GetProperties(System.Reflection.BindingFlags.Static | System.Reflection.BindingFlags.Public)
+    .Select(p => p.GetValue(null))
+    .Cast<ColorWithShade>().ToList();
+    }
+
+    public void ChangeColor(ColorWithShade color)
+    {
+        Model.CurrentColor = color;
+        StateHasChanged();
+    }
+
+    public int Count { get; set; } = 0;
+
+    private string buttons = @"<MkButton Color=""MakaniColor.Blue"" Size=""MkSize.Medium"" Variant=""ButtonVariant.Filled""></MkButton>
+<MkButton Color=""MakaniColor.Blue.One"" Size=""MkSize.Medium"" Variant=""ButtonVariant.Filled""></MkButton>
+";
+
+
+    private string buttonsWithActions = @"<MkButton OnClick=""() => { Count++; }"">Click me!</MkButton>";
+}

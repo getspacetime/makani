@@ -3,7 +3,7 @@
 
 @if (Alignment == MkCardAlignment.Top)
 {
-    <div class="max-w-xs rounded overflow-hidden shadow-lg border border-solid border-gray-200 bg-white dark:bg-gray-800 dark:border-transparent @Css">
+    <div class="rounded overflow-hidden shadow-lg border border-solid border-neutral-200 bg-white dark:bg-gray-800 dark:border-transparent @Styles">
         @if (!string.IsNullOrWhiteSpace(ImageUrl))
         {
             <img src="@ImageUrl">
@@ -21,7 +21,7 @@
 }
 else
 {
-    <div class="max-w-sm w-full lg:max-w-3xl lg:flex shadow-lg rounded border border-solid border-gray-200 bg-white dark:bg-gray-800 dark:border-transparent @Css">
+    <div class="w-full shadow-lg rounded border border-solid border-neutral-200 bg-white dark:bg-gray-800 dark:border-transparent @Styles">
         @if (!string.IsNullOrWhiteSpace(ImageUrl))
         {
             <div class="h-48 lg:h-auto lg:w-48 flex-none bg-cover text-center overflow-hidden" style="background-image: url('@ImageUrl')">
@@ -52,4 +52,7 @@ else
 
     [Parameter]
     public string ImageUrl { get; set; }
+
+    [Parameter]
+    public string? Styles { get; set; }
 }

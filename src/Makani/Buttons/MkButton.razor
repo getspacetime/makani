@@ -1,0 +1,95 @@
+﻿@namespace Makani
+@implements IButtonProps
+
+<button class="@InternalCss @(Pressed ? "translate-y-[0.075rem]" : "")" @onmousedown="() => Pressed = true" @onmouseup="() => Pressed = false" @onclick="OnClick">@ChildContent</button>
+
+@code {
+    private bool Pressed { get; set; }
+    private string InternalCss { get; set; }
+
+    [Parameter]
+    public MkSize Size { get; set; } = MkSize.Medium;
+
+    [Parameter]
+    public ColorWithShade Color { get; set; } = MakaniColor.Neutral;
+
+    [Parameter]
+    public ButtonVariant Variant { get; set; } = ButtonVariant.Filled;
+
+    [Parameter]
+    public RenderFragment? LeftIcon { get; set; }
+
+    [Parameter]
+    public RenderFragment? RightIcon { get; set; }
+
+    [Parameter]
+    public MkSize? Radius { get; set; }
+
+    [Parameter]
+    public bool Uppercase { get; set; }
+
+    [Parameter]
+    public bool Loading { get; set; }
+
+    [Parameter]
+    public string? Styles { get; set; }
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        InternalCss = BuildCss();
+    }
+
+    public string BuildCss()
+    {
+        var builder = TailwindBuilder.New();
+
+        switch (Variant)
+        {
+            case ButtonVariant.Filled:
+                builder.AddBackground(Color).AddClasses("text-white");
+                break;
+            case ButtonVariant.Outline:
+                builder.AddBorder(Color).SetFontColor(Color);
+                break;
+            case ButtonVariant.Default:
+                builder.AddBorder(MakaniColor.Neutral).SetFontColor(MakaniColor.Neutral.Six);
+                break;
+            case ButtonVariant.Subtle:
+                builder.AddBackgroundHover(Color.Two).SetFontColor(Color);
+                break;
+            default:
+                break;
+        }
+
+        builder = AddPadding(builder).SetFontSize(Size);
+
+        if (Uppercase)
+        {
+            builder = builder.AddTextTransform(TextTransform.Uppercase);
+        }
+
+        builder.AddClasses("rounded-sm font-semibold subpixel-antialiased");
+
+        return builder.Build();
+    }
+
+    private TailwindBuilder AddPadding(TailwindBuilder builder)
+    {
+        return Size switch
+        {
+            MkSize.ExtraSmall => builder.AddPadding(2.5, 1.5),
+            MkSize.Small => builder.AddPadding(3, 2),
+            MkSize.Medium => builder.AddPadding(3.5, 2.5),
+            MkSize.Large => builder.AddPadding(4, 3),
+            _ => builder.AddPadding(3, 2),
+        };
+    }
+}

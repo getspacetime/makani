@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="description" content="Makani is a UI Component Library built for .NET MAUI Blazor and .NET Core Blazor apps. Components are customizable, performant, and extensible. Build Blazor apps fast using Tailwind CSS." />
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <title>Makani.Docs</title>
     <base href="/" />
     <style>
@@ -27,6 +28,18 @@
                 top: 0.5rem;
             }
     </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
+                    },
+                },
+            },
+        }
+    </script>
     <!-- todo: remove dist folder and just have it at the parent level -->
     <link href="_content/Makani/dist/makani.css" rel="stylesheet" />
     <link href="dist/docs.css" rel="stylesheet" />
@@ -38,7 +51,6 @@
     <link href="_content/Makani/css/coy.css" rel="stylesheet" />
     <link href="_content/Makani/css/okaidia.css" rel="stylesheet" />
     <link href="_content/Makani/css/tomorrow-night.css" rel="stylesheet" />-->
-    
     <!-- todo: see if there's a way for .NET Core or MAUI to inject this w/o having the user have to add it. -->
     <script type="module">
         import { addDarkModeSupport } from './_content/Makani/makani.js';

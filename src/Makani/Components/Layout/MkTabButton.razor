@@ -1,0 +1,51 @@
+﻿@namespace Makani
+
+<a @onclick="OnClick" class="@(InternalCss) sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start inline-flex items-center cursor-pointer">
+    <!-- todo: icon -->
+    @Title
+</a>
+@code {
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public bool IsActive { get; set; }
+
+    [Parameter]
+    public TabVariant Variant { get; set; }
+
+    [Parameter]
+    public EventCallback<MouseEventArgs> OnClick { get; set; }
+
+    private string InternalCss { get; set; } = string.Empty;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        InternalCss = BuildCss();
+    }
+
+    public string BuildCss()
+    {
+        var builder = TailwindBuilder.New().SetFontSize(MkSize.Medium);
+
+        switch (Variant)
+        {
+            case TabVariant.Default when IsActive:
+                builder.AddClasses("border-b-2 border-primary-500");
+                break;
+            case TabVariant.Default when !IsActive:
+                builder.AddClasses("border-b-2 border-secondary-300");
+                break;
+            case TabVariant.Outline when IsActive:
+                builder.AddClasses("border rounded-t-sm border-neutral-200 border-b-white bg-white relative top-px");
+
+                break;
+            case TabVariant.Outline when !IsActive:
+                builder.AddClasses("border rounded-t-sm border-transparent");
+                break;
+        }
+        return builder.Build();
+    }
+}

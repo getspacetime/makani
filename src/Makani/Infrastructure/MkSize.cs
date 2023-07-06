@@ -2,8 +2,9 @@
 
 public enum MkSize
 {
-    Default,
+    ExtraSmall,
     Small,
     Medium,
-    Large
+    Large,
+    ExtraLarge
 }

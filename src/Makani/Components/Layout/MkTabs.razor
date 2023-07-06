@@ -5,17 +5,14 @@
 <CascadingValue Value="this">
     <section class="text-gray-900 dark:text-gray-400 dark:bg-gray-900 body-font">
         <div class="container mx-auto flex flex-wrap flex-col">
-        <div class="flex mx-auto flex-wrap py-8 w-full">
-            @foreach (var tab in Tabs)
-            {
-                <a @onclick="() => ChangeTab(tab)" class="@(CurrentTab == tab ? "dark:bg-secondary-800 border-primary-500 dark:text-white" : "dark:border-secondary-800 border-secondary-300 dark:text-secondary-200") sm:px-6 py-3 w-1/2 sm:w-auto justify-center sm:justify-start border-b-2 title-font font-medium inline-flex items-center leading-none tracking-wider rounded-t cursor-pointer">
-                    <!-- todo: icon -->
-                    @tab.Title
-                </a>
-            }
+            <div class="flex mx-auto flex-wrap w-full">
+                @foreach (var tab in Tabs)
+                {
+                    <MkTabButton Title="@tab.Title" IsActive="@(CurrentTab == tab)" OnClick="() => ChangeTab(tab)" Variant="Variant" />
+                }
 
-        </div>
-        @ChildContent
+            </div>
+            @ChildContent
         </div>
     </section>
 </CascadingValue>
@@ -23,13 +20,32 @@
 @code {
     [Parameter]
     public RenderFragment? ChildContent { get; set; }
+    
+    [Parameter]
+    public TabVariant Variant { get; set; }
+
     public MkTabContent? CurrentTab { get; set; }
+    private string InternalCss { get; set; }
+
 
     internal List<MkTabContent> Tabs { get; set; } = new List<MkTabContent>();
-    
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        InternalCss = BuildCss();
+    }
+
     internal void ChangeTab(MkTabContent tab)
     {
         CurrentTab = tab;
+    }
+
+    public string BuildCss()
+    {
+        var builder = TailwindBuilder.New();
+
+        return builder.Build();
     }
 
     internal void AddTab(MkTabContent tab)

@@ -1,5 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
-using Makani.Themes;
+using Makani.Styling;
 using Makani.Utilities;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,9 +14,8 @@ public static class ServiceCollectionExtensions
         // javascript
         services.AddTransient<IElementUtils, ElementUtils>();
         services.AddTransient<PrismUtils>();
+        services.AddTransient<TailwindBuilder>();
 
-        // themes
-        services.AddSingleton<ButtonTheme>();
 
         // services
         services.AddSingleton<ToastService>();
