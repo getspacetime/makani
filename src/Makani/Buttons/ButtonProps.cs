@@ -28,7 +28,7 @@ public interface IButtonProps
     /// <summary>
     /// Controls the border radius of the button
     /// </summary>
-    public MkSize? Radius { get; set; }
+    public MkSize Radius { get; set; }
 
     /// <summary>
     /// Sets the button text to uppercase

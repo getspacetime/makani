@@ -1,0 +1,63 @@
+﻿@using System.Reflection;
+<MkTabs Variant="TabVariant.Outline">
+    <MkTabContent Title="Documentation">
+        <MkCard>
+            @Documentation
+        </MkCard>
+    </MkTabContent>
+    <MkTabContent Title="Component params">
+        <MkCard>
+            <table class="text-sm leading-normal w-full">
+                <thead>
+                    <tr>
+                        <th class="py-2 border-b text-left">Name</th>
+                        <th class="py-2 border-b text-left">Type</th>
+                        <th class="py-2 border-b text-left">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var p in Properties)
+                    {
+                        <tr>
+                            <td class="py-2 border-b text-left">
+                                @p.Name
+                            </td>
+                            <td class="py-2 border-b font-mono text-left text-sky-500">
+                                @p.PropertyType.Name
+                            </td>
+                            <td class="py-2 border-b text-left">
+                                @p.GetDocumentation()
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @ComponentParams
+        </MkCard>
+    </MkTabContent>
+</MkTabs>
+
+@code {
+    [Parameter]
+    public RenderFragment? Documentation { get; set; }
+
+    [Parameter]
+    public Type? Component { get; set; }
+
+    [Parameter]
+    public RenderFragment? ComponentParams { get; set; }
+
+    private List<PropertyInfo> Properties { get; set; } = new();
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        if (Component == null)
+        {
+            return;
+        }
+
+        Properties = Component.GetProperties().ToList();
+    }
+}

@@ -20,6 +20,7 @@
 		<Authors>codymullins</Authors>
 		<Copyright>Copyright 2022 Spacetime Software, LLC</Copyright>
 		<PackageOutputPath>..\packages</PackageOutputPath>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
 	</PropertyGroup>
 
 	<ItemGroup>
