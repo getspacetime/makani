@@ -9,7 +9,7 @@
 Headless UI Components for Blazor.
 
 > **Note**
-> This readme is slightly outdated. The library will be pivoted to be a Headless UI component library for Blazor, but still allowing first class integration with Tailwind - or any other style library.
+> This repository is now archived. All future development will take place in [Pure Blazor Components](https://github.com/pureblazor/components).
 
 1. [Why Makani](#why-makani)
 2. Getting Started
